@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no,width=device-width">
+    <meta charset="UTF-8">
+    <title>全部商品</title>
+    <link href="../css/foot.css" rel="stylesheet">
+    <link href="../css/head.css" rel="stylesheet">
+    <link href="../css/home-class.css" rel="stylesheet">
+</head>
+<body>
+<div class="foot">
+    <a class="foot-tab" href="start.html"><img src="../img/ion/start2.png">
+        <p class="mycolor">首页</p></a>
+    <a class="foot-tab " href="friend.html"><img src="../img/ion/friend2.png">
+        <p>社区</p></a>
+    <a class="foot-tab " href="home.html"><img src="../img/ion/home2.png">
+        <p>小店</p></a>
+    <a class="foot-tab " href="person.html"><img src="../img/ion/my.png">
+        <p>我的</p></a>
+</div>
+<ion-header-bar class="stable-bg bar bar-header" align-title="center">
+
+    <button class="button " onclick="history.go(-1)">
+        <i class="icon ion-android-arrow-back"></i>
+				<span class="back-text">
+				<img src="../img/ion/return.png">
+				</span>
+    </button>
+    <div class="title title-center header-item" style="left: 15px; right: 15px;">我的定制</div>
+</ion-header-bar>
+<div class="content">
+    <ul class="list ">
+        <!--<li class="item item-thumbnail-left" href="details.html">-->
+        <!--<img src="../img/find.jpg">-->
+        <!--<h3>成都三元乔亚朵酒店</h3>-->
+        <!--<p style="color: red">￥1400元起</p>-->
+
+        <!--</li>-->
+        <!--<li class="item item-thumbnail-left" href="details.html">-->
+        <!--<img src="../img/find.jpg">-->
+        <!--<h3>成都三元乔亚朵酒店</h3>-->
+        <!--<p style="color: red">￥1400元起</p>-->
+        <!--</li>-->
+    </ul>
+</div>
+<script type="text/javascript" src="../js/jquery.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $.ajax({
+            type: 'post',
+            data: {'test': 'test'},
+            dataType: 'json',
+            url: 'http://www.bananatrip.cn/user/hotel/order',
+            success: function (obj) {
+                console.log(obj);
+                obj.map(function (value, index, array) {
+                    var list = '</li><li class="item item-thumbnail-left" href="details.html"><img src="' + value["hotel_image"] + '"><h3>' + value["hotel_name"] + '</h3><p style="color: red">￥' + value["order_price"] + '元起</p></li>';
+                    $('.list').append(list);
+                })
+            },
+            error: function (obj) {
+
+            }
+        })
+    })
+</script>
+
+</body>
+</html>
+

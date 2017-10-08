@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no,width=device-width">
+    <meta charset="UTF-8">
+    <title></title>
+    <link href="../css/foot.css" rel="stylesheet">
+    <link href="../css/head.css" rel="stylesheet">
+    <link href="../css/activedetails.css" rel="stylesheet">
+    <link href="../css/bootstrap.css" rel="stylesheet">
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+</head>
+<body>
+<div id="page">
+    <div class="foot">
+        <a class="foot-tab" href="start.html"><img src="../img/ion/start.png">
+            <p class="mycolor">首页</p></a>
+        <a class="foot-tab " href="friend.html"><img src="../img/ion/friend2.png">
+            <p>社区</p></a>
+        <a class="foot-tab " href="home.html"><img src="../img/ion/home2.png">
+            <p>小店</p></a>
+        <a class="foot-tab " href="person.html"><img src="../img/ion/my2.png">
+            <p>我的</p></a>
+    </div>
+    <ion-header-bar class="stable-bg bar bar-header" align-title="center">
+        <button class="button " onclick="history.go(-1)">
+            <i class="icon ion-android-arrow-back"></i>
+				<span class="back-text">
+				<img src="../img/ion/return.png">
+				</span>
+        </button>
+
+        <div class="title title-center header-item" style="left: 15px; right: 15px;">活动详情</div>
+    </ion-header-bar>
+    <div class="content" id="wrap">
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+            <!-- 轮播（Carousel）指标 -->
+            <ol class="carousel-indicators">
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="1"></li>
+                <li data-target="#myCarousel" data-slide-to="2"></li>
+            </ol>
+            <!-- 轮播（Carousel）项目 -->
+            <div class="carousel-inner" style="height:150px;">
+                <div class="item active">
+                    <img src="../img/find.jpg" alt="First slide">
+                </div>
+                <div class="item">
+                    <img src="../img/hotel4.jpeg" alt="Second slide">
+                </div>
+                <div class="item">
+                    <img src="../img/hotel8.jpeg" alt="Third slide">
+                </div>
+            </div>
+
+        </div>
+        <div class="message light-bg">
+            <p>【2017年 旅游快进 】亲子游巴拉巴拉 建行卡号地块骄傲好滴好滴继续</p>
+            <p><span><下班去哪>华东最棒严管</span></p>
+            <p class="assertive">￥ 1888.00起</p>
+
+        </div>
+        <div class="disbanner">
+            <div class="discount"><span class="assertive-bg xsbtn light ">优惠</span><span
+                    class="dismess ">注册送十元代金券</span></div>
+            <div class="discount"><span class="xsbtn assertive">立减</span><span class="dismess ">下单立减</span></div>
+        </div>
+        <div class="light-bg" style="padding-left: 20px;"><img src="../img/dizhi2.png" width="20px" height="20px"
+                                                               style="margin-top: 10px; margin-right:10px ;"><span
+                class="dismess" style="position: absolute;margin-top: 10px;">集合地:浙江省 杭州</span></div>
+
+
+        <div class="datebanner light-bg">
+            <div class="dateimg"><img src="../img/date.png" width="20px" height="20px"></div>
+            <div class="choosedate">选择日期</div>
+        </div>
+
+        <ion-scroll zooming="true" direction="x" style="width: 500px; height: 100px"
+                    class="scroll-view ionic-scroll overflow-scroll scroll-x">
+            <div class="scroll">
+                <div class="datewrapper light-bg">
+                    <ul class="dateul" id="dateul">
+                        <!--<li class="datebox hover">-->
+                        <!--<p>08-23(周三)</p>-->
+                        <!--<p class="price3">￥329</p>-->
+                        <!--</li>-->
+
+                        <!--<li class="datebox">-->
+                        <!--<p>08-24(周四)</p>-->
+                        <!--<p class="price3">￥329</p>-->
+                        <!--</li>-->
+
+
+                        <!--<li class="datebox">-->
+                        <!--<p>08-25(周五)</p>-->
+                        <!--<p class="price3">￥329</p>-->
+                        <!--</li>-->
+
+                        <!--<li class="datebox">-->
+                        <!--<p>08-26(周六)</p>-->
+                        <!--<p class="price3">￥329</p>-->
+                        <!--</li>-->
+
+                        <!--<li class="datebox">-->
+                        <!--<p>08-27(周日)</p>-->
+                        <!--<p class="price3">￥329</p>-->
+                        <!--</li>-->
+
+
+                    </ul>
+                </div>
+            </div>
+        </ion-scroll>
+
+        <div class="datebanner light-bg user_image" ui-sref="frame.pannel">
+            <!--<img src="../img/1.jpg">-->
+            <!--<img src="../img/2.jpg">-->
+            <!--<img src="../img/3.jpg">-->
+            <!--<img src="../img/4.jpg">-->
+            <!--<span style="float: right;margin-top: -5px;">55人报名-->
+            <!--<span style="color: #FDD87E; font-size:20px ;" id="right-panel-link" href="#right-panel">></span>-->
+            <!--</span>-->
+        </div>
+        <ul id="ul2" class="defaultClass light-bg">
+
+            <a href="#know">
+                <li>须知</li>
+            </a>
+            <a href="#journey">
+                <li>行程</li>
+            </a>
+            <a href="#cost">
+                <li> 费用</li>
+            </a>
+            <a href="#bourn">
+                <li>目的地</li>
+            </a>
+        </ul>
+
+        <div class="padding" id="know">
+            <p class="arttit"><img src="../img/shuoming.png"><span>活动说明</span></p>
+            <div id="travel_activity">
+                <p>本事大客户v靠山吃山</p>
+                <p>本事大客户v靠山吃山</p>
+                <p>本事大客户v靠山吃山</p>
+                <p>本事大客户v靠山吃山</p>
+                <p>本事大客户v靠山吃山</p>
+            </div>
+        </div>
+        <div class="padding" id="journey">
+            <p class="arttit">
+                <img src="../img/xingchen.png" width="18px" height="18px">
+                <span>行程</span>
+            </p>
+            <div id="travel_voyage">
+                <p>本事大客户v靠山吃山</p>
+                <p>本事大客户v靠山吃山</p>
+                <p>本事大客户v靠山吃山</p>
+                <p>本事大客户v靠山吃山</p>
+                <p>本事大客户v靠山吃山</p>
+            </div>
+        </div>
+
+        <div class="padding" id="cost">
+            <p class="arttit"><img src="../img/feiyong.png" width="30px" height="30px"><span>费用</span></p>
+            <div id="travel_expense2">
+                <p>本事大客户v靠山吃山</p>
+                <p>本事大客户v靠山吃山</p>
+                <p>本事大客户v靠山吃山</p>
+                <p>本事大客户v靠山吃山</p>
+                <p>本事大客户v靠山吃山</p>
+            </div>
+        </div>
+
+        <div class="padding" id="bourn">
+            <p class="arttit"><img src="../img/mudi.png" width="30px" height="30px"><span>目的地</span></p>
+            <div id="travel_bourn">
+                <p>本事大客户v靠山吃山</p>
+                <p>本事大客户v靠山吃山</p>
+                <p>本事大客户v靠山吃山</p>
+                <p>本事大客户v靠山吃山</p>
+                <p>本事大客户v靠山吃山</p>
+            </div>
+        </div>
+
+
+    </div>
+    <a href="#myCarousel">
+        <div class="top"><img src="../img/top.png"></div>
+    </a>
+    <div class="footer">
+
+        <div class="kefu">
+
+            <img src="../img/kefu.png" width="30px" height="30px">
+
+
+        </div>
+        <a id="buy" href="ordermess.html">
+            <div class="buy_button2 light">立即购买</div>
+        </a>
+
+    </div>
+</div>
+<div id="right-panel" class="panel">
+    <ion-header-bar class="stable-bg bar bar-header" align-title="center">
+        <button class="button ">
+            <i class="icon ion-android-arrow-back"></i>
+				<span class="back-text" id="close-panel-bt">
+				<img src="../img/ion/return.png">
+				</span>
+        </button>
+
+        <div class="title title-center header-item" style="left: 15px; right: 15px;">报名名单
+        </div>
+    </ion-header-bar>
+    <div class="content light-bg" style="margin-top: 40px;height: 100%;">
+        <div class="message light-bg">
+            <p>【2017年 旅游快进 】亲子游巴拉巴拉 建行卡号地块骄傲好滴好滴继续</p>
+            <div><span>[情而不色]艺术是青涩的开始</span></div>
+        </div>
+        <div class="choosed">
+            <p>2017/07/27</p>
+            <p>第一批</p>
+        </div>
+        <hr class="stable" style="border: 0.1rem solid;">
+        <p style="padding-left: 10px;">已报名<span class="assertive">55</span>人支付<span class="assertive">45</span>人</p>
+        <div class="pannerbox">
+
+            <ul class="list">
+                <li class="item item-avatar-left" style="border: 0">
+                    <img src="../img/1.jpg">
+                    <h3 id="name">Stranger</h3>
+                    <p id="date" class="date">2017-04-17 <span style="color:#00A854;margin:0 10px 0 20px;">报名成功</span>
+                    </p>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $('#myCarousel').carousel({interval: 2000});//每隔5秒自动轮播
+    });
+</script>
+<script src="../js/activedetails.js"></script>
+<script type="text/javascript" src="../js/jquery.panelslider.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $.ajax({
+            type: 'post',
+            data: {'id': GetQueryString('id')},
+            dataType: 'json',
+            url: 'http://www.bananatrip.cn/banana/TravelInfo',
+            success: function (obj) {
+                // 轮播图片
+                obj['travel_images'].map(function (value, index, array) {
+                    $('.carousel-inner >div > img').eq(index).attr('src', obj['travel_images'][index])
+                });
+                $('.message > p').eq(0).html(obj['travel_name']);
+                $('.message > p').eq(1).html("<span>下班去哪里</span>" + obj['travel_venue']);
+                $('.message > p').eq(2).html("￥" + obj['travel_expense'] + "起");
+                // 添加基础信息
+                $("#travel_activity").html(obj['travel_activity']);
+                $("#travel_voyage").html(obj['travel_voyage']);
+                $("#travel_expense2").html(obj['travel_expense2']);
+                $('#travel_bourn').html(obj['travel_bourn']);
+            },
+            error: function (obj) {
+            }
+        });
+
+        // 时间
+        $.ajax({
+            type: 'post',
+            data: {'id': GetQueryString('id')},
+            dataType: 'json',
+            url: 'http://www.bananatrip.cn/travel/time',
+            success: function (obj) {
+                obj.map(function (value, index, array) {
+                    var hov = "";
+                    if (index == 0) {
+                        hov = "hover";
+                    }
+                    var info = '<li time_id="' + obj[index]["info_id"] + '" class="datebox ' + hov + '"><p>' + formatDate(obj[index]["info_start"]) + '(' + obj[index]["info_week"] + ')</p> <p class="price3">￥' + obj[index]["info_expense"] + '</p> </li> ';
+                    $('#dateul').append(info);
+                });
+            },
+            error: function (obj) {
+
+            }
+        });
+
+        // 用户
+        $.ajax({
+            type: 'post',
+            data: {'test': GetQueryString('id')},
+            dataType: 'json',
+            url: 'http://www.bananatrip.cn/banana/User/Enrol',
+            success: function (obj) {
+                var user_num = 0;
+                if (obj.all_user != 0) {
+                    obj['user_info'].map(function (value, index, array) {
+                        user_num++;
+                        var images = "<img src='" + obj["user_info"][index]["user_images"] + "' >";
+                        if (user_num == obj['user_info'].length) {
+                            images = images + ' <span style="float: right;margin-top: -5px;">' + user_num + '人报名 <span style="color: #FDD87E; font-size:20px ;" id="right-panel-link" href="#right-panel">></span></span>'
+                        }
+                        $('.user_image').append(images);
+                    })
+                }
+            },
+            error: function (obj) {
+
+            }
+        });
+
+        // 选择时间
+        $("#dateul").on('click', 'li', function () {
+            $(this).siblings().removeClass('hover');
+            $(this).addClass('hover');
+            var href = 'ordermess.html?id=' + GetQueryString('id') + '&time_id=' + $(this).attr('time_id');
+            $('#buy').attr('href', href);
+        })
+
+
+    });
+
+
+    function GetQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+        var r = window.location.search.substr(1).match(reg); //获取url中"?"符后的字符串并正则匹配
+        var context = "";
+        if (r != null)
+            context = r[2];
+        reg = null;
+        r = null;
+        return context == null || context == "" || context == "undefined" ? "" : context;
+    }
+
+    function formatDate(num) {
+        var now = new Date(num);
+        var year = now.getYear();
+        var month = now.getMonth() + 1;
+        var date = now.getDate();
+        var hour = now.getHours();
+        var minute = now.getMinutes();
+        var second = now.getSeconds();
+        return month + "-" + date
+    }
+
+
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no,width=device-width">
+    <meta charset="UTF-8">
+    <title>我的订单</title>
+    <link href="../css/foot.css" rel="stylesheet">
+    <link href="../css/head.css" rel="stylesheet">
+    <link href="../css/order.css" rel="stylesheet">
+</head>
+<body>
+<div class="foot">
+    <a class="foot-tab" href="start.html"><img src="../img/ion/start2.png">
+        <p class="mycolor">首页</p></a>
+    <a class="foot-tab " href="friend.html"><img src="../img/ion/friend2.png">
+        <p>社区</p></a>
+    <a class="foot-tab " href="home.html"><img src="../img/ion/home2.png">
+        <p>小店</p></a>
+    <a class="foot-tab " href="person.html"><img src="../img/ion/my.png">
+        <p>我的</p></a>
+</div>
+<ion-header-bar class="stable-bg bar bar-header" align-title="center">
+
+    <button class="button " onclick="history.go(-1)">
+        <i class="icon ion-android-arrow-back"></i>
+				<span class="back-text">
+				<img src="../img/ion/return.png">
+				</span>
+    </button>
+    <div class="title title-center header-item" style="left: 15px; right: 15px;">我的订单</div>
+</ion-header-bar>
+<div class="content">
+    <div id="contener">
+        <ul id="ul1">
+            <li class="hover">全部</li>
+            <li>待付款</li>
+            <li>待发货</li>
+            <li>已发货</li>
+        </ul>
+        <!--全部-->
+        <div class=" no" style="display: block;">
+            <div id="order_banner1" class="order_banner light-bg">
+                <!--<div class="order_tit">-->
+                <!--<span>订单号：28290473920820</span>-->
+                <!--<span id="state">等待付款</span>-->
+                <!--</div>-->
+                <!--<div class="ordercontent">-->
+                <!--<div class="imgbanner"><img src="../img/1.jpg"></div>-->
+                <!--<div class="inform">2017年 新年创意门头 3件</div>-->
+                <!--</div>-->
+                <!--<div class="order_foot"><span>付款金额：￥54.00</span>-->
+                <!--<span>-->
+                <!--<a href="pay.html">-->
+                <!--<button class="samllbtn">立即支付</button>-->
+                <!--</a>-->
+                <!--</span>-->
+                <!--</div>-->
+            </div>
+        </div>
+
+        <!-- 待付款-->
+        <div class=" no">
+            <div id="order_banner2" class="order_banner light-bg">
+                <!--<div class="order_tit">-->
+                <!--<span id="ordernum">订单号：28290473920820</span>-->
+                <!--<span id="state">等待付款</span>-->
+                <!--</div>-->
+                <!--<div class="ordercontent">-->
+                <!--<div class="imgbanner"><img src="../img/1.jpg"></div>-->
+                <!--<div class="inform">2017年 新年创意门头 3件</div>-->
+                <!--</div>-->
+                <!--<div class="order_foot">-->
+                <!--<span>付款金额：￥54.00</span><span>-->
+                <!--<a href="pay.html">-->
+                <!--<button class="samllbtn">立即支付</button>-->
+                <!--</a>-->
+                <!--</span>-->
+                <!--</div>-->
+            </div>
+        </div>
+
+        <!--待发货-->
+        <div class="  no">
+            <div id="order_banner3" class="order_banner light-bg">
+                <!--<div class="order_tit">-->
+                <!--<span id="ordernum">订单号：28290473920820</span>-->
+                <!--<span id="state">待发货</span>-->
+                <!--</div>-->
+                <!--<div class="ordercontent">-->
+                <!--<div class="imgbanner"><img src="../img/1.jpg"></div>-->
+                <!--<div class="inform">2017年 新年创意门头 3件</div>-->
+                <!--</div>-->
+                <!--<div class="order_foot"><span>付款金额：￥54.00</span></div>-->
+                </div>
+            </div>
+
+            <!--已发货-->
+            <div class=" has-header no">
+                <div id="order_banner4" class="order_banner light-bg">
+                    <!--<div class="order_tit">-->
+                        <!--<span id="ordernum">订单号：28290473920820</span>-->
+                        <!--<span id="state">已发货</span>-->
+                    <!--</div>-->
+                    <!--<div class="ordercontent">-->
+                        <!--<div class="imgbanner"><img src="../img/1.jpg"></div>-->
+                        <!--<div class="inform">2017年 新年创意门头 3件</div>-->
+                    <!--</div>-->
+                    <!--<div class="order_foot"><span>付款金额：￥54.00</span></div>-->
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../js/order.js"></script>
+    <script src="../js/jquery.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(function () {
+            $.ajax({
+                type: 'post',
+                data: {'tag': -1},
+                dataType: 'json',
+                url: 'http://www.bananatrip.cn/user/order',
+                success: function (obj) {
+                    console.log(obj);
+                    obj.map(function (value, index, array) {
+                        if (value['order_tag'] == 0) {
+                            var sting = '<div class="order_tit"><span>订单号：' + value["order_num"] + '</span><span id="state">等待付款</span></div><div class="ordercontent"> <div class="imgbanner"><img src="../img/1.jpg"></div> <div class="inform">2017年 新年创意门头 3件</div></div><div class="order_foot"><span>付款金额：￥' + value["order_pay_money"] + '</span><span><a href="pay.html"><button class="samllbtn">立即支付</button></a></span></div>';
+                            $("#order_banner2").append(sting);
+                        }
+                        if (value['order_tag'] == 10) {
+                            var sting = '<div class="order_tit"><span>订单号：' + value["order_num"] + '</span><span id="state">代发货</span></div><div class="ordercontent"><div class="imgbanner"><img src="../img/1.jpg"></div><div class="inform">2017年 新年创意门头 3件</div></div><div class="order_foot"><span>付款金额：￥' + value["order_pay_money"] + '</span><span><a href="pay.html"></span></div>';
+                            $("#order_banner3").append(sting);
+                        }
+                        if (value['order_tag'] == 20) {
+                            var sting = '<div class="order_tit"> <span id="ordernum">订单号：28290473920820</span> <span id="state">已发货</span> </div> <div class="ordercontent"> <div class="imgbanner"><img src="../img/1.jpg"></div> <div class="inform">2017年 新年创意门头 3件</div> </div> <div class="order_foot"><span>付款金额：￥' + value["order_pay_money"] + '</span></div>';
+                            $("#order_banner4").append(sting);
+                        }
+                        $('#order_banner1').append(sting);
+                    });
+                },
+                error: function (obj) {
+
+                }
+            })
+        })
+    </script>
+</body>
+</html>
+

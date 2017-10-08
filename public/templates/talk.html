@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no,width=device-width">
+    <meta charset="UTF-8">
+    <title>聊天窗口</title>
+    <link href="../css/foot.css" rel="stylesheet">
+    <link href="../css/head.css" rel="stylesheet">
+    <link href="../css/talk.css" rel="stylesheet">
+</head>
+<body>
+<ion-header-bar class="stable-bg bar bar-header" align-title="center">
+    <button class="button " onclick="history.go(-1)">
+        <i class="icon ion-android-arrow-back"></i>
+				<span class="back-text">
+			     	<img src="../img/ion/return.png">
+				</span>
+    </button>
+    <div class="title title-center header-item" style="left: 15px; right: 15px;">Stranger</div>
+</ion-header-bar>
+<div class="content">
+    <ul class="talkcontent">
+        <li class="leftli">
+            <img src="../img/2.jpg">
+            <span>我是你爸爸</span>
+        </li>
+        <li class="rightli">
+            <img src="../img/1.jpg">
+            <span>我是你爸爸</span>
+        </li>
+    </ul>
+</div>
+<div class="talkfooter ">
+    <input id="text" type="text" placeholder="说点什么吧...">
+    <span id="btn">发送</span>
+</div>
+<script src="../js/jquery.min.js"></script>
+<script src="../js/talk.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $.ajax({
+            type: 'post',
+            data: {'id': GetQueryString('id')},
+            dataType: 'json',
+            url: 'http://www.bananatrip.cn/unread/dialogue',
+            success: function (obj) {
+                console.log(obj);
+//                var right = '<li class="leftli">img src="../img/2.jpg"><span>我是你爸爸</span></li>';
+//                var left = '<li class="rightli"><img src="../img/1.jpg"><span>我是你爸爸</span></li>';
+                obj['dialogue'].map(function (value, index, array) {
+                    if (value['dialogue_friend_id'] == GetQueryString('id')) {
+                        var string = '<li class="leftli"><img src="../img/2.jpg"><span>' + value["dialogue_dialogue"] + '</span></li>';
+                        $('.talkcontent').append(string)
+                    } else {
+                        var string = '<li class="rightli"><img src="../img/2.jpg"><span>' + value["dialogue_dialogue"] + '</span></li>';
+                        $('.talkcontent').append(string)
+                    }
+                });
+            },
+            error: function (obj) {
+
+            }
+        });
+
+        $('#btn').click(function () {
+            var info = $('#text').val();
+            if (info == '') {
+                alert('发送消息不能为空');
+                return false;
+            }
+            var string = '<li class="rightli"><img src="../img/2.jpg"><span>' + info + '</span></li>';
+            $('.talkcontent').append(string);
+            $("#text").val('');
+            $.ajax({
+                type: 'post',
+                data: {'friend_id': GetQueryString('id'), 'dialogue': info},
+                dataType: 'json',
+                url: 'http://www.bananatrip.cn/add/dialogue',
+                success: function (obj) {
+
+                },
+                error: function (obj) {
+
+                }
+            })
+        });
+    });
+
+
+    function GetQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+        var r = window.location.search.substr(1).match(reg); //获取url中"?"符后的字符串并正则匹配
+        var context = "";
+        if (r != null)
+            context = r[2];
+        reg = null;
+        r = null;
+        return context == null || context == "" || context == "undefined" ? "" : context;
+    }
+</script>
+</body>
+
+</html>
+

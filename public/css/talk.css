@@ -1,0 +1,113 @@
+*{
+	margin: 0;
+	padding: 0;
+	font-size: 0.9rem;
+}
+.content{
+
+	width: 100%;
+	height: 80%;
+	overflow: scroll;
+	float: left;
+	position: absolute;
+	margin-top: 44px;
+	
+
+}
+.talkcontent {   
+            font-size: 20px;   
+            width: 100%;   
+            height: auto;   
+            overflow: auto;   
+            padding: 5px;   
+        }   
+        .talkcontent li {   
+            margin-top: 10px;   
+            padding-left: 10px;   
+            width: 100%;   
+            display: block;   
+            clear: both;   
+            overflow: hidden;  
+             float: right;  
+        }   
+        .talkcontent .rightli img {   
+            float: right;  
+            width: 40px;
+            height:40px;
+            border-radius: 40px;
+            margin-right: 10px;
+            
+        } 
+          
+        .talkcontent .rightli span{   
+            background: #7cfc00;   
+            padding: 10px;   
+            border-radius: 10px;   
+            float: right;   
+            margin: 6px 10px 0 10px;   
+            max-width: 310px;   
+            border: 1px solid #ccc;   
+            box-shadow: 0 0 3px #ccc;   
+        } 
+          .talkcontent .leftli img {   
+            float: left;  
+            width: 40px;
+            height:40px;
+             border-radius: 40px;
+             margin-left: 5px;
+            
+        } 
+          
+        .talkcontent .leftli span{   
+            background: #7cfc00;   
+            padding: 10px;   
+            border-radius: 10px;   
+            float: left;   
+            margin: 6px 0px 0 10px;   
+            max-width: 310px;   
+            border: 1px solid #ccc;   
+            box-shadow: 0 0 3px #ccc;   
+        } 
+        
+           .talkfooter {   
+            width: 100%;   
+            height: 40px;   
+           background:#FFAF15;
+            position: absolute;   
+            bottom: 0;   
+            padding: 10px;   
+            display: flex;
+            z-index: 5;
+        }   
+    
+        .talkfooter input {   
+            width: 70%;   
+            height: 30px;   
+            outline: none;   
+            font-size: 20px;   
+            text-indent: 10px;   
+            position: absolute;   
+            border-radius: 6px;   
+            right: 88px;   
+            border: 0;
+        }   
+       .talkfooter span {   
+            display: inline-block;   
+            width: 15%;   
+            height: 28px;   
+            background: white;   
+            font-weight: 900;   
+            line-height: 28px;   
+            cursor: pointer;   
+            text-align: center;   
+            position: absolute;   
+            right: 25px;   
+            border-radius: 6px;   
+        }   
+     .talkfooter span:hover {   
+            color: #fff;   
+            background: #999;   
+        }
+.rightli{
+	margin-left: 60%;
+}

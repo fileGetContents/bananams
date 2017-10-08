@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no,width=device-width">
+    <meta charset="UTF-8">
+    <title></title>
+    <link href="../css/foot.css" rel="stylesheet">
+    <link href="../css/head.css" rel="stylesheet">
+    <link href="../css/hotel.css" rel="stylesheet">
+    <link href="../js/dhtmlgoodies_calendar/dhtmlgoodies_calendar.css" rel="stylesheet">
+    <link href="../css/bootstrap.css" rel="stylesheet">
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+</head>
+<body>
+<div id="page">
+    <div class="foot">
+        <a class="foot-tab" href="start.html"><img src="../img/ion/start.png">
+            <p class="mycolor">首页</p></a>
+        <a class="foot-tab " href="friend.html"><img src="../img/ion/friend2.png">
+            <p>社区</p></a>
+        <a class="foot-tab " href="home.html"><img src="../img/ion/home2.png">
+            <p>小店</p></a>
+        <a class="foot-tab " href="person.html"><img src="../img/ion/my2.png">
+            <p>我的</p></a>
+    </div>
+    <ion-header-bar class="stable-bg bar bar-header" align-title="center">
+        <button class="button " onclick="history.go(-1)">
+            <i class="icon ion-android-arrow-back"></i>
+				<span class="back-text">
+				<img src="../img/ion/return.png">
+				</span>
+        </button>
+
+        <div class="title title-center header-item" style="left: 15px; right: 15px;">酒店详情</div>
+    </ion-header-bar>
+    <div class="content" id="wrap">
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+            <!-- 轮播（Carousel）指标 -->
+            <ol class="carousel-indicators">
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="1"></li>
+                <li data-target="#myCarousel" data-slide-to="2"></li>
+            </ol>
+            <!-- 轮播（Carousel）项目 -->
+            <div class="carousel-inner" style="height:150px;">
+                <div class="item active">
+                    <img src="../img/find.jpg" alt="First slide">
+                </div>
+                <div class="item">
+                    <img src="../img/hotel4.jpeg" alt="Second slide">
+                </div>
+                <div class="item">
+                    <img src="../img/hotel8.jpeg" alt="Third slide">
+                </div>
+            </div>
+
+        </div>
+        <div class="message light-bg">
+            <p>【2017年 旅游快进 】亲子游巴拉巴拉 建行卡号地块骄傲好滴好滴继续</p>
+            <p><span><下班去哪>华东最棒严管</span></p>
+            <p class="assertive">￥ 1888.00起</p>
+        </div>
+        <div class="disbanner">
+            <div class="discount"><span class="assertive-bg xsbtn light">优惠</span><span class="dismess ">注册送十元代金券</span>
+            </div>
+            <div class="discount"><span class="xsbtn assertive">立减</span><span class="dismess ">下单立减</span></div>
+        </div>
+        <div class="light-bg" style="padding-left: 20px">
+            <img src="../img/dizhi2.png" width="20px" height="20px" style="margin-top: 10px; margin-right:10px ;">
+            <span class="dismess" style="position: absolute;margin-top: 10px;">集合地:浙江省 杭州</span>
+        </div>
+        <form>
+            <div class="datebanner light-bg">
+                <div class="dateimg"><img src="../img/date.png" width="20px" height="20px"></div>
+                <div onclick="displayCalendar(document.forms[0].theDate,'yyyy/mm/dd',this)" class="choosedate">
+                    出发日期<i class="ion ion-chevron-down" style="margin-left:5px ;"></i>
+                </div>
+                <div class="inpbanner">
+                    <input type="button" class="theDate light-bg " value="2017/07/26" readonly name="theDate">
+                </div>
+            </div>
+            <div class="datebanner light-bg">
+                <div class="dateimg"><img src="../img/date.png" width="20px" height="20px"></div>
+                <div onclick="displayCalendar(document.forms[0].theDate2,'yyyy/mm/dd',this)" class="choosedate">离店日期
+                    <i class="ion ion-chevron-down" style="margin-left:5px ;"></i>
+                </div>
+                <div class="inpbanner">
+                    <input type="button" class="theDate light-bg " value="2017/07/26" readonly name="theDate2">
+                </div>
+            </div>
+        </form>
+
+        <ul id="ul3" class="light-bg  defaultClass2">
+
+            <li id="yinxiang" on-click="hotelbtn1();">印象</li>
+            <li id="fangxin" on-click="hotelbtn2();">房型</li>
+
+        </ul>
+        <div id="contener3">
+            <div class="no" style="display: block;" id="mess1">
+                <div class="hotelbanner">
+                    <div class="details_section"><img src="../img/hotel1.jpeg"></div>
+                    <P>护卫无不与号我的烟雾弹Yui因为五月底吴云 恒温库防护好ueuifyi，废话为国分忧use复合句顾长卫u
+
+                        快捷键考四级才开始上课的基础上了大抽奖空了搜救度搜。就是看好吃会计师的立场上了就是才看见离开房产局
+                        健康的窗口试乘试驾激烈的检查kjdckshdui
+                    </P>
+                    <div class="details_section"><img src="../img/hotel2.jpeg"></div>
+                    <div class="details_section"><img src="../img/hotel3.jpeg"></div>
+                    <P>护卫无不与号我的烟雾弹Yui因为五月底吴云 恒温库防护好ueuifyi，废话为国分忧use复合句顾长卫u
+
+                        快捷键考四级才开始上课的基础上了大抽奖空了搜救度搜。就是看好吃会计师的立场上了就是才看见离开房产局
+                        健康的窗口试乘试驾激烈的检查kjdckshdui
+                    </P>
+
+                    <div class="details_section"><img src="../img/hotel4.jpeg"></div>
+                    <P>护卫无不与号我的烟雾弹Yui因为五月底吴云 恒温库防护好ueuifyi，废话为国分忧use复合句顾长卫u
+
+                        快捷键考四级才开始上课的基础上了大抽奖空了搜救度搜。就是看好吃会计师的立场上了就是才看见离开房产局
+                        健康的窗口试乘试驾激烈的检查kjdckshdui
+                    </P>
+                    <div class="details_section"><img src="../img/hotel5.jpeg"></div>
+                    <div class="details_section"><img src="../img/hotel6.jpeg"></div>
+
+                </div>
+                <div class="map">
+                    <a href="map.html" target="_blank">
+                        <img src="../img/map.png">
+                    </a>
+                </div>
+                <div class="mapfoot">
+                    <img src="../img/dizhiicon.png" width="25px" height="25px">
+                    <span>成都市青羊区宽巷子8号，近金河路</span>
+                </div>
+                <div class="mapfoot">
+                    <img src="../img/phone.png" width="18px" height="18px">
+                    <span>028-8888786</span>
+                </div>
+                <div class="bg2"></div>
+                <div class="end"><img src="../img/mmexport.png"></div>
+            </div>
+            <div class="no" id="mess2">
+                <div id="hotelbanner" class="hotelbanner">
+                    <div class="details_section"><img src="../img/hotel5.jpeg"></div>
+                    <h5>北玉桂阁楼</h5>
+                    <p>快捷键考四级才开始上课的基础上了大抽奖空了搜救度搜。就是看好吃会计师的立场上了就是才看见离开房产局
+                        健康的窗口试乘试驾激烈的检查kjdckshdui</p>
+                    <div class="yudingbanner">
+                        <div class="hotelprice2">
+                            <span class="RMB">￥均价</span><span class="bigprice">1479</span><span class="RMB">元/晚 </span>
+                        </div>
+                        <a href="hotelorder.html">
+                            <div class="yudingbtn light">预订</div>
+                        </a>
+                    </div>
+
+                    <div class="details_section"><img src="../img/hotel5.jpeg"></div>
+                    <h5>北玉桂阁楼</h5>
+                    <p>快捷键考四级才开始上课的基础上了大抽奖空了搜救度搜。就是看好吃会计师的立场上了就是才看见离开房产局
+                        健康的窗口试乘试驾激烈的检查kjdckshdui</p>
+                    <div class="yudingbanner">
+                        <div class="hotelprice2">
+                            <span class="RMB2">￥均价</span><span class="bigprice2">1479</span><span
+                                class="RMB2">元/晚 </span>
+                        </div>
+                        <div class="manfangbtn light">满房</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="hotelfoot light-bg" id="yuding">
+        <div class="hotelprice">￥900 起/晚</div>
+        <div on-click="hotelbtn2();" class="yudingbtn light" id="impress">预订</div>
+
+    </div>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#myCarousel').carousel({interval: 2000});//每隔5秒自动轮播
+        });
+
+        $(function () {
+            $.ajax({
+                type: 'post',
+                data: {'id': GetQueryString('id')},
+                dataType: 'json',
+                url: 'http://www.bananatrip.cn/hotel/content',
+                success: function (obj) {
+                    console.log(obj);
+                    // 轮播图片
+                    obj['hotel']['hotel_images'].map(function (value, index, array) {
+                        $('.carousel-inner > div >img').eq(index).attr('src', value)
+                    });
+                    $('.message >p').eq(0).html(obj['hotel']['hotel_name']);
+                    // $('.carousel-inner > div >img')
+                    $('.message >p').eq(1).html('<span><下班去哪玩>' + obj["hotel"]["hotel_address"] + '</span>');
+                    $('.message >p').eq(2).html('<p class="assertive">￥ ' + obj["hotel"]["hotel_price"] + '起</p>')
+                    // 印象
+                    $('.hotelprice').html('￥' + obj["hotel"]["hotel_price"] + ' 起/晚');
+                    $('#mess1').html(obj["hotel"]['hotel_info']);
+                    // 添加房间
+                    $('#mess2').empty();
+                    //var room_html = '';
+                    obj['room'].map(function (value, index, array) {
+                        if (value["room_num"] == 0) {
+                            var room2 = '<div class="manfangbtn light">满房</div>';
+                        } else {
+                            var room2 = '<a  room_id="' + value["room_id"] + '"  class="hotel_order" href="#"> <div class="yudingbtn light">预订</div></a>'
+                        }
+                        var room_html = '<div class="details_section"><img src="' + value["room_image"] + '"></div> <h5>' + value["room_name"] + '</h5> <p>' + value["room_info"] + '</p> <div class="yudingbanner"> <div class="hotelprice2"> <span class="RMB">￥均价</span><span class="bigprice">' + value["room_price"] + '</span><span class="RMB">元/晚 </span> </div>  ' + room2 + '</div>'
+                        $('#mess2').append(room_html);
+                    });
+                },
+                error: function (obj) {
+
+                }
+            });
+
+            $(document).delegate('.hotel_order', 'click', function (event) {
+                var theDate = $('input[name=theDate]').val();
+                var theDate2 = $('input[name=theDate2]').val();
+                var href = 'hotelorder.html?id=' + $(this).attr('room_id') + '&theDate=' + theDate + '&theDate2=' + theDate2 + '&hotel_id=' + GetQueryString('id');
+                $(this).attr('href', href);
+            });
+        });
+
+        function GetQueryString(name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+            var r = window.location.search.substr(1).match(reg); //获取url中"?"符后的字符串并正则匹配
+            var context = "";
+            if (r != null)
+                context = r[2];
+            reg = null;
+            r = null;
+            return context == null || context == "" || context == "undefined" ? "" : context;
+        }
+    </script>
+    <script src="../js/hotel.js"></script>
+    <script type="text/javascript" src="../js/dhtmlgoodies_calendar/dhtmlgoodies_calendar.js"></script>
+
+</body>
+</html>

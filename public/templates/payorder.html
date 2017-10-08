@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no,width=device-width">
+    <meta charset="UTF-8">
+    <title>待付款订单</title>
+    <link href="../css/foot.css" rel="stylesheet">
+    <link href="../css/head.css" rel="stylesheet">
+    <link href="../css/payorder.css" rel="stylesheet">
+    <link href="../css/bootstrap.css" rel="stylesheet">
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="foot">
+    <a class="foot-tab" href="start.html"><img src="../img/ion/start2.png">
+        <p class="mycolor">首页</p></a>
+    <a class="foot-tab " href="friend.html"><img src="../img/ion/friend2.png">
+        <p>社区</p></a>
+    <a class="foot-tab " href="home.html"><img src="../img/ion/home.png">
+        <p>小店</p></a>
+    <a class="foot-tab " href="person.html"><img src="../img/ion/my2.png">
+        <p>我的</p></a>
+</div>
+<ion-header-bar class="stable-bg bar bar-header" align-title="center">
+
+    <button class="button " onclick="history.go(-1)">
+        <i class="icon ion-android-arrow-back"></i>
+				<span class="back-text">
+				<img src="../img/ion/return.png">
+				</span>
+    </button>
+    <div class="title title-center header-item" style="left: 15px; right: 15px;">待付款订单</div>
+</ion-header-bar>
+<div class="content">
+    <div class="personmess light-bg" data-toggle="modal" data-target="#myModal">
+        <div class="dizhi"><img id="add_img" src="../img/dizhi.png" width="20px" height="20px"></div>
+        <div class="percenter"><p id="add_name" address_id="">收货人:陈蕾羽 <span>18890674356<span></p>
+            <p class="orderplace" id="add_add">收货地址：单位得分</p></div>
+        <div class="ionplace">></div>
+
+    </div>
+    <div class="ordercontent light-bg">
+        <div class="imgbanner"><img src="../img/1.jpg"></div>
+        <div class="inform2">
+            <p>2017年 新年创意门头 </p>
+            <p class="payplace">套餐一</p>
+        </div>
+        <div class="payprice">
+            <p>￥18</p>
+            <p>x 1</p>
+        </div>
+    </div>
+    <div class="waywrapper light-bg">
+        <div class="wayleft" id="pay_logistics">配送方式</div>
+        <div class="wayright"><p>免运费</p>
+            <p>快递发货</p>
+        </div>
+    </div>
+    <div class="waywrapper light-bg">
+        <div class="wayleft">合计</div>
+        <div class="wayright assertive">￥18.00</div>
+    </div>
+
+    <div class="pricewrapper light-bg">
+        <div class="wayleft">商品金额</div>
+        <div class="wayright " id="pice">￥18.00</div>
+    </div>
+
+    <div class="pricewrapper light-bg">
+        <div class="wayleft">应付金额</div>
+        <div class="wayright assertive" id="pice2">￥18.00</div>
+    </div>
+    <div>
+        <div class="pricewrapper">
+            <div class="btnwrapper">
+                <div class="total">合计:<span class="assertive" id="pice_all"> ￥18.00</span></div>
+                <div class="sendbtn" id="sendbtn">提交订单</div>
+            </div>
+        </div>
+
+    </div>
+
+
+</div>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"
+                        aria-hidden="true">×
+                </button>
+                <h4 class="modal-title" id="myModalLabel">
+                    选择收货地址
+                </h4>
+            </div>
+            <div id="totalplace">
+                <!--<div class="personmess light-bg">-->
+                <!--<div class="dizhi"><input type="radio" name="identity"></div>-->
+                <!--<div class="percenter"><p>收货人:陈蕾羽 <span>18890674356<span></p>-->
+                <!--<p class="orderplace">收货地址：单位得分</p></div>-->
+                <!--<div class="ionplace"><img-->
+                <!--onclick="javascript:this.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode)"-->
+                <!--src="../img/del.png"></div>-->
+                <!--</div>-->
+
+                <!--<div class="personmess light-bg">-->
+                <!--<div class="dizhi"><input type="radio" name="identity"></div>-->
+                <!--<div class="percenter"><p>收货人:陈蕾羽 <span>18890674356<span></p>-->
+                <!--<p class="orderplace">收货地址：单位得分</p></div>-->
+                <!--<div class="ionplace"><img src="../img/del.png"-->
+                <!--onclick="javascript:this.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode);">-->
+                <!--</div>-->
+                <!--</div>-->
+
+            </div>
+            <div class="personmess light-bg">
+                <div class="dizhi"><img src="../img/jia.png"></div>
+                <a href="addplace.html">
+                    <div class="percenter" style="margin-top: 5px;"><p>新增收货地址</p></div>
+                </a>
+                <div class="addplace">></div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+<script src="../js/payorder.js"></script>
+<script type="text/javascript">
+
+    $(function () {
+
+        var price = '';
+
+        // 填写基础信息
+        $.ajax({
+            type: 'post',
+            data: {'id': GetQueryString('good_id')},
+            dataType: 'json',
+            url: 'http://www.bananatrip.cn/good/info',
+            success: function (obj) {
+                var way = new Array('一', '二', '三', '四', '五', '六');
+                console.log(obj);
+                // 配送方式
+                obj['info'].map(function (value, index, array) {
+                    if (value['info_id'] == GetQueryString('id')) {
+                        $('.inform2').html('<p>' + obj['good']['good_name'] + '</p><p class="payplace">套餐方式' + way[index] + '</p>');
+                    }
+                });
+                // 配送方式
+                if (obj['good']['good_freight'] == 0) {
+                    var freight = '免运费';
+                    var good_fre = 0;
+                } else {
+                    var freight = obj['good']['good_freight'];
+                    var good_fre = obj['good']['good_freight'];
+                }
+                $('.waywrapper').eq(0).html('<div class="wayleft">配送方式</div><div class="wayright"><p>' + freight + '</p><p>快递发货</p></div>');
+                $('.assertive').eq(0).html('￥<span>' + good_fre + '</span>');
+                // 商品金额
+                var pice = obj['good']['good_price'] * GetQueryString('num');
+                $('.payprice').html('<p>￥' + pice + '</p><p>x ' + GetQueryString('num') + '</p>');
+                $('#pice').html('￥<span>' + pice + '</span>');
+                $('#pice2').html('￥<span>' + pice + '</span>');
+                var pice_all = parseFloat(pice) + parseFloat(good_fre);
+                $('#pice_all').html('￥<span>' + pice_all + '</span>')
+            },
+            error: function (obj) {
+
+            }
+        });
+        //  获取用户收货地址
+        $.ajax({
+            type: 'post',
+            data: {'id': GetQueryString('good_id')},
+            dataType: 'json',
+            url: 'http://www.bananatrip.cn/get/address',
+            success: function (obj) {
+                if (obj.length == 0) {
+                    window.location.href = 'http://www.bananatrip.cn/templates/addplace.html';
+                } else {
+                    obj.map(function (value, index, array) {
+                        if (index == 0) {
+                            $('#add_name').html('收货人:' + value['address_name'] + '<span>' + value['address_contact'] + '<span>');
+                            $('#add_add').html('收货地址:' + value['address_detail']);
+                            $('#add_name').attr('address_id', value['address_id'])
+                        } else {
+                            var sting = '<div class="personmess light-bg"><div class="dizhi"><input address="' + value["address_id"] + '"  address_detail="' + value['address_detail'] + '"   address_contact="' + value['address_contact'] + '"  address_name="' + value['address_name'] + '"   class="input_radio" type="radio" name="identity"></div><div class="percenter"><p>收货人:' + value['address_name'] + ' <span>' + value['address_contact'] + '<span></p><p class="orderplace">收货地址：' + value['address_detail'] + '</p></div><div class="ionplace"><img  class="del_address" id="' + value['address_id'] + '" src="../img/del.png"></div></div>';
+                            $('#totalplace').append(sting);
+                        }
+                    })
+                }
+            },
+            error: function (obj) {
+            }
+        });
+        $('#totalplace').on('click', '.input_radio', function () {
+            $('#add_name').html('收货人:' + $(this).attr('address_name') + '<span>' + $(this).attr('address_contact') + '<span>');
+            $('#add_add').html('收货地址:' + $(this).attr('address_detail'));
+            $('#add_name').attr('address_id', $(this).attr('address'))
+        });
+        $('#totalplace').on('click', '.del_address', function () {
+            $.ajax({
+                type: 'post',
+                data: {'id': $(this).attr('id')},
+                dataType: 'json',
+                url: 'http://www.bananatrip.cn/del/address',
+                success: function (obj) {
+                },
+                error: function (obj) {
+                }
+            });
+            $(this).parent().parent().css('display', 'none')
+        });
+
+        $('#sendbtn').click(function () {
+//            tag	购买套餐	是	[string]		查看
+//            2	good_id	商品id	是	[string]		查看
+//            3	good_money	商品金额	是	[string]		查看
+//            4	good_num	数量	是	[string]		查看
+//            5	address_id	地址id	是	[string]		查看
+//            6	pay_money	支付金额	是	[string]		查看
+//            7	order_pay_logistics
+
+
+            alert('111111111');
+
+            $.ajax({
+                type: 'post',
+                data: {
+                    'tag': GetQueryString('way'),
+                    'good_id': GetQueryString('good_id'),
+                    'good_money': $('#pice').children('span').html(),
+                    'good_num': GetQueryString('num'),
+                    'address_id': $('#add_name').attr('address_id'),
+                    'pay_money': $('#pice_all').children('span').html(),
+                    'order_pay_logistics': $('.assertive').eq(0).children('span').html()
+                },
+                dataType: 'json',
+                url: 'http://www.bananatrip.cn/good/order',
+                success: function (obj) {
+                    if (obj.info == 0) {
+                        window.location.href = 'http://www.bananatrip.cn/Home/Wxpay?table=' + obj.table + '&order=' + obj.message
+                    }
+                },
+                error: function (obj) {
+
+                }
+            })
+
+        })
+
+    });
+
+    function GetQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+        var r = window.location.search.substr(1).match(reg); //获取url中"?"符后的字符串并正则匹配
+        var context = "";
+        if (r != null)
+            context = r[2];
+        reg = null;
+        r = null;
+        return context == null || context == "" || context == "undefined" ? "" : context;
+    }
+
+</script>
+</body>
+</html>

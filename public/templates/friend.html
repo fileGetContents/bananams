@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no,width=device-width">
+    <meta charset="UTF-8">
+    <title>旅友圈</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link href="../css/foot.css" rel="stylesheet">
+    <link href="../css/head.css" rel="stylesheet">
+    <link href="../css/friend.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="lib/css/emoji.css">
+    <link href="../css/cover.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/baguettebox.min.css">
+</head>
+<body>
+<div id="page">
+    <div class="foot">
+        <a class="foot-tab" href="start.html"><img src="../img/ion/start2.png">
+            <p class="mycolor">首页</p></a>
+        <a class="foot-tab " href="friend.html"><img src="../img/ion/friend.png">
+            <p>社区</p></a>
+        <a class="foot-tab " href="home.html"><img src="../img/ion/home2.png">
+            <p>小店</p></a>
+        <a class="foot-tab " href="person.html"><img src="../img/ion/my2.png">
+            <p>我的</p></a>
+    </div>
+    <ion-header-bar class="stable-bg bar bar-header" align-title="center">
+        <div class="buttons buttons-left"><span class="left-buttons">
+            <i class="tongxunlu" id="right-panel-link" href="#right-panel"></i>
+        </span>
+        </div>
+        <div class="title title-center header-item" style="left: 15px; right: 15px;">旅友圈</div>
+    </ion-header-bar>
+    <a href="sendpost.html">
+        <div class="add">
+            <img src="../img/add.png" width="40px" height="40px"></div>
+    </a>
+
+    <div class="content post_content">
+        <div class="friend-banner">
+            <span class="data">发帖：344</span><span class="data2">访问：480</span>
+        </div>
+        <!--<ul class="list">-->
+        <!--<a href="other.html">-->
+        <!--<li class="item item-avatar-left" style="border: 0">-->
+        <!--<img src="../img/1.jpg">-->
+        <!--<h2 id="name">Stranger</h2>-->
+        <!--<p id="date" class="date">2017-04-17 18:27</p>-->
+        <!--</li>-->
+        <!--</a>-->
+        <!--</ul>-->
+        <!--<div class=" left1">-->
+        <!--<p class="describe "><span>首先这虽是一个菲律宾潜水考证的套餐，但是吃住都很好，全包，宝宝浅水度过一个愉快的假期</span></p>-->
+        <!--<div class="container">-->
+        <!--<ul class="baguetteBoxOne gallery">-->
+        <!--<a href="../img/thumbnails/tibet-1.jpg">-->
+        <!--<li><img src="../img/thumbnails/tibet-1.jpg" alt="Cuo Na Lake"></li>-->
+        <!--</a>-->
+        <!--<a href="../img/thumbnails/tibet-1.jpg">-->
+        <!--<li><img src="../img/thumbnails/tibet-1.jpg" alt="Cuo Na Lake"></li>-->
+        <!--</a>-->
+        <!--<a href="../img/thumbnails/tibet-1.jpg">-->
+        <!--<li><img src="../img/thumbnails/tibet-1.jpg" alt="Cuo Na Lake"></li>-->
+        <!--</a>-->
+        <!--<a href="../img/thumbnails/tibet-1.jpg">-->
+        <!--<li><img src="../img/thumbnails/tibet-1.jpg" alt="Cuo Na Lake"></li>-->
+        <!--</a>-->
+        <!--<a href="../img/thumbnails/tibet-1.jpg">-->
+        <!--<li><img src="../img/thumbnails/tibet-1.jpg" alt="Cuo Na Lake"></li>-->
+        <!--</a>-->
+        <!--<a href="../img/thumbnails/tibet-1.jpg">-->
+        <!--<li><img src="../img/thumbnails/tibet-1.jpg" alt="Cuo Na Lake"></li>-->
+        <!--</a>-->
+        <!--<a href="../img/thumbnails/tibet-1.jpg">-->
+        <!--<li><img src="../img/thumbnails/tibet-1.jpg" alt="Cuo Na Lake"></li>-->
+        <!--</a>-->
+        <!--<a href="../img/thumbnails/tibet-1.jpg">-->
+        <!--<li><img src="../img/thumbnails/tibet-1.jpg" alt="Cuo Na Lake"></li>-->
+        <!--</a>-->
+        <!--<a href="../img/thumbnails/tibet-1.jpg">-->
+        <!--<li><img src="../img/thumbnails/tibet-1.jpg" alt="Cuo Na Lake"></li>-->
+        <!--</a>-->
+        <!--</ul>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--<div class="zan-bg">-->
+        <!--<div class="zhuan"><img src="../img/zhuanfa.png" width="20px" height="20px"><span>转</span></div>-->
+        <!--<div class="pinglun"><img src="../img/pinglun.png" width="20px" height="20px"><span>评论<span-->
+        <!--id="pinglun_data">0</span></span></div>-->
+        <!--<div class="pinglun-box no">-->
+        <!--<div class="inner cover">-->
+        <!--<p class="lead emoji-picker-container">-->
+        <!--<textarea class="form-control textarea-control  " rows="3" placeholder="回复帖子"-->
+        <!--data-emojiable="true"></textarea>-->
+        <!--</p>-->
+        <!--</div>-->
+        <!--<div class="replay">-->
+        <!--<ul class="face">-->
+        <!--<li>-->
+        <!--<button class="button-clear btn cancel">取消</button>-->
+        <!--</li>-->
+        <!--<li>-->
+        <!--<button class="button-clear btn cancel  add_post">回复</button>-->
+        <!--</li>-->
+        <!--</ul>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--<div class="zan"><img src="../img/zan.png" class="like" width="20px" height="20px"><span>赞</span>-->
+        <!--<span id="like_data">0</span>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--<div class="bg"></div>-->
+        <!---->
+
+        <!--<ul class="list">-->
+        <!--<a href="other.html">-->
+        <!--<li class="item item-avatar-left" style="border: 0">-->
+        <!--<img src="../img/1.jpg">-->
+        <!--<h2 id="name">Stranger</h2>-->
+        <!--<p id="date" class="date">2017-04-17 18:27</p>-->
+        <!--</li>-->
+        <!--</a>-->
+        <!--</ul>-->
+        <!--<div class=" left1">-->
+        <!--<p class="describe "><span>首先这虽是一个菲律宾潜水考证的套餐，但是吃住都很好，全包，宝宝浅水度过一个愉快的假期</span></p>-->
+        <!--<div class="container">-->
+        <!--<ul class="baguetteBoxOne gallery">-->
+        <!--<a href="../img/thumbnails/tibet-1.jpg">-->
+        <!--<li><img src="../img/thumbnails/tibet-1.jpg" alt="Cuo Na Lake"></li>-->
+        <!--</a>-->
+        <!--<a href="../img/thumbnails/tibet-1.jpg">-->
+        <!--<li><img src="../img/thumbnails/tibet-1.jpg" alt="Cuo Na Lake"></li>-->
+        <!--</a>-->
+        <!--<a href="../img/thumbnails/tibet-1.jpg">-->
+        <!--<li><img src="../img/thumbnails/tibet-1.jpg" alt="Cuo Na Lake"></li>-->
+        <!--</a>-->
+        <!--<a href="../img/thumbnails/tibet-1.jpg">-->
+        <!--<li><img src="../img/thumbnails/tibet-1.jpg" alt="Cuo Na Lake"></li>-->
+        <!--</a>-->
+        <!--<a href="../img/thumbnails/tibet-1.jpg">-->
+        <!--<li><img src="../img/thumbnails/tibet-1.jpg" alt="Cuo Na Lake"></li>-->
+        <!--</a>-->
+        <!--<a href="../img/thumbnails/tibet-1.jpg">-->
+        <!--<li><img src="../img/thumbnails/tibet-1.jpg" alt="Cuo Na Lake"></li>-->
+        <!--</a>-->
+        <!--<a href="../img/thumbnails/tibet-1.jpg">-->
+        <!--<li><img src="../img/thumbnails/tibet-1.jpg" alt="Cuo Na Lake"></li>-->
+        <!--</a>-->
+        <!--<a href="../img/thumbnails/tibet-1.jpg">-->
+        <!--<li><img src="../img/thumbnails/tibet-1.jpg" alt="Cuo Na Lake"></li>-->
+        <!--</a>-->
+        <!--<a href="../img/thumbnails/tibet-1.jpg">-->
+        <!--<li><img src="../img/thumbnails/tibet-1.jpg" alt="Cuo Na Lake"></li>-->
+        <!--</a>-->
+        <!--</ul>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--<div class="zan-bg">-->
+        <!--<div class="zhuan"><img src="../img/zhuanfa.png" width="20px" height="20px"><span>转</span></div>-->
+        <!--<div class="pinglun">-->
+        <!--<img src="../img/pinglun.png" width="20px" height="20px">-->
+        <!--<span>评论-->
+        <!--<span id="pinglun_data">0</span>-->
+        <!--</span>-->
+        <!--</div>-->
+        <!--<div class="pinglun-box no">-->
+        <!--<div class="inner cover">-->
+        <!--<p class="lead emoji-picker-container">-->
+        <!--<textarea class="form-control textarea-control" rows="3" cols="50" placeholder="回复帖子"-->
+        <!--data-emojiable="true"></textarea>-->
+        <!--</p>-->
+        <!--</div>-->
+        <!--<div class="replay">-->
+        <!--<ul class="face">-->
+        <!--<li>-->
+        <!--<button class="button-clear btn cancel">取消</button>-->
+        <!--</li>-->
+        <!--<li>-->
+        <!--<button class="button-clear btn cancel">回复</button>-->
+        <!--</li>-->
+        <!--</ul>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--<div class="zan"><img src="../img/zan.png" class="like" width="20px" height="20px"><span>赞</span>-->
+        <!--<span id="like_data">0</span></div>-->
+        <!--</div>-->
+        <!--<div class="bg"></div>-->
+    </div>
+    <div id="right-panel" class="panel">
+        <ion-header-bar class="stable-bg bar bar-header" align-title="center">
+            <button class="button ">
+                <i class="icon ion-android-arrow-back"></i>
+				<span class="back-text" id="close-panel-bt">
+				<img src="../img/ion/return.png">
+				</span>
+            </button>
+            <div class="title title-center header-item" style="left: 15px; right: 15px;">通讯录</div>
+        </ion-header-bar>
+        <div class="content" style="margin-top: 40px;height: 100%;">
+            <div id="frind_list" class="list">
+                <a href="talk.html">
+                    <div class="item item-avatar">
+                        <img src="../img/2.jpg">
+                        <span class="friendname">ray</span>
+                        <i class="badge">1</i>
+                    </div>
+                </a>
+                <!--<a href="talk.html">-->
+                <!--<div class="item item-avatar">-->
+                <!--<img src="../img/3.jpg">-->
+                <!--<span class="friendname">ray</span>-->
+                <!--<i class="badge">1</i>-->
+                <!--</div>-->
+                <!--</a>-->
+                <!--<a href="talk.html">-->
+                <!--<div class="item item-avatar">-->
+                <!--<img src="../img/4.jpg">-->
+                <!--<span class="friendname">ray</span>-->
+                <!--<i class="badge ">1</i>-->
+                <!--</div>-->
+                <!--</a>-->
+            </div>
+        </div>
+    </div>
+    <script src="../js/jquery.min.js"></script>
+    <!--<script src="http://libs.useso.com/js/jquery/2.1.1/jquery.min.js" type="text/javascript"></script>-->
+    <script>window.jQuery || document.write('<script src="js/jquery-2.1.1.min.js"><\/script>')</script>
+    <!-- Begin emoji-picker JavaScript -->
+    <script src="lib/js/nanoscroller.min.js"></script>
+    <script src="lib/js/tether.min.js"></script>
+    <script src="lib/js/config.js"></script>
+    <script src="lib/js/util.js"></script>
+    <script src="lib/js/jquery.emojiarea.js"></script>
+    <script src="lib/js/emoji-picker.js"></script>
+    <script src="../js/baguettebox.min.js"></script>
+    <script>
+        $(function () {
+            // Initializes and creates emoji set from sprite sheet
+            window.emojiPicker = new EmojiPicker({
+                emojiable_selector: '[data-emojiable=true]',
+                assetsPath: 'lib/img/',
+                popupButtonClasses: 'fa fa-smile-o'
+            });
+            // Finds all elements with `emojiable_selector` and converts them to rich emoji input fields
+            // You may want to delay this step if you have dynamically created input fields that appear later in the loading process
+            // It can be called as many times as necessary; previously converted input fields will not be converted again
+            window.emojiPicker.discover();
+        });
+    </script>
+    <script type="text/javascript">
+        baguetteBox.run('.baguetteBoxOne', {
+            animation: 'fadeIn',
+        });
+    </script>
+    <script type="text/javascript" src="../js/jquery.panelslider.min.js"></script>
+    <script src="../js/index.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            var skip = -5;
+            $.ajax({
+                type: 'post',
+                data: {'skip': skip + 5},
+                dataType: 'json',
+                url: 'http://www.bananatrip.cn/api/post/all',
+                success: function (obj) {
+                    skip = skip + 5;
+                    console.log(obj);
+                    obj.map(function (value, index, array) {
+                        var string = '<ul class="list"><a href="other.html?id=' + value["post_user_id"] + '">' +
+                                '<li class="item item-avatar-left" style="border: 0">' +
+                                '<img src="' + value["user_images"] + '"><h2 id="name">' + value["user_name"] + '</h2>' +
+                                '<p id="date" class="date">' + formatDate(value['post_time']) + '</p></li></a></ul>' +
+                                '<div class=" left1"><p class="describe ">' +
+                                '<span>' + value["post_content"] + '</span></p> <div class="container"><ul class="baguetteBoxOne gallery"> ' + value["post_images"] + '</ul> </div> </div>' +
+                                '<div class="zan-bg"><div class="zhuan">' +
+                                '<img src="../img/zhuanfa.png" width="20px" height="20px"><span>转</span></div> ' +
+                                '<div class="pinglun"><img src="../img/pinglun.png" width="20px" height="20px">' +
+                                '<span>评论<span id="pinglun_data">' + value["post_praise_num"] + '</span></span>' +
+                                '</div><div class="pinglun-box no"><div class="inner cover">' +
+                                '<p class="lead emoji-picker-container">' +
+                                '<textarea class="form-control textarea-control" rows="3" placeholder="回复帖子" data-emojiable="true"></textarea>' +
+                                '</p></div><div class="replay"><ul class="face"><li><button class="button-clear btn cancel">取消</button></li><li><button   post_id="' + value["post_id"] + '" class="button-clear btn cancel add_post">回复</button></li></ul></div></div>' +
+                                '<div class="zan"><img class="dianzhan" post_id="' + value["post_id"] + '" src="../img/zan.png" class="like" width="20px" height="20px">' +
+                                '<span>赞</span><span id="like_data">' + value["post_praise"] + '</span></div>' +
+                                '</div><div class="bg"></div>';
+                        $('.post_content').append(string);
+                    });
+                },
+                error: function (obj) {
+                }
+            });
+            $('#loadMore').click(function () {
+                $.ajax({
+                    type: 'post',
+                    data: {'skip': skip + 5},
+                    dataType: 'json',
+                    url: 'http://www.bananatrip.cn/api/post/all',
+                    success: function (obj) {
+                        skip = skip + 5;
+                        //console.log(obj);
+                        obj.map(function (value, index, array) {
+                            var string = '<ul class="list"><a href="other.html?id=' + value["post_user_id"] + '">' +
+                                    '<li class="item item-avatar-left" style="border: 0">' +
+                                    '<img src="' + value["user_images"] + '"><h2 id="name">' + value["user_name"] + '</h2>' +
+                                    '<p id="date" class="date">' + formatDate(value['post_time']) + '</p></li></a></ul>' +
+                                    '<div class=" left1"><p class="describe ">' +
+                                    '<span>' + value["post_content"] + '</span></p> <div class="container"><ul class="baguetteBoxOne gallery"> ' + value["post_images"] + '</ul> </div> </div>' +
+                                    '<div class="zan-bg"><div class="zhuan">' +
+                                    '<img src="../img/zhuanfa.png" width="20px" height="20px"><span>转</span></div> ' +
+                                    '<div class="pinglun"><img src="../img/pinglun.png" width="20px" height="20px">' +
+                                    '<span>评论<span id="pinglun_data">' + value["post_praise_num"] + '</span></span>' +
+                                    '</div><div class="pinglun-box no"><div class="inner cover">' +
+                                    '<p class="lead emoji-picker-container">' +
+                                    '<textarea class="form-control textarea-control" rows="3" placeholder="回复帖子" data-emojiable="true"></textarea>' +
+                                    '</p></div><div class="replay"><ul class="face"><li><button class="button-clear btn cancel">取消</button></li><li><button   post_id="' + value["post_id"] + '" class="button-clear btn cancel add_post">回复</button></li></ul></div></div>' +
+                                    '<div class="zan"><img class="dianzhan" post_id="' + value["post_id"] + '" src="../img/zan.png" class="like" width="20px" height="20px">' +
+                                    '<span>赞</span><span id="like_data">' + value["post_praise"] + '</span></div>' +
+                                    '</div><div class="bg"></div>';
+                            $('.post_content').append(string);
+                        });
+                    },
+                    error: function (obj) {
+                    }
+                });
+            });
+            // 点赞
+            $('.post_content').delegate('.dianzhan', 'click', function () {
+                // update/post/praise
+                var index = $(this).nextAll('span').eq(1).html();
+                $(this).nextAll('span').eq(1).html(parseInt(index) + 1);
+                $.ajax({
+                    type: 'post',
+                    data: {'id': $(this).attr('post_id')},
+                    dataType: 'json',
+                    url: 'http://www.bananatrip.cn/update/post/praise',
+                    success: function (obj) {
+
+                    },
+                    error: function (obj) {
+
+                    }
+                })
+            });
+            // 评论
+            $('.post_content').delegate('.pinglun', 'click', function () {
+                $(this).siblings('.pinglun-box').removeClass('no');
+            });
+            $('.post_content').delegate('.cancel', 'click', function () {
+                $(this).parent().parent().parent().parent().addClass('no');
+            });
+            $('.post_content').delegate('.add_post', 'click', function () {
+                var num = $(this).parent().parent().parent().parent().prev().children('span').children('span').html();
+                $.ajax({
+                    type: 'post',
+                    data: {
+                        'post_id': $(this).attr('post_id'),
+                        'message': $(this).parent().parent().parent().prev().children('p').children('textarea').val()
+                    },
+                    dataType: 'json',
+                    url: 'http://www.bananatrip.cn/user/review',
+                    success: function (obj) {
+
+                    },
+                    error: function () {
+
+                    }
+                });
+                // 添加评论次数
+                var num2 = parseInt(num) + 1;
+                $(this).parent().parent().parent().parent().prev().children('span').children('span').html(num2);
+
+            });
+            //update/visit  post/num
+            $.ajax({
+                type: 'post',
+                data: {
+                    'post_id': $(this).attr('post_id'),
+                    'message': $(this).parent().parent().parent().prev().children('p').children('textarea').val()
+                },
+                dataType: 'json',
+                url: 'http://www.bananatrip.cn/update/visit',
+                success: function (obj) {
+                    $(".data2").html('访问：' + obj)
+                },
+                error: function (obj) {
+
+                }
+            });
+            // 获取发帖数量
+            $.ajax({
+                type: 'post',
+                data: {
+                    'post_id': $(this).attr('post_id'),
+                    'message': $(this).parent().parent().parent().prev().children('p').children('textarea').val()
+                },
+                dataType: 'json',
+                url: 'http://www.bananatrip.cn/post/num',
+                success: function (obj) {
+                    $(".data").html('发帖：' + obj)
+                },
+                error: function (obj) {
+                }
+            });
+
+            $.ajax({
+                type: 'post',
+                data: {'suid': 'id'},
+                dataType: 'json',
+                url: 'http://www.bananatrip.cn/user/friend',
+                success: function (obj) {
+                    console.log(obj);
+                    obj.map(function (value, index, array) {
+                        var string = '<a href="talk.html?id=' + value["friend_id"] + '"><div class="item item-avatar"><img src="' + value["user_images"] + '"><span class="friendname">' + value["user_name"] + '</span><i class="badge">' + value["num"] + '</i></div></a>';
+                        $('#frind_list').append(string);
+                    });
+                },
+                error: function (obj) {
+
+                }
+            })
+
+
+        });
+        function formatDate(num) {
+            var now = new Date(num);
+            var year = now.getYear();
+            var month = now.getMonth() + 1;
+            var date = now.getDate();
+            var hour = now.getHours();
+            var minute = now.getMinutes();
+            var second = now.getSeconds();
+            //2017-04-17 18:27
+            return year + "-" + month + "-" + date + ' ' + hour + ":" + minute
+        }
+    </script>
+
+
+</body>
+</html>

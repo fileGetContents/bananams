@@ -1,0 +1,127 @@
+*{
+	margin: 0;
+	padding: 0;
+	font-size: 0.9rem;
+}
+.content{
+	width: 100%;
+	height: 100%;
+   background-color:#f8f8f8;;
+}
+.moneybg{
+	width: 100%;
+	height: 190px;
+	background-color:#FFFFFF;
+	text-align: center;
+	padding-top: 30px;
+	margin-top: 44px;
+}
+.moneybg p{
+	margin-top: 10px;
+	margin-bottom: 5px;
+	
+}
+.save{
+	width: 90%;
+	background-color:#FFAF15;
+	height: 40px;
+	margin-left: 5%;
+	border:0;
+	border-radius: 5px;
+	color: white;
+	margin-top: 10px;
+}
+.light{
+	color: #FFFFFF;
+}
+.popup {
+    pointer-events: auto;
+}
+.popup {
+    width: 100%;
+    /* max-width: 100%; */
+    /* max-height: 90%; */
+    border-radius: 0px;
+    background-color: rgba(255, 255, 255, 0.9);
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-direction: normal;
+    -webkit-box-orient: vertical;
+    -webkit-flex-direction: column;
+    -moz-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+.popup-head {
+    padding: 15px 10px;
+    border-bottom: 1px solid #eee;
+    text-align: center;
+}
+.popup-title {
+    margin: 0;
+    padding: 0;
+    font-size: 15px;
+}
+.popup-sub-title {
+    margin: 5px 0 0 0;
+    padding: 0;
+    font-weight: normal;
+    font-size: 11px;
+}
+.popup-body {
+    padding: 10px;
+    overflow: auto;
+}
+input{
+	width: 100%;
+    display: block;
+    padding-top: 2px;
+    padding-left: 0;
+    height: 34px;
+    color: #111;
+    vertical-align: middle;
+    font-size: 14px;
+    line-height: 16px;
+    outline: none;
+}
+.popup-buttons {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-direction: normal;
+    -webkit-box-orient: horizontal;
+    -webkit-flex-direction: row;
+    -moz-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    padding: 10px;
+    min-height: 65px;
+}
+.popup-buttons .button {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -moz-box-flex: 1;
+    -moz-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    display: block;
+    min-height: 45px;
+    border-radius: 2px;
+    line-height: 20px;
+    margin-right: 5px;
+}
+.popup-buttons .button:last-child {
+    margin-right: 0px;
+}
+.button.button-energized {
+    border-color: #e6b400;
+    background-color: #ffc900;
+    color: #fff;
+}

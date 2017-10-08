@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no,width=device-width">
+    <meta charset="UTF-8">
+    <title></title>
+    <link href="../css/foot.css" rel="stylesheet">
+    <link href="../css/head.css" rel="stylesheet">
+    <link href="../css/small.css" rel="stylesheet">
+    <link href="../css/bootstrap.css" rel="stylesheet">
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="foot">
+    <a class="foot-tab" href="start.html"><img src="../img/ion/start.png">
+        <p>首页</p></a>
+    <a class="foot-tab " href="friend.html"><img src="../img/ion/friend2.png">
+        <p>社区</p></a>
+    <a class="foot-tab " href="home.html"><img src="../img/ion/home2.png">
+        <p>小店</p></a>
+    <a class="foot-tab " href="person.html"><img src="../img/ion/my2.png">
+        <p>我的</p></a>
+</div>
+<ion-header-bar class="stable-bg bar bar-header" align-title="center">
+    <button class="button " onclick="history.go(-1)">
+        <i class="icon ion-android-arrow-back"></i>
+				<span class="back-text">
+				<img src="../img/ion/return.png">
+				</span>
+    </button>
+
+    <div class="title title-center header-item" style="left: 15px; right: 15px;">出境</div>
+</ion-header-bar>
+<div class="content">
+    <div class="header">
+        <select name="city" ng-model="vm.pace">
+            <option value="成都">成都</option>
+            <option value="上海">上海</option>
+            <option value="成都">成都</option>
+            <option value="新疆">新疆</option>
+            <option value="四川">四川</option>
+            <option value="北京">北京</option>
+            <option value="云南">云南</option>
+            <option value="甘肃">甘肃</option>
+            <option value="贵州">贵州</option>
+            <option value="西安">西安</option>
+        </select>
+        <div class="find3"><input type="text" placeholder="世界那么大，你想去哪儿"/><img src="../img/find.png" class="find_pace">
+        </div>
+    </div>
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <!-- 轮播（Carousel）指标 -->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+        <!-- 轮播（Carousel）项目 -->
+        <div class="carousel-inner" style="height:150px;">
+            <div class="item active">
+                <img src="../img/find.jpg" alt="First slide">
+            </div>
+            <div class="item">
+                <img src="../img/hotel4.jpeg" alt="Second slide">
+            </div>
+            <div class="item">
+                <img src="../img/hotel8.jpeg" alt="Third slide">
+            </div>
+        </div>
+
+    </div>
+    <div class="title2"><p>- - 精选路线 - -</p></div>
+
+    <ul class="list">
+        <!--<a href="activedetails.html">-->
+            <!--<li class="item item-thumbnail-left">-->
+                <!--<img src="">-->
+                <!--<p>北京-香港4天3晚自由行</p>-->
+                <!--<p class="list-price"><span class="RMB">RMB </span><span class="bigprice">1479</span><span-->
+                        <!--class="qi">起 </span></p>-->
+
+            <!--</li>-->
+        <!--</a>-->
+        <!--<li class="item item-thumbnail-left">-->
+            <!--<img src="">-->
+            <!--<p>北京-香港4天3晚自由行</p>-->
+            <!--<p class="list-price"><span class="RMB">RMB </span><span class="bigprice">1479</span><span-->
+                    <!--class="qi">起 </span></p>-->
+
+        <!--</li>-->
+
+        <!--<li class="item item-thumbnail-left">-->
+            <!--<img src="">-->
+            <!--<p>北京-香港4天3晚自由行</p>-->
+            <!--<p class="list-price"><span class="RMB">RMB </span><span class="bigprice">1479</span><span-->
+                    <!--class="qi">起 </span></p>-->
+        <!--</li>-->
+        <!--<li class="item item-thumbnail-left">-->
+            <!--<img src="">-->
+            <!--<p>北京-香港4天3晚自由行</p>-->
+            <!--<p class="list-price"><span class="RMB">RMB </span><span class="bigprice">1479</span><span-->
+                    <!--class="qi">起 </span></p>-->
+
+        <!--</li>-->
+    </ul>
+    <div class="more">
+        加载更多>>
+    </div>
+
+
+</div>
+<script>
+    $(document).ready(function () {
+        $('#myCarousel').carousel({interval: 2000});//每隔5秒自动轮播
+    });
+
+    $(function () {
+        var city = $("select[name=city]").val();
+        var skip = 0;
+        // 默认加载
+        $.ajax({
+            type: 'post',
+            data: {
+                'like': $('input[type=text]').val(),
+                'skip': skip,
+                'pace': $('select[name=city]').val(),
+                'classify': 30
+            },
+            dataType: 'json',
+            url: 'http://www.bananatrip.cn/banana/LikeName',
+            success: function (obj) {
+                obj.map(function (value, index, array) {
+                    var sift_t = '<a href="activedetails.html?id=' + obj[index]["travel_id"] + '"><li class="item item-thumbnail-left"><img src="' + obj[index]["travel_host_image"] + '"> <p>' + obj[index]["travel_name"] + '</p> <p class="list-price"><span class="RMB">RMB </span><span class="bigprice">' + obj[index]["travel_expense"] + '</span><spanclass="qi">起 </span></p></li></a>';
+                    $('.list').append(sift_t);
+                });
+            },
+            error: function (obj) {
+
+            }
+        });
+        // 加载更多
+        $('.more').click(function () {
+            $.ajax({
+                type: 'post',
+                data: {
+                    'like': $('input[type=text]').val(),
+                    'skip': skip + 5,
+                    'pace': $('select[name=city]').val(),
+                    'classify': 30
+                },
+                dataType: 'json',
+                url: 'http://www.bananatrip.cn/banana/LikeName',
+                success: function (obj) {
+                    obj.map(function (value, index, array) {
+                        var sift_t = '<a href="activedetails.html?id=' + obj[index]["travel_id"] + '"><li class="item item-thumbnail-left"><img src="' + obj[index]["travel_host_image"] + '"> <p>' + obj[index]["travel_name"] + '</p> <p class="list-price"><span class="RMB">RMB </span><span class="bigprice">' + obj[index]["travel_expense"] + '</span><spanclass="qi">起 </span></p></li></a>';
+                        $('.list').append(sift_t);
+                    });
+                },
+                error: function (obj) {
+
+                }
+            });
+        });
+        // 点击重新加载
+        $('.find_pace').click(function () {
+            skip = 0;
+            $('.list').empty();
+            $.ajax({
+                type: 'post',
+                data: {
+                    'like': $('input[type=text]').val(),
+                    'skip': skip,
+                    'pace': $('select[name=city]').val(),
+                    'classify': 30
+                },
+                dataType: 'json',
+                url: 'http://www.bananatrip.cn/banana/LikeName',
+                success: function (obj) {
+                    obj.map(function (value, index, array) {
+                        var sift_t = '<a href="activedetails.html?id=' + obj[index]["travel_id"] + '"><li class="item item-thumbnail-left"><img src="' + obj[index]["travel_host_image"] + '"> <p>' + obj[index]["travel_name"] + '</p> <p class="list-price"><span class="RMB">RMB </span><span class="bigprice">' + obj[index]["travel_expense"] + '</span><spanclass="qi">起 </span></p></li></a>';
+                        $('.list').append(sift_t);
+                    });
+                },
+                error: function (obj) {
+                }
+            });
+        })
+    })
+</script>
+</body>
+</html>

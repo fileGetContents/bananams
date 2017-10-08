@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no,width=device-width">
+    <meta charset="UTF-8">
+    <title></title>
+    <link href="../css/foot.css" rel="stylesheet">
+    <link href="../css/head.css" rel="stylesheet">
+    <link href="../css/ordermess.css" rel="stylesheet">
+    <script src="../js/jquery.min.js"></script>
+</head>
+<body>
+<ion-header-bar class="stable-bg bar bar-header" align-title="center">
+    <button class="button " onclick="history.go(-1)">
+        <i class="icon ion-android-arrow-back"></i>
+				<span class="back-text">
+				<img src="../img/ion/return.png">
+				</span>
+    </button>
+
+    <div class="title title-center header-item" style="left: 15px; right: 15px;">填写预订信息</div>
+</ion-header-bar>
+<div class="content">
+    <div class="message light-bg">
+        <p>【2017年 旅游快进 】亲子游巴拉巴拉 建行卡号地块骄傲好滴好滴继续</p>
+        <div><span>[情而不色]艺术是青涩的开始</span></div>
+    </div>
+    <div class="chosendate">出行日期:2017-08-25(周五)</div>
+    <div class="chuxin">出行人数</div>
+
+    <div class="chosentype light-bg">
+        <div class="catecenter">
+            <div class="peopletype mycolor">成人</div>
+            <em class='reduce' id="min2" onclick="minus2();">-</em>
+            <input type="number" id="text_box2" class="num" value="1"/>
+            <em class="increase" id="add2" onclick="add2();">+</em>
+        </div>
+        <div class="catecenter">
+            <div class="peopletype mycolor">儿童</div>
+            <em class='reduce' id="min3" onclick="minus3();">-</em>
+            <input type="number" id="text_box3" class="num" value="0"/>
+            <em class="increase" id="add3" onclick="add3();">+</em>
+        </div>
+
+    </div>
+
+    <div class="chuxin">联系人信息</div>
+    <form name="messageForm" novalidate>
+        <label class="item item-input">
+            <span class="input-label">姓名*</span>
+            <input type="text" placeholder="必填" name="pername" required>
+        </label>
+        <label class="item  item-input">
+            <span class="input-label">手机号*</span>
+            <input type="number" placeholder="必填,用于接收订单信息" name="tel" pattern="^1[3-9]\d{9}$" required>
+        </label>
+
+    </form>
+
+    <div class="chuxin">备注</div>
+    <div class="beizhubox light-bg">
+        <textarea class="beizhu"></textarea>
+    </div>
+    <div class="xuzhi">
+        <input type="checkbox" checked="checked">
+        <span>我已阅读并同意了
+            <span class="mycolor" onclick="showbox()">预订须知和合同范本</span>
+        </span>
+    </div>
+</div>
+<div class=" scroll-content">
+    <div class="scroll">
+        香蕉旅行网的线路大多数是商业化不浓，贴近原生态的。所以部分硬件设施不足。请带好一颗旅行者的新，宽容面对旅行中的一切，放下一切负担参与到每次开怀大笑中吧。
+        因交通阻塞，罢工天气飞机故障，航班取消祸根改时间等不可抗因素所致的额外费用，由乘客承担，果果因为不可抗力导致活动取消，费用将会在3-5个工作日退还到相应账户；
+        成功报名付款后，如果退出请在香蕉旅行app订单详情页申请退款，客服处理更快，可随时查看进度，或者发送短信“姓名+活动+退出人数+退出原因”退出成功后已收到回复短信为准，
+        请谅解!(注：杭州活动发送到1738297392729)周边游活动报名付款后，如不能参加，按照下列标准想旅行社支付业务损失费用：出发前3日及以上，支付旅游费用总额1%；出发德里克司法解释雷锋 的看剧复合大师咖啡壶
+        货到付款就是看菊花发的看
+        jhdsfks 淡粉色ifU盾和快递费对的地方大口径。备注旅游费用值优惠前价格函数的将发丝
+        地方健身房的看剧发货的哭声健康的恢复可适当快递费健康
+        金卡戴珊放得快快递费经典款
+        反对党看风景
+        放得开句电力局的看剧可染发剂看得见空格符合看得见高低DFS
+        少近点好是恐惧数控技术的看剧
+        dsfjlsf打飞机代理费
+        的分v打开
+        dfvkd分低V；发动机的积分的艰苦奋斗看剧空间大富科技是看得见反倒是叫你呢的看剧烦死了
+    </div>
+    <button class="xuzhiclose" onclick="closebox()">关闭</button>
+</div>
+<div class="footer">
+    <div class="totalprice mycolor light-bg">总额：￥3200</div>
+    <div class="buy_button3 light" id="payorder">提交订单</div>
+</div>
+<script src="../js/ordermess.js"></script>
+<script src="../js/jquery.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+//        $.ajax({
+//            data: {'telephone': $('#user').val(), 'pass': $('#password').val()},
+//            dataType: 'json',
+//            type: 'post',
+//            url: 'http://www.bananatrip.cn/is/login',
+//            success: function (obj) {
+//                console.log(obj);
+//                if (obj.info == 1) {
+//                   // window.location.href = 'http://www.bananatrip.cn/templates/start.html';
+//                }
+//            },
+//            error: function () {
+//            }
+//        });
+        // 产品名称
+        $.ajax({
+            type: 'post',
+            data: {'id': GetQueryString('id')},
+            dataType: 'json',
+            url: 'http://www.bananatrip.cn/banana/TravelInfo',
+            success: function (obj) {
+                console.log(obj);
+                $('.message').html('<p>' + obj['travel_name'] + '</p><div><span></span></div>');
+            },
+            error: function (obj) {
+
+            }
+        });
+
+        var price;
+        // 时间
+        $.ajax({
+            type: 'post',
+            data: {'id': GetQueryString('id')},
+            dataType: 'json',
+            url: 'http://www.bananatrip.cn/travel/time',
+            success: function (obj) {
+                console.log(obj);
+                obj.map(function (value, index, array) {
+                    if (value['info_id'] == GetQueryString('time_id')) {
+                        $('.chosendate').html('出行日期:' + formatDate(value['info_start']) + '(' + value['info_week'] + ')');
+                        price = value['info_expense'];
+                        $('.totalprice').html('总额：￥' + price)
+                    }
+                });
+
+
+            },
+            error: function (obj) {
+            }
+        });
+        $('.reduce').click(function () {
+            var ad = parseInt($('#text_box2').val());
+            var ch = parseInt($('#text_box3').val());
+            var pay = ad * price + ch / 2 * price;
+            $('.totalprice').html('总额：￥' + pay)
+        });
+
+        $('.increase').click(function () {
+            var ad = parseInt($('#text_box2').val());
+            var ch = parseInt($('#text_box3').val());
+            var pay = ad * price + ch / 2 * price;
+            $('.totalprice').html('总额：￥' + pay)
+        });
+
+
+        $("#text_box3").change(function () {
+            if ($(this).val() < 0) {
+                $(this).val(0)
+            }
+            var ad = parseInt($('#text_box2').val());
+            var ch = parseInt($('#text_box3').val());
+            var pay = ad * price + ch / 2 * price;
+            $('.totalprice').html('总额：￥' + pay)
+        });
+
+        $('#text_box2').change(function () {
+            if ($(this).val() <= 0) {
+                $(this).val(1);
+            }
+            var ad = parseInt($('#text_box2').val());
+            var ch = parseInt($('#text_box3').val());
+            var pay = ad * price + ch / 2 * price;
+            $('.totalprice').html('总额：￥' + pay)
+
+        });
+
+        // 添加订单
+        $('#payorder').click(function () {
+
+            var adg = parseInt($('#text_box2').val());
+            var chg = parseInt($('#text_box3').val());
+            var good_id = GetQueryString('id');
+            var time = GetQueryString('time_id');
+            var tel = $('input[name=tel]').val();
+            var pername = $('input[name=pername]').val();
+            var remark = $('.beizhu').val();
+            if (pername == '') {
+                alert('请填写姓名');
+                return false;
+            }
+            if (tel == '') {
+                alert('请填写电话号码');
+                return false
+            }
+
+            if (!(/1[3-9]\d{9}$/).test(tel)) {
+                alert('手机号格式不正确')
+            }
+            var payg = adg * price + adg / 2 * price;
+            $.ajax({
+                type: 'post',
+                data: {
+                    'adult': adg,
+                    'child': chg,
+                    'tel': tel,
+                    'remark': remark,
+                    'travel_id': good_id,
+                    'info_id': time,
+                    'name': pername,
+                    'price': payg
+                },
+                dataType: 'json',
+                url: 'http://www.bananatrip.cn/travel/order',
+                success: function (obj) {
+                    window.location.href = "http://www.bananatrip.cn/Home/Wxpay?order=" + obj.message + "&table=" + obj.table;
+                },
+                error: function () {
+                }
+            })
+        });
+
+
+    });
+
+    function GetQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+        var r = window.location.search.substr(1).match(reg); //获取url中"?"符后的字符串并正则匹配
+        var context = "";
+        if (r != null)
+            context = r[2];
+        reg = null;
+        r =
+                null;
+        return context == null || context == "" || context == "undefined" ? "" : context;
+    }
+
+
+    function formatDate(num) {
+        var now = new Date(num);
+        var year = now.getYear();
+        var month = now.getMonth() + 1;
+        var date = now.getDate();
+        var hour = now.getHours();
+        var minute = now.getMinutes();
+        var second = now.getSeconds();
+        return month + "-" + date
+    }
+
+</script>
+</body>
+</html>
+

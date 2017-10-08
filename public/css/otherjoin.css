@@ -1,0 +1,212 @@
+*{
+	margin: 0;
+	padding: 0;
+	color: #000000;
+	font-size: 0.9rem;
+}
+.content{
+
+	width: 100%;
+	height: 80%;
+	overflow: scroll;
+	float: left;
+	position: absolute;
+	margin-top: 44px;
+	
+
+}
+li{
+	list-style-type: none;
+}
+.list {
+    position: relative;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    padding-left: 0;
+    margin-bottom: 20px;
+}
+.list .item {
+    border-color: #ddd;
+    background-color: #fff;
+    color: #444;
+    position: relative;
+    z-index: 2;
+    display: block;
+    margin: -1px;
+    padding-right: 16px;
+    border-width: 1px;
+    border-style: solid;
+    font-size: 12px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.item-avatar-left{
+    padding-left: 72px;
+    min-height: 52px;
+}
+.item-avatar-left > img{
+    position: absolute;
+    top: 10px;
+    left: 16px;
+    max-width: 40px;
+    max-height: 40px;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+.left1{
+	float: left;
+}
+.describe{
+    margin-top: -20px;
+    font-size: 0.7rem;
+    color: #66667A;
+    padding:5px 30px 5px 30px;
+
+}
+.container{
+    width: 80%;
+    height: auto;
+    margin: auto;
+}
+.container>ul{
+    height: auto;width: 100%;
+}
+.container>ul>li{
+    float: left;
+    width: 33%;
+    height: 50px;
+}
+.container>ul>li>img{
+    width: 95%;
+    height: 95%;
+    margin: auto;
+}
+.zan-bg{
+    position: relative;
+    width: 100%;
+    height: 1.8rem;
+    margin-top: 10px;
+    float: left;
+    border-top:0.1rem solid rgba(218,218,218,0.5);
+}
+.zan-bg img{
+    margin-top: 0.3rem;
+    float: left;
+   
+}
+.zan-bg  span{
+    font-size: 0.8rem;
+  margin-top: 0.8rem;
+    line-height: 0.3rem;
+    float: left;
+    margin-left: 0.1rem;
+    color: #5e5e5e;
+}
+.zhuan{
+	margin-left: 10px;
+	
+}
+.zhuan>img{
+	width: 20px;
+	height: 20px;
+	margin-left: 5%;
+}
+.pinglun{
+	width: auto;
+	height: auto;
+	display: inline-block;
+}
+.pinglun >span{
+	float: left;
+	text-align: center;
+	margin-left: 33%;
+	position: absolute;
+	margin-top: 0;
+}
+.pinglun >span>span{
+	float: right;
+	margin: 0 0 0 5px;
+}
+.pinglun>img{
+    position: absolute;
+    top:0;
+    left: 44%;
+    width: 20px;
+	height: 20px;
+}
+.post_img{
+	
+	width: 100%;
+	height: auto;
+	margin-bottom: 10px;
+}
+.post_img img{
+	width: 100%;
+	height: 100%;
+}
+.post_list{
+	width: 90%;
+	float: right;
+	border-bottom: 0.1rem solid #DADADA;
+	height:50px ;
+	position: relative;
+	
+	
+}
+.post_list>img{
+	width: 40px;
+	height: 40px;
+	padding-right: 5px;
+	float: left;
+	padding-top: 5px;
+	position: relative;
+}
+.post_mess{
+	float: left;
+}
+.mess{
+	
+	font-size: 0.6rem;
+	color: #7A7A7A;
+}
+.date{
+    color: #8f8f8f;
+    
+}
+.bg5{
+	 width: 100%;
+    height: 1.7rem;
+    background-color:rgba(240,240,240,0.7);
+    float: left;
+    text-align: center;
+    line-height: 1.7rem;
+}
+.list_banner{
+	padding-left: 10px;
+}
+.list_banner>img{
+	margin-top: 18px;
+	width: 20px;
+	height: 20px;
+	float: left;
+}
+.rightzan{
+	position: absolute;
+	top:10px;
+	right: 10px;
+}
+.zan{
+    position: absolute;
+    top:0;
+    left: 78%;
+}
+.zan>img{
+	width: 20px;
+	height: 20px;
+}
+.rightzan img{
+	width: 20px;
+	height: 20px;
+}

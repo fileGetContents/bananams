@@ -1,0 +1,557 @@
+{
+	"index.html": {
+		"resources": [
+			"img/lunbo2.jpeg",
+			"css/index.css",
+			"css/ionic-v1.3.3/css/ionic.css",
+			"templates/login.html",
+			"css/ionic-v1.3.3/js/ionic.bundle.js",
+			"img/lunbo3.jpeg",
+			"img/lunbo1.jpeg"
+		],
+		"refer": [
+			"templates/login.html"
+		]
+	},
+	"templates/login.html": {
+		"resources": [
+			"img/weixing.png",
+			"img/ion/per.png",
+			"img/ion/mima.png",
+			"css/register.css",
+			"css/head.css",
+			"css/foot.css",
+			"templates/start.html",
+			"templates/login.html",
+			"templates/register.html"
+		],
+		"refer": [
+			"templates/start.html",
+			"templates/login.html",
+			"templates/register.html"
+		]
+	},
+	"templates/start.html": {
+		"resources": [
+			"img/s4.jpg",
+			"img/s2.jpg",
+			"js/jquery.min.js",
+			"img/ion/home2.png",
+			"img/ion/my2.png",
+			"img/hotel8.jpeg",
+			"img/s5.jpg",
+			"img/tibet-8.jpg",
+			"img/find.jpg",
+			"img/ion/ion4.png",
+			"css/index.css",
+			"css/bootstrap.css",
+			"img/ion/friend2.png",
+			"img/hotel4.jpeg",
+			"img/s3.jpg",
+			"img/s1.jpg",
+			"img/s7.jpg",
+			"img/ion/ion3.png",
+			"js/bootstrap.min.js",
+			"css/foot.css",
+			"img/s.jpg",
+			"img/ion/ion1.png",
+			"img/ion/start.png",
+			"img/ion/ion2.png",
+			"templates/small.html",
+			"templates/friend.html",
+			"templates/person.html",
+			"templates/abroad.html",
+			"templates/outdoor.html",
+			"templates/live.html"
+		],
+		"refer": [
+			"templates/small.html",
+			"templates/friend.html",
+			"templates/person.html",
+			"templates/abroad.html",
+			"templates/outdoor.html",
+			"templates/live.html"
+		]
+	},
+	"templates/small.html": {
+		"resources": [
+			"img/ion/return.png",
+			"css/bootstrap.css",
+			"js/jquery.min.js",
+			"js/bootstrap.min.js",
+			"css/small.css",
+			"css/head.css",
+			"css/foot.css",
+			"img/find.png",
+			"templates/activedetails.html",
+			"templates/start.html",
+			"templates/home.html",
+			"templates/friend.html"
+		],
+		"refer": [
+			"templates/activedetails.html",
+			"templates/start.html",
+			"templates/home.html",
+			"templates/friend.html"
+		]
+	},
+	"templates/activedetails.html": {
+		"resources": [
+			"img/shuoming.png",
+			"img/date.png",
+			"js/jquery.min.js",
+			"img/mudi.png",
+			"img/4.jpg",
+			"img/xingchen.png",
+			"css/head.css",
+			"img/dizhi2.png",
+			"img/feiyong.png",
+			"css/activedetails.css",
+			"css/bootstrap.css",
+			"img/2.jpg",
+			"js/activedetails.js",
+			"img/top.png",
+			"img/1.jpg",
+			"img/kefu.png",
+			"js/jquery.panelslider.min.js",
+			"js/bootstrap.min.js",
+			"css/foot.css",
+			"img/3.jpg",
+			"templates/small.html",
+			"templates/ordermess.html",
+			"templates/live.html"
+		],
+		"refer": [
+			"templates/small.html",
+			"templates/ordermess.html",
+			"templates/live.html"
+		]
+	},
+	"templates/home.html": {
+		"resources": [
+			"css/home.css",
+			"css/bootstrap.css",
+			"img/post5.jpg",
+			"js/jquery.min.js",
+			"img/ion/fenlei.png",
+			"img/ion/zhuanti.png",
+			"img/post1.jpg",
+			"img/ion/home.png",
+			"js/bootstrap.min.js",
+			"img/ion/new.png",
+			"css/head.css",
+			"css/foot.css",
+			"templates/friend.html",
+			"templates/person.html",
+			"templates/small.html",
+			"img/ion/start2.png",
+			"templates/home-class.html",
+			"templates/home-special.html",
+			"img/hotel8.jpeg",
+			"img/find.jpg",
+			"img/ion/friend2.png",
+			"img/hotel4.jpeg",
+			"img/find.png",
+			"templates/details.html"
+		],
+		"refer": [
+			"templates/friend.html",
+			"templates/person.html",
+			"templates/small.html",
+			"templates/home-class.html",
+			"templates/home-special.html",
+			"templates/details.html"
+		]
+	},
+	"templates/friend.html": {
+		"resources": [
+			"img/thumbnails/tibet-4.jpg",
+			"img/face/26.gif",
+			"img/zan.png",
+			"css/head.css",
+			"img/ion/start2.png",
+			"img/face/9.gif",
+			"img/face/6.gif",
+			"css/friend.css",
+			"img/add.png",
+			"css/viewer.css",
+			"img/thumbnails/tibet-1.jpg",
+			"img/face/4.gif",
+			"js/main.js",
+			"img/face/12.gif",
+			"img/face/27.gif",
+			"img/thumbnails/tibet-2.jpg",
+			"img/face/8.gif",
+			"img/face/29.gif",
+			"img/thumbnails/tibet-8.jpg",
+			"img/face/1.gif",
+			"img/2.jpg",
+			"img/ion/friend.png",
+			"img/face/2.gif",
+			"img/face/13.gif",
+			"img/face/18.gif",
+			"img/face/19.gif",
+			"img/face/0.gif",
+			"img/smile.png",
+			"img/face/16.gif",
+			"js/index.js",
+			"templates/home.html",
+			"img/face/10.gif",
+			"img/face/11.gif",
+			"img/face/21.gif",
+			"img/pinglun.png",
+			"img/4.jpg",
+			"img/face/20.gif",
+			"img/tongxunlu.png",
+			"img/thumbnails/tibet-5.jpg",
+			"img/face/17.gif",
+			"img/face/5.gif",
+			"img/face/15.gif",
+			"img/face/22.gif",
+			"js/jquery.panelslider.min.js",
+			"css/foot.css",
+			"img/face/14.gif",
+			"js/viewer.js",
+			"img/thumbnails/tibet-3.jpg",
+			"img/face/3.gif",
+			"img/thumbnails/tibet-9.jpg",
+			"js/jquery.min.js",
+			"img/face/7.gif",
+			"img/face/23.gif",
+			"img/face/24.gif",
+			"img/details3.JPG",
+			"img/zhuanfa.png",
+			"img/1.jpg",
+			"img/face/28.gif",
+			"img/thumbnails/tibet-6.jpg",
+			"img/thumbnails/tibet-7.jpg",
+			"img/3.jpg",
+			"templates/sendpost.html",
+			"templates/start.html"
+		],
+		"refer": [
+			"templates/home.html",
+			"templates/sendpost.html",
+			"templates/start.html"
+		]
+	},
+	"templates/person.html": {
+		"resources": [
+			"img/dingdan.png",
+			"img/ion/my.png",
+			"css/bootstrap.css",
+			"js/jquery.min.js",
+			"css/person.css",
+			"img/start_bg.jpg",
+			"img/ion/bag.png",
+			"img/kefu.png",
+			"img/arr_rt.png",
+			"img/message.png",
+			"js/bootstrap.min.js",
+			"css/head.css",
+			"css/foot.css",
+			"img/dingzhi.png",
+			"img/ion/order.png",
+			"templates/order.html",
+			"img/3.jpg",
+			"templates/home.html",
+			"templates/login.html",
+			"templates/friend.html",
+			"img/ion/start2.png",
+			"img/ion/home2.png",
+			"templates/moneybag.html",
+			"img/ion/friend2.png",
+			"templates/made.html",
+			"templates/message.html"
+		],
+		"refer": [
+			"templates/order.html",
+			"templates/home.html",
+			"templates/login.html",
+			"templates/friend.html",
+			"templates/moneybag.html",
+			"templates/made.html",
+			"templates/message.html"
+		]
+	},
+	"templates/order.html": {
+		"resources": [
+			"js/order.js",
+			"css/order.css",
+			"css/head.css",
+			"css/foot.css",
+			"templates/pay.html",
+			"img/ion/my.png",
+			"templates/person.html",
+			"img/1.jpg",
+			"img/ion/start2.png"
+		],
+		"refer": [
+			"templates/pay.html",
+			"templates/person.html"
+		]
+	},
+	"templates/pay.html": {
+		"resources": [
+			"css/pay.css",
+			"img/paybag.png",
+			"css/head.css",
+			"templates/order.html",
+			"templates/ordermess.html",
+			"templates/hotelorder.html"
+		],
+		"refer": [
+			"templates/order.html",
+			"templates/ordermess.html",
+			"templates/hotelorder.html"
+		]
+	},
+	"templates/home-class.html": {
+		"resources": [
+			"css/home-class.css",
+			"templates/all.html",
+			"templates/home.html"
+		],
+		"refer": [
+			"templates/all.html",
+			"templates/home.html"
+		]
+	},
+	"templates/all.html": {
+		"resources": [
+			"templates/home-class.html",
+			"templates/home-special.html",
+			"css/home-class.css"
+		],
+		"refer": [
+			"templates/home-class.html",
+			"templates/home-special.html"
+		]
+	},
+	"templates/home-special.html": {
+		"resources": [
+			"templates/home.html",
+			"templates/all.html",
+			"css/home-special.css"
+		],
+		"refer": [
+			"templates/home.html",
+			"templates/all.html"
+		]
+	},
+	"templates/register.html": {
+		"resources": [
+			"img/ion/yanzheng.png",
+			"js/jquery.min.js",
+			"js/register.js",
+			"templates/login.html"
+		],
+		"refer": [
+			"templates/login.html"
+		]
+	},
+	"templates/ordermess.html": {
+		"resources": [
+			"js/ordermess.js",
+			"css/ordermess.css",
+			"templates/activedetails.html",
+			"templates/pay.html"
+		],
+		"refer": [
+			"templates/activedetails.html",
+			"templates/pay.html"
+		]
+	},
+	"templates/sendpost.html": {
+		"resources": [
+			"img/pic.png",
+			"css/sendpost.css",
+			"templates/home.html",
+			"js/jquery.min.js",
+			"js/index.js",
+			"templates/friend.html"
+		],
+		"refer": [
+			"templates/home.html",
+			"templates/friend.html"
+		]
+	},
+	"templates/outdoor.html": {
+		"resources": [
+			"css/small.css",
+			"templates/start.html"
+		],
+		"refer": [
+			"templates/start.html"
+		]
+	},
+	"templates/abroad.html": {
+		"resources": [
+			"css/bootstrap.css",
+			"js/jquery.min.js",
+			"js/bootstrap.min.js",
+			"css/small.css",
+			"img/find.png",
+			"templates/start.html"
+		],
+		"refer": [
+			"templates/start.html"
+		]
+	},
+	"templates/live.html": {
+		"resources": [
+			"templates/activedetails.html",
+			"css/small.css",
+			"css/bootstrap.css",
+			"js/jquery.min.js",
+			"js/bootstrap.min.js",
+			"templates/hotel.html",
+			"img/find.png",
+			"templates/start.html",
+			"img/ion/return.png",
+			"css/head.css",
+			"css/foot.css"
+		],
+		"refer": [
+			"templates/activedetails.html",
+			"templates/hotel.html",
+			"templates/start.html"
+		]
+	},
+	"templates/hotel.html": {
+		"resources": [
+			"js/dhtmlgoodies_calendar/dhtmlgoodies_calendar.js",
+			"img/hotel1.jpeg",
+			"css/hotel.css",
+			"img/hotel5.jpeg",
+			"js/hotel.js",
+			"img/phone.png",
+			"img/dizhiicon.png",
+			"img/hotel3.jpeg",
+			"img/mmexport.png",
+			"img/map.png",
+			"img/hotel2.jpeg",
+			"img/hotel6.jpeg",
+			"js/dhtmlgoodies_calendar/dhtmlgoodies_calendar.css",
+			"css/bootstrap.css",
+			"js/jquery.min.js",
+			"js/bootstrap.min.js",
+			"templates/live.html",
+			"img/date.png",
+			"css/head.css",
+			"img/dizhi2.png",
+			"css/foot.css",
+			"templates/hotelorder.html",
+			"templates/person.html",
+			"img/hotel8.jpeg",
+			"img/ion/home2.png",
+			"img/find.jpg",
+			"img/ion/friend2.png",
+			"img/hotel4.jpeg",
+			"img/ion/my2.png",
+			"img/ion/start.png",
+			"img/close_over.png",
+			"img/down_over.png",
+			"img/left.png",
+			"img/right.png",
+			"templates/friend.html"
+		],
+		"refer": [
+			"templates/live.html",
+			"templates/hotelorder.html",
+			"templates/person.html",
+			"templates/friend.html"
+		]
+	},
+	"templates/hotelorder.html": {
+		"resources": [
+			"js/jquery.min.js",
+			"css/hotelorder.css",
+			"css/head.css",
+			"css/foot.css",
+			"templates/pay.html",
+			"templates/hotel.html"
+		],
+		"refer": [
+			"templates/pay.html",
+			"templates/hotel.html"
+		]
+	},
+	"templates/details.html": {
+		"resources": [
+			"js/details.js",
+			"css/bootstrap.css",
+			"js/jquery.min.js",
+			"css/details.css",
+			"img/close.png",
+			"js/bootstrap.min.js",
+			"img/details2.JPG",
+			"img/details4.JPG",
+			"img/right.png",
+			"img/details1.JPG",
+			"templates/payorder.html"
+		],
+		"refer": [
+			"templates/payorder.html"
+		]
+	},
+	"templates/payorder.html": {
+		"resources": [
+			"img/del.png",
+			"css/bootstrap.css",
+			"js/jquery.min.js",
+			"css/payorder.css",
+			"img/jia.png",
+			"js/bootstrap.min.js",
+			"img/dizhi.png",
+			"js/payorder.js",
+			"templates/addplace.html"
+		],
+		"refer": [
+			"templates/addplace.html"
+		]
+	},
+	"templates/addplace.html": {
+		"resources": [
+			"css/addplace.css",
+			"js/area.js",
+			"templates/payorder.html",
+			"templates/person.html"
+		],
+		"refer": [
+			"templates/payorder.html",
+			"templates/person.html"
+		]
+	},
+	"templates/moneybag.html": {
+		"resources": [
+			"css/moneybag.css",
+			"img/pig.png",
+			"css/bootstrap.css",
+			"templates/moneybag.html",
+			"templates/person.html"
+		],
+		"refer": [
+			"templates/moneybag.html",
+			"templates/person.html"
+		]
+	},
+	"templates/made.html": {
+		"resources": [
+			"templates/person.html",
+			"css/home-class.css",
+			"css/foot.css",
+			"img/find.jpg"
+		],
+		"refer": [
+			"templates/person.html"
+		]
+	},
+	"templates/message.html": {
+		"resources": [
+			"js/message.js",
+			"css/message.css",
+			"js/register.js"
+		]
+	}
+}

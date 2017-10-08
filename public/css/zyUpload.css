@@ -1,0 +1,139 @@
+@CHARSET "UTF-8"; 
+form{ font-size:84%; margin:0; line-height:1.5; color:#333; font-family:Arial, sans-serif;}
+a{color:#34538b; text-decoration:none;}a:hover{text-decoration:underline;}
+
+.upload_box{ margin:1em auto;}
+.upload_main{border-width:1px 1px 2px; border-style:solid; border-color:#ccc #ccc #ddd; background-color:#fbfbfb;}
+.upload_choose{padding:1em;}
+.upload_drag_area{display:inline-block; width:63%; padding:4em 0; margin-left:.5em; border:1px dashed #ddd; background:#fff no-repeat 20px center; color:#999; text-align:center; vertical-align:middle;}
+.upload_drag_hover{border-color:#069; box-shadow:inset 2px 2px 4px rgba(0, 0, 0, .5); color:#333;}
+.upload_preview{border-top:1px solid #D2D2D2; border-bottom:1px solid #bbb; background-color:#fff; overflow:hidden; _zoom:1;}
+.upload_append_list{height:100%; margin:1em; float:left; position:relative;}
+.upload_append_list:hover{cursor:pointer;}
+.upload_delete{margin-left:2em;}
+.upload_image{/* max-height:135px; */ padding:0px;}
+
+.filePicker{
+    background-color:#F0F0F0 ;
+    cursor: pointer;
+    display: inline-block;
+    height: 44px;
+    width: 100%;
+
+}
+.filePicker img{
+	float: left;
+	margin-left: 5%;
+	margin-top: 5px;
+}
+.demo{
+	margin: auto;
+}
+.convent_choice{
+	float: left;
+    height: 130px;
+    width: 35%;
+}
+
+#fileImage{
+	display: none;
+}
+
+.status_bar{
+	border-top: 1px solid #DADADA;
+    height: 45px;
+    line-height: 45px;
+    padding: 0 10px;
+    position: relative;
+    vertical-align: middle;
+    background-color: #FFFFFF;
+}
+.info{
+	float:left;
+	color:#666666;
+	display: inline-block;
+}
+.btns{
+	position: absolute;
+	right: 16px;
+	line-height: 30px;
+    top: 6px;
+}
+
+
+/* 每个图片上的操作bar */
+.file_bar{
+	margin: 0;
+    left: 0px;
+    right: 0px;
+    position: absolute;
+    top: 0px;
+    height:0px;
+    padding:0px;
+    margin: 0;
+    opacity: 0.8;
+    color:#fff;
+    background: none repeat scroll 0 0 #000000;
+    transition: all 0.5s;
+	-moz-transition: all 0.5s;
+	-webkit-transition: all 0.5s;
+	-o-transition: all 0.5s;
+	overflow: hidden;
+}
+.file_bar a{
+	color: #FFFFFF;
+    position: absolute;
+    right: 10px;
+}
+.file_hover{
+	height:30px;
+	cursor:pointer;
+}
+.uploadImg{
+	margin:0px;
+	height: 60px;
+	overflow: hidden;
+}
+
+.file_name{
+	margin:0px;
+	white-space: nowrap;
+    width: 66%;                  /* IE6 需要定义宽度 */
+    overflow: hidden;            
+    -o-text-overflow: ellipsis;    /* Opera */
+    text-overflow:    ellipsis;    /* IE, Safari (WebKit) */
+    float: left;
+}
+
+.file_del{
+	background: url("../img/delete_white.png") no-repeat scroll 0 0 transparent;
+	width:18px;
+	height:18px;
+	display: inline;
+	-moz-user-select: none;
+	position: absolute;
+	right:3px;
+	margin-top:4px;
+}
+.file_del:hover{
+	background: url("../img/delete_blue.png") no-repeat scroll 0 0 transparent;
+}
+
+/* 设置图片等比例缩放 并且垂直居中*/
+
+.uploadImg {
+	margin: auto;
+}
+.uploadImg img{
+	border:none;	
+	width:60px;
+	height: auto!important;
+}
+				
+
+
+
+
+
+
+

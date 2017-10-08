@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no,width=device-width">
+    <meta charset="UTF-8">
+    <title></title>
+    <link href="../css/foot.css" rel="stylesheet">
+    <link href="../css/head.css" rel="stylesheet">
+    <link href="../css/hotelorder.css" rel="stylesheet">
+    <script src="../js/jquery.min.js"></script>
+</head>
+<body>
+<ion-header-bar class="stable-bg bar bar-header" align-title="center">
+    <button class="button " onclick="history.go(-1)">
+        <i class="icon ion-android-arrow-back"></i>
+				<span class="back-text">
+				<img src="../img/ion/return.png">
+				</span>
+    </button>
+
+    <div class="title title-center header-item" style="left: 15px; right: 15px;">下单</div>
+</ion-header-bar>
+<div class="content">
+    <div class="message light-bg">
+        <p>温泉酒店别墅屋</p>
+        <p><span>2017/07/26入住2017/07/27离店 1晚</span></p>
+    </div>
+    <p class="explaintit" style="margin-top: 10px;">填写信息</p>
+
+    <div class="card">
+        <form name="hotelForm" novalidate>
+            <label class="item  item-input">
+                <span class="input-label">房间数</span>
+                <select name="num">
+                    <option value="1">1间</option>
+                    <option value="2">2间</option>
+                    <option value="3">3间</option>
+                </select>
+            </label>
+            <label class="item  item-input">
+                <span class="input-label">入住人</span>
+                <input type="text" placeholder="联系人姓名" name="person" required ng-minlength="1" ng-model="user.person">
+            </label>
+            <label class="item  item-input">
+                <span class="input-label">手机号</span>
+                <input type="number" placeholder="联系人手机号" name="number" required ng-minlength="11" ng-maxlength="11"
+                       ng-model="user.number">
+            </label>
+            <label class="item item-input">
+                <span class="input-label">备注</span>
+                <input type="text" placeholder="选填，您对房间的特殊要求" name="beizhu">
+            </label>
+            <label class="item item-input">
+                <span class="input-label">总价</span>
+                <span price="" class="mycolor"> ￥1080元</span>
+            </label>
+        </form>
+    </div>
+    <p class="explaintit">下单说明</p>
+    <p class="explain">提交订单并成功支付后，商户将尽快确认是否接单，若商户拒单，支付款项及资金将原路返还至您的账户，到账时间以各支付渠道退款处理时间为准</p>
+    <p class="explaintit">退款政策</p>
+    <p class="explain" style="margin-bottom: 50px;">如果您需要退改订单，请至少提前7天，七天前课免费退改，7天内不在退改，尽请谅解</p>
+</div>
+<a href_ture="pay.html" href="#">
+    <button class=" order_foot2 " href="pay.html">
+        <div class="tijiao light">
+            提交
+        </div>
+        <div class="btnprice light">￥1100</div>
+    </button>
+</a>
+<script type="text/javascript">
+    $(function () {
+
+        $.ajax({
+            data: {'telephone': $('#user').val(), 'pass': $('#password').val()},
+            dataType: 'json',
+            type: 'post',
+            url: 'http://www.bananatrip.cn/is/login',
+            success: function (obj) {
+                if (obj.info == 0) {
+                    window.location.href = 'http://www.bananatrip.cn/templates/start.html';
+                }
+            },
+            error: function () {
+            }
+        });
+
+
+        var pice = '';
+        $('.message > p').eq(1).html('<span>' + GetQueryString('theDate') + '入住' + GetQueryString('theDate2') + '</span>');
+        $.ajax({
+            type: 'post',
+            data: {'id': GetQueryString('hotel_id')},
+            dataType: 'json',
+            url: 'http://www.bananatrip.cn/hotel/content',
+            success: function (obj) {
+                obj['room'].map(function (value, index, array) {
+                    if (value['room_id'] == GetQueryString('id')) {
+                        $('.mycolor').html("￥" + value['room_price'] + "元");
+                        $('.btnprice').html("￥" + value['room_price'] + "元");
+                        pice = value['room_price'];
+                    }
+                });
+            },
+            error: function (obj) {
+            }
+        });
+        $('select[name=num]').change(function () {
+            var new_pice = parseInt($(this).val()) * pice;
+            $('.mycolor').html("￥<span>" + new_pice + "</span>元");
+            $('.btnprice').html("￥<span>" + new_pice + "</span>元");
+        });
+
+        // 提交订单
+        $('.tijiao').click(function () {
+            var name = $('input[name=person]').val();
+            var number = $('input[name=number]').val();
+            if (name == '') {
+                alert('请填写联系人姓名');
+                return false;
+            }
+            if (number == '') {
+                alert('请填写电话号码');
+                return false;
+            } else if (!(/^1(3|4|5|7|8)\d{9}$/).test(number)) {
+                alert('手机格式错误');
+                return false;
+            }
+//            1	time_start	入住酒店时间	是	[int]		查看
+//            2	time_live	离开酒店时间	是	[int]		查看
+//            3	room_num	房间数目	是	[int]		查看
+//            4	name	名称	是	[string]		查看
+//            5	telephone	电话号码	是	[string]		查看
+//            6	remark	备注	是	[string]		查看
+//            7	hotel_id	酒店id	是	[int]		查看
+//            8	room_id	房间编号	是	[int]		查看
+//            9	pay	实际支付金额	是	[string]		查看
+//            10	price	总价	是	[string]
+
+            var pay = pice * parseInt($('select[name=num]').val());
+            $.ajax({
+                type: 'post',
+                data: {
+                    'time_start': GetQueryString('theDate'),
+                    'time_live': GetQueryString('theDate2'),
+                    'room_num': $('select[name=num]').val(),
+                    'name': $('input[name=person]').val(),
+                    'telephone': $('input[name=number]').val(),
+                    'remark': $('input[name=beizhu]').val(),
+                    'hotel_id': GetQueryString('hotel_id'),
+                    'room_id': GetQueryString('id'),
+                    'pay': pay,
+                    'price': pay
+                },
+                dataType: 'json',
+                url: 'http://www.bananatrip.cn/hotel/order',
+                success: function (obj) {
+//                    console.log(obj);
+                    if (obj.info == 0) {
+                        window.location.href = 'http://www.bananatrip.cn/Home/Wxpay?table=' + obj.table + '&order=' + obj.message
+                    }
+                },
+                error: function (obj) {
+
+
+                }
+            })
+
+
+        });
+
+    });
+
+    function GetQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+        var r = window.location.search.substr(1).match(reg); //获取url中"?"符后的字符串并正则匹配
+        var context = "";
+        if (r != null)
+            context = r[2];
+        reg = null;
+        r = null;
+        return context == null || context == "" || context == "undefined" ? "" : context;
+    }
+
+</script>
+</body>
+</html>
+
+
