@@ -241,10 +241,10 @@
 </head>
 <body>
 
-<script src="js/jquery.min.js" type="text/javascript"></script>
+<script src="{{URL('js/jquery.min.js')}}" type="text/javascript"></script>
 
 <div class="logo_box">
-    <h3>海投萬户,欢迎你</h3>
+    <h3>香蕉后台管理</h3>
     <div class="input_outer">
         <span class="u_user"></span>
         <input style="color: white" name="logname" class="text" id="text" placeholder="账号" type="text">

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no,width=device-width">
+    <meta charset="UTF-8">
+    <title>我的钱包</title>
+    <link href="../css/head.css" rel="stylesheet">
+    <link href="../css/moneybag.css" rel="stylesheet">
+    <link href="../css/bootstrap.css" rel="stylesheet">
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+</head>
+<body>
+<ion-header-bar class="stable-bg bar bar-header" align-title="center">
+    <button class="button " onclick="history.go(-1)">
+        <i class="icon ion-android-arrow-back"></i>
+				<span class="back-text">
+				<img src="../img/ion/return.png">
+				</span>
+    </button>
+    <div class="title title-center header-item" style="left: 15px; right: 15px;">我的钱包</div>
+</ion-header-bar>
+<div class="content">
+    <div class="moneybg">
+        <img src="../img/pig.png">
+        <p>余额: 0.00</p>
+    </div>
+    <button class="save light" data-toggle="modal" data-target="#mymodal">充值</button>
+</div>
+
+<div class="modal fade" id="mymodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="popup">
+                <div class="popup-head">
+                    <h3 class="popup-title ng-binding">微信支付</h3><!-- ngIf: subTitle -->
+                    <h5 class="popup-sub-title ng-binding">请输入充值金额</h5><!-- end ngIf: subTitle -->
+                </div>
+                <div class="popup-body">
+                    <input type="number" class="ng-pristine ng-valid ng-empty ng-touched" style="" required>
+                </div>
+                <div class="popup-buttons">
+                    <!-- ngRepeat: button in buttons -->
+                    <button class="button ng-binding button-default" data-dismiss="modal" aria-hidden="true">
+                        Cancel
+                    </button><!-- end ngRepeat: button in buttons -->
+                    <button class="button ng-binding button-energized" type="submit">
+                        <b>OK</b>
+                    </button><!-- end ngRepeat: button in buttons -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(function () {
+        $.ajax({
+            type: 'post',
+            data: {'telephone': '1525011'},
+            dataType: 'json',
+            url: 'http://www.bananatrip.cn/user/info',
+            success: function (obj) {
+                console.log(obj);
+                $('.moneybg > p').html("余额:" + obj.user_money);
+            },
+            error: function (obj) {
+                console.log(obj);
+            }
+        });
+
+        $('button[type=submit]').click(function () {
+            $.ajax({
+                type: 'post',
+                data: {'money': $('input[type=number]').val()},
+                dataType: 'json',
+                url: 'http://www.bananatrip.cn/create/user/order',
+                success: function (obj) {
+                    if (obj.info == 0) {
+                        window.location.href = 'http://www.bananatrip.cn/Home/Wxpay?table=' + obj.table + '&order=' + obj.message
+                    }
+                },
+                error: function (obj) {
+                }
+            })
+        })
+    })
+</script>
+</body>
+</html>

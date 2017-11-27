@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no,width=device-width">
+    <meta charset="UTF-8">
+    <title>个人中心</title>
+    <link href="../css/foot.css" rel="stylesheet">
+    <link href="../css/head.css" rel="stylesheet">
+    <link href="../css/other.css" rel="stylesheet">
+</head>
+<body>
+<div class="foot">
+    <a class="foot-tab" href="start.html"><img src="../img/ion/start2.png">
+        <p>首页</p></a>
+    <a class="foot-tab " href="friend.html"><img src="../img/ion/friend.png">
+        <p>社区</p></a>
+    <a class="foot-tab " href="home.html"><img src="../img/ion/home2.png">
+        <p>小店</p></a>
+    <a class="foot-tab " href="person.html"><img src="../img/ion/my2.png">
+        <p>我的</p></a>
+</div>
+<ion-header-bar class="stable-bg bar bar-header" align-title="center">
+    <button class="button " onclick="history.go(-1)">
+        <i class="icon ion-android-arrow-back"></i>
+				<span class="back-text">
+				<img src="../img/ion/return.png">
+				</span>
+    </button>
+    <div class="title title-center header-item" style="left: 15px; right: 15px;">发帖</div>
+</ion-header-bar>
+<div class="content">
+    <div class="light-bg ">
+        <ul class="list list-banner">
+            <li class="item item-avatar-left" style="border: 0;float: left;">
+                <img src="../img/1.jpg">
+                <h2 id="name">Stranger</h2>
+            </li>
+            <li class="attention light-bg">
+                <input type="button" class="button button-small button-positive btn" onclick="attention();" id="atten"
+                       value="关注TA">
+            </li>
+        </ul>
+    </div>
+    <ul class="TA light-bg">
+        <a class="other" href="#">
+            <li><img src="../img/pinglun.png" style="margin: 6px 5px 0 5px" width="20px" height="20px"></li>
+            <li style="color: #000000">TA的发帖</li>
+            <li class="rightli">2</li>
+            <li><img src="../img/pinglun.png" style="margin-top:6px;" width="20px" height="20px"></li>
+        </a>
+    </ul>
+    <!--<ul class="TA2 light-bg">-->
+        <!--<a class="other" href="#">-->
+            <!--<li><img src="../img/pinglun.png" style="margin: 6px 5px 0 5px" width="20px" height="20px"></li>-->
+            <!--<li style="color: #000000">TA的参与</li>-->
+            <!--<li class="rightli">2</li>-->
+            <!--<li><img src="../img/pinglun.png" style="margin-top:6px;" width="20px" height="20px"></li>-->
+        <!--</a>-->
+    <!--</ul>-->
+    <ul class="TA light-bg"><a id="talk" true_url="talk.html" href="">
+        <li><img src="../img/pinglun.png" style="margin: 6px 5px 0 5px" width="20px" height="20px"></li>
+        <li class="calm">和TA聊天</li>
+    </a></ul>
+</div>
+<script src="../js/other.js"></script>
+<script type="text/javascript" src="../js/jquery.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $.ajax({
+            type: 'post',
+            data: {'user_id': GetQueryString('id')},
+            dataType: 'json',
+            url: 'http://www.bananatrip.cn/user/all/post',
+            success: function (obj) {
+                $('.rightli').eq(0).html(obj.length)
+            },
+            error: function (obj) {
+
+            }
+        });
+        $.ajax({
+            type: 'post',
+            data: {'user_id': GetQueryString('id')},
+            dataType: 'json',
+            url: 'http://www.bananatrip.cn/user/join',
+            success: function (obj) {
+                $('.rightli').eq(1).html(obj.length)
+            },
+            error: function (obj) {
+
+            }
+        });
+        $.ajax({
+            type: 'post',
+            data: {'id': GetQueryString('id')},
+            dataType: 'json',
+            url: 'http://www.bananatrip.cn/user/info',
+            success: function (obj) {
+                console.log(obj);
+                $('#name').prev().attr('src', obj.user_images);
+                $('#name').html(obj.user_name)
+            },
+            error: function (obj) {
+            }
+        });
+        $('#atten').click(function () {
+            $.ajax({
+                type: 'post',
+                data: {'id': GetQueryString('id')},
+                dataType: 'json',
+                url: 'http://www.bananatrip.cn/add/friend',
+                success: function (obj) {
+
+                },
+                error: function (obj) {
+
+                }
+            });
+        });
+
+        // 验证跳转地址
+        $('#talk').attr('href', 'talk.html?id=' + GetQueryString('id'));
+        $('.other').eq(0).attr('href', 'otherpost.html?id=' + GetQueryString('id'));
+        $('.other').eq(1).attr('href', 'otherjoin.html?id=' + GetQueryString('id'));
+    });
+
+    function GetQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+        var r = window.location.search.substr(1).match(reg); //获取url中"?"符后的字符串并正则匹配
+        var context = "";
+        if (r != null)
+            context = r[2];
+        reg = null;
+        r = null;
+        return context == null || context == "" || context == "undefined" ? "" : context;
+    }
+</script>
+</body>
+
+</html>

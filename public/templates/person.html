@@ -1,100 +1,147 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no,width=device-width">
-		<meta charset="UTF-8">
-		<title></title>
-		<link  href="../css/foot.css" rel="stylesheet">
-		<link  href="../css/head.css" rel="stylesheet">
-		<link  href="../css/person.css" rel="stylesheet">
-		<link href="../css/bootstrap.css"rel="stylesheet">
-	    <script src="../js/jquery.min.js"></script>
-	    <script src="../js/bootstrap.min.js"></script>
-	</head>
-	<body>
-		<div class="foot">
-		<a class="foot-tab" href="start.html"><img src="../img/ion/start2.png"><p class="mycolor">首页</p></a>
-		<a class="foot-tab " href="friend.html"><img src="../img/ion/friend2.png"><p>社区</p></a>
-		<a class="foot-tab " href="home.html" ><img src="../img/ion/home2.png"><p>小店</p></a>
-		<a class="foot-tab " href="person.html"><img src="../img/ion/my.png"><p>我的</p></a>
-	   </div>	
-		<ion-header-bar class="stable-bg bar bar-header" align-title="center">
-		
-            <div class="title title-center header-item" style="left: 15px; right: 15px;">
-            	个人中心
+<head>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no,width=device-width">
+    <meta charset="UTF-8">
+    <title>个人中心</title>
+    <link href="../css/foot.css" rel="stylesheet">
+    <link href="../css/head.css" rel="stylesheet">
+    <link href="../css/person.css" rel="stylesheet">
+    <link href="../css/bootstrap.css" rel="stylesheet">
+
+</head>
+<body>
+<div class="foot">
+    <a class="foot-tab" href="start.html"><img src="../img/ion/start2.png">
+        <p class="mycolor">首页</p></a>
+    <a class="foot-tab " href="friend.html"><img src="../img/ion/friend2.png">
+        <p>社区</p></a>
+	 <a class="foot-tab " href="sendpost.html"><img src="../img/ion/fatie.png">
+            <p>发帖</p></a>
+    <a class="foot-tab " href="home.html"><img src="../img/ion/home2.png">
+        <p>小店</p></a>
+    <a class="foot-tab " href="person.html"><img src="../img/ion/my.png">
+        <p>我的</p></a>
+</div>
+<ion-header-bar class="stable-bg bar bar-header" align-title="center">
+    <div class="title title-center header-item" style="left: 15px; right: 15px;">
+        个人中心
+    </div>
+</ion-header-bar>
+<div class="content">
+    <div class="person-head">
+        <div class="head-img">
+            <img src="../img/3.jpg">
+        </div>
+    </div>
+
+    <div class="whe">
+        <a href="order.html">
+            <div class="whe-lt whe-br">
+                <p class="lf-tp"><img src="../img/ion/order.png">我的订单</p>
+
             </div>
-		</ion-header-bar>
-		<div class="content">
-		<div class="person-head" >
-	<div class="head-img" >
-    	<img src="../img/3.jpg">
-    </div>
-   
-  </div>
+        </a>
+        <a href="moneybag.html">
+            <div class="whe-lt" href="moneybag.html">
+                <p class="lf-tp"><img src="../img/ion/bag.png">我的钱包</p>
 
-<div class="whe">
-	<a href="order.html">
-	<div class="whe-lt whe-br" >
-    	<p class="lf-tp"><img src="../img/ion/order.png">我的订单</p>
-      
+            </div>
+        </a>
     </div>
-	</a>
-	<a href="moneybag.html">
-    <div class="whe-lt" href="moneybag.html">
-    	<p class="lf-tp"><img src="../img/ion/bag.png">我的钱包</p>
-        
+
+    <div class="person">
+        <a href="message.html">
+            <div class="pn-lt">
+                <p><img class="img-lf" src="../img/message.png">个人资料<img class="img-rt" src="../img/arr_rt.png"></i></p>
+            </div>
+        </a>
+        <a href="order.html">
+            <div class="pn-lt">
+                <p><img class="img-lf" src="../img/dingdan.png">小店订单<img class="img-rt" src="../img/arr_rt.png"></p>
+            </div>
+        </a>
+        <a href="made.html">
+            <div class="pn-lt" href="made.html">
+                <p><img class="img-lf" src="../img/dingzhi.png">我的定制<img class="img-rt" src="../img/arr_rt.png"></p>
+            </div>
+        </a>
+		
+        <div class="pn-lt" >
+		<a href="" onclick="return false;" data-toggle="modal" data-target="#mymodal">
+            <p>
+                <img class="img-lf" src="../img/kefu.png" width="30px" height="30px">联系我们
+                <img class="img-rt" src="../img/arr_rt.png">
+            </p>
+			</a>
+        </div>
+		
     </div>
-   </a>
+    <a href="login.html">
+        <button class="exit">退出登录</button>
+    </a>
 </div>
 
-<div class="person" >
-	<a href="message.html">
-	<div class="pn-lt">
-    	<p><img class="img-lf" src="../img/message.png">个人资料<img class="img-rt" src="../img/arr_rt.png"></i></p>
+<div class="modal fade" id="mymodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="popup">
+                <div class="popup-head">
+                    <p class="popup-title ng-binding">香蕉旅行</p><!-- ngIf: subTitle -->
+                </div>
+                <form>
+                    <div class="popup-body">
+                        <div class="action-sheet">
+                            <button class="button action-sheet-option ng-binding">
+                             <a style="font-size:20px;font-weight:800px;" href="tel:4001161023">点击拨打:4001161023</a>
+                            </button>
+                            <div class="action-sheet-group action-sheet-cancel">
+                                <button class="button ng-binding" data-dismiss="modal" aria-hidden="true" style="color:black;">
+                                    关闭
+                                </button>
+                            </div>
+                        </div>
+                </form>
+            </div>
+        </div>
     </div>
-	</a>
-	<a href="order.html">
-	<div class="pn-lt" >
-    	<p><img class="img-lf" src="../img/dingdan.png" >小店订单<img class="img-rt" src="../img/arr_rt.png"></p>
-    </div>
-	</a>
-	<a href="made.html">
-	<div class="pn-lt" href="made.html">
-    	<p><img class="img-lf" src="../img/dingzhi.png" >我的定制<img class="img-rt" src="../img/arr_rt.png"></p>
-    </div>
-	</a>
-	<div class="pn-lt" data-toggle="modal" data-target="#mymodal" >
-    	<p><img class="img-lf" src="../img/kefu.png" width="30px" height="30px">联系我们<img class="img-rt" src="../img/arr_rt.png"></p>
-    </div>
-	
- 
 </div>
- <a href="login.html"><button class="exit" >退出登录</button></a>
-	
-</div>
-	 <div class="modal fade" id="mymodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-      	<div class="modal-dialog">
-		<div class="modal-content">
-			<div class="popup">
-				<div class="popup-head">
-					<p class="popup-title ng-binding" >香蕉旅行</p><!-- ngIf: subTitle -->
-				</div>
-				<form>
-				<div class="popup-body">
-					<div class="action-sheet">
-					<button class="button action-sheet-option ng-binding"   >
-						国内热线：4001161023
-					</button>
-				<div class="action-sheet-group action-sheet-cancel" >
-					<button class="button ng-binding" data-dismiss="modal"aria-hidden="true">
-					关闭
-					</button>
-				</div>
-					</div>
-				</form>
-			</div>
-      </div>
-      </div>
-     </div>
-	</body>
+<script src="../js/jquery.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+        // 检查是否登录
+      $.ajax({
+            type: 'post',
+            dataType: 'json',
+            url: 'http://www.bananatrip.cn/is/login',
+            data: {'type': 1},
+            success: function (obj) {
+             if (obj.info == 1) {
+                window.location.href = 'http://www.bananatrip.cn/wx/login';
+                }
+            },
+            error: function (obj) {
+                console.log(obj);
+            }
+        });
+
+        $.ajax({
+            type: 'post',
+            dataType: 'json',
+            url: 'http://www.bananatrip.cn/user/info',
+            data: {'type': 1},
+            success: function (obj) {
+              $('.head-img').children().attr('src',obj.user_headimgurl)
+            },
+            error: function (obj) {
+                console.log(obj);
+            }
+        });
+
+
+
+    })
+</script>
+</body>
 </html>

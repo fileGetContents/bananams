@@ -8,47 +8,53 @@
           content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
     <meta http-equiv="Cache-Control" content="no-siteapp"/>
     <!--[if lt IE 9]>
-    <script type="text/javascript" src="admin/lib/html5.js"></script>
-    <script type="text/javascript" src="admin/lib/respond.min.js"></script>
-    <script type="text/javascript" src="admin/lib/PIE_IE678.js"></script>
+    <script type="text/javascript" src="{{asset('admin/lib/html5.js')}}"></script>
+    <script type="text/javascript" src="{{asset('admin/lib/respond.min.js')}}"></script>
+    <script type="text/javascript" src="{{asset('admin/lib/PIE_IE678.js')}}"></script>
     <![endif]-->
-    <link href="admin/css/H-ui.min.css" rel="stylesheet" type="text/css"/>
-    <link href="admin/css/H-ui.admin.css" rel="stylesheet" type="text/css"/>
-    <link href="admin/lib/icheck/icheck.css" rel="stylesheet" type="text/css"/>
-    <link href="admin/lib/Hui-iconfont/1.0.1/iconfont.css" rel="stylesheet" type="text/css"/>
-    <link href="admin/lib/webuploader/0.1.5/webuploader.css" rel="stylesheet" type="text/css"/>
+    <link href="{{asset('admin/css/H-ui.min.css')}}" rel="stylesheet" type="text/css"/>
+    <link href="{{asset('admin/css/H-ui.admin.css')}}" rel="stylesheet" type="text/css"/>
+    <link href="{{asset('admin/lib/icheck/icheck.css')}}" rel="stylesheet" type="text/css"/>
+    <link href="{{asset('admin/lib/Hui-iconfont/1.0.1/iconfont.css')}}" rel="stylesheet" type="text/css"/>
+    <link href="{{asset('admin/lib/webuploader/0.1.5/webuploader.css')}}" rel="stylesheet" type="text/css"/>
     <!--[if IE 6]>
-    <script type="text/javascript" src="admin/lib/DD_belatedPNG_0.0.8a-min.js"></script>
+    <script type="text/javascript" src="{{asset('admin/lib/DD_belatedPNG_0.0.8a-min.js')}}"></script>
     <script>DD_belatedPNG.fix('*');</script>
     <![endif]-->
     <title>添加商品</title>
 </head>
 <body>
 <div class="pd-20">
-    <form action="{{ URL('add/good') }}"  enctype="multipart/form-data"  method="post" class="form form-horizontal" id="form-article-add">
+    <form action="{{ $url }}" enctype="multipart/form-data" method="post" class="form form-horizontal"
+          id="form-article-add">
         <div class="row cl">
             <label class="form-label col-2"><span class="c-red">*</span>商品标题：</label>
             <div class="formControls col-10">
-                <input type="text" class="input-text" value="" placeholder="" id="" name="good_name">
+                <input type="text" class="input-text" value="@if(is_object($good)) {{$good->good_name}}  @endif"
+                       placeholder="" id=""
+                       name="good_name">
             </div>
         </div>
         <div class="row cl">
             <label class="form-label col-2">运费：</label>
             <div class="formControls col-10">
-                <input type="text" name="good_freight" id="" placeholder="0为免运费" value="" class="input-text">
+                <input type="text" name="good_freight" id="" placeholder="0为免运费"
+                       value="@if(is_object($good)) {{$good->good_freight}}  @endif" class="input-text">
             </div>
         </div>
         <div class="row cl">
             <label class="form-label col-2">产品剩余数量:</label>
             <div class="formControls col-10">
-                <input type="text" name="good_amount" id="" placeholder="至少大于1" value="" class="input-text">
+                <input type="text" name="good_amount" id="" placeholder="至少大于1"
+                       value="@if(is_object($good)) {{$good->good_amount}}  @endif" class="input-text">
             </div>
         </div>
 
         <div class="row cl">
             <label class="form-label col-2">排名:</label>
             <div class="formControls col-10">
-                <input type="text" name="good_amount" id="" placeholder="至少大于1" value="" class="input-text">
+                <input type="text" name="good_recommend" id="" placeholder="至少大于1"
+                       value="@if(is_object($good)) {{$good->good_recommend}}@endif" class="input-text">
             </div>
         </div>
 
@@ -57,7 +63,7 @@
             <div class="formControls col-10">
                 <div class="uploader-thum-container">
                     <div id="fileList" class="uploader-list"></div>
-                    <input type="file" name="file2"  />
+                    <input type="file" name="file2"/>
                 </div>
             </div>
         </div>
@@ -83,11 +89,11 @@
             </div>
         </div>
 
-
         <div class="row cl">
             <label class="form-label col-2">详细内容：</label>
             <div class="formControls col-10">
-                <script id="editor" name="good_details" type="text/plain" style="width:100%;height:400px;"></script>
+                <script id="editor" name="good_details" type="text/plain"
+                        style="width:100%;height:400px;">@if(is_object($good)) {{$good->good_recommend}}@endif</script>
             </div>
         </div>
         <div class="row cl">
@@ -102,17 +108,17 @@
     </form>
 </div>
 </div>
-<script type="text/javascript" src="admin/lib/jquery/1.9.1/jquery.min.js"></script>
-<script type="text/javascript" src="admin/lib/layer/1.9.3/layer.js"></script>
-<script type="text/javascript" src="admin/lib/My97DatePicker/WdatePicker.js"></script>
-<script type="text/javascript" src="admin/lib/icheck/jquery.icheck.min.js"></script>
-<script type="text/javascript" src="admin/lib/Validform/5.3.2/Validform.min.js"></script>
-<script type="text/javascript" src="admin/lib/webuploader/0.1.5/webuploader.min.js"></script>
-<script type="text/javascript" src="admin/lib/ueditor/1.4.3/ueditor.config.js"></script>
-<script type="text/javascript" src="admin/lib/ueditor/1.4.3/ueditor.all.min.js"></script>
-<script type="text/javascript" src="admin/lib/ueditor/1.4.3/lang/zh-cn/zh-cn.js"></script>
-<script type="text/javascript" src="admin/js/H-ui.js"></script>
-<script type="text/javascript" src="admin/js/H-ui.admin.js"></script>
+<script type="text/javascript" src="{{asset('admin/lib/jquery/1.9.1/jquery.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('admin/lib/layer/1.9.3/layer.js')}}"></script>
+<script type="text/javascript" src="{{asset('admin/lib/My97DatePicker/WdatePicker.js')}}"></script>
+<script type="text/javascript" src="{{asset('admin/lib/icheck/jquery.icheck.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('admin/lib/Validform/5.3.2/Validform.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('admin/lib/webuploader/0.1.5/webuploader.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('admin/lib/ueditor/1.4.3/ueditor.config.js')}}"></script>
+<script type="text/javascript" src="{{asset('admin/lib/ueditor/1.4.3/ueditor.all.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('admin/lib/ueditor/1.4.3/lang/zh-cn/zh-cn.js')}}"></script>
+<script type="text/javascript" src="{{asset('admin/js/H-ui.js')}}"></script>
+<script type="text/javascript" src="{{asset('admin/js/H-ui.admin.js')}}"></script>
 <script type="text/javascript">
     $(function () {
         $("#submit").click(function () {
@@ -146,7 +152,7 @@
 
             // 文件接收服务端。
             // server: 'http://lib.h-ui.net/webuploader/0.1.5/server/fileupload.php',
-            server: '{{URL('update/image')}}',
+            server: '{{URL('update/image2')}}',
             // 选择文件的按钮。可选。
             // 内部根据当前运行是创建，可能是input元素，也可能是flash.
             pick: '#filePicker',
@@ -390,7 +396,7 @@
                 chunked: false,
                 chunkSize: 512 * 1024,
                 //server: 'http://lib.h-ui.net/webuploader/0.1.5/server/fileupload.php',
-                server: '{{URL('test')}}',
+                server: '{{URL('update/image2')}}',
                 // runtimeOrder: 'flash',
 
                 // accept: {

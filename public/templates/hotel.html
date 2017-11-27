@@ -14,16 +14,7 @@
 </head>
 <body>
 <div id="page">
-    <div class="foot">
-        <a class="foot-tab" href="start.html"><img src="../img/ion/start.png">
-            <p class="mycolor">首页</p></a>
-        <a class="foot-tab " href="friend.html"><img src="../img/ion/friend2.png">
-            <p>社区</p></a>
-        <a class="foot-tab " href="home.html"><img src="../img/ion/home2.png">
-            <p>小店</p></a>
-        <a class="foot-tab " href="person.html"><img src="../img/ion/my2.png">
-            <p>我的</p></a>
-    </div>
+    
     <ion-header-bar class="stable-bg bar bar-header" align-title="center">
         <button class="button " onclick="history.go(-1)">
             <i class="icon ion-android-arrow-back"></i>
@@ -35,27 +26,29 @@
         <div class="title title-center header-item" style="left: 15px; right: 15px;">酒店详情</div>
     </ion-header-bar>
     <div class="content" id="wrap">
-        <div id="myCarousel" class="carousel slide" data-ride="carousel">
-            <!-- 轮播（Carousel）指标 -->
-            <ol class="carousel-indicators">
-                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                <li data-target="#myCarousel" data-slide-to="1"></li>
-                <li data-target="#myCarousel" data-slide-to="2"></li>
-            </ol>
-            <!-- 轮播（Carousel）项目 -->
-            <div class="carousel-inner" style="height:150px;">
-                <div class="item active">
-                    <img src="../img/find.jpg" alt="First slide">
-                </div>
-                <div class="item">
-                    <img src="../img/hotel4.jpeg" alt="Second slide">
-                </div>
-                <div class="item">
-                    <img src="../img/hotel8.jpeg" alt="Third slide">
-                </div>
-            </div>
+      <style type="text/css">
 
-        </div>
+   .slideBox { position: relative; overflow: hidden; margin: 0 auto; width: 100%;height:150px; }
+.slideBox .hd { position: absolute; height: 28px; line-height: 28px; bottom: 0; right: 0; z-index: 1; text-align: center; width: 100%; }
+.slideBox .hd li { display: inline-block; width: 10px; height: 10px; -webkit-border-radius: 10px; -moz-border-radius: 10px; border-radius: 10px; background:rgba(242, 12, 17, 0.49); text-indent: -9999px; overflow: hidden; margin: 0 2px; }
+.slideBox .hd li.on {  background: #f20c11;}
+.slideBox .bd { position: relative; z-index: 0; }
+.slideBox .bd li { position: relative; text-align: center; }
+.slideBox .bd li img { background: url(../images/loading.gif) center center no-repeat; vertical-align:middle; width: 100%; }
+   </style>
+	<script src="../js/indexx.js"></script>
+	<script src="../js/touchslide.1.1.js"></script>
+	
+	    <div id="slideBox" class="slideBox">
+		<div class="bd">
+			<ul>
+                        <li> <img  src="../img/find.jpg" alt="First slide"></li>
+                        <li> <img   src="../img/hotel4.jpeg" alt="Second slide"></li>
+                        <li> <img  src="../img/hotel8.jpeg" alt="Third slide"></li>                       
+             </ul>
+		</div>
+		<div class="hd"><ul></ul></div>
+	</div>
         <div class="message light-bg">
             <p>【2017年 旅游快进 】亲子游巴拉巴拉 建行卡号地块骄傲好滴好滴继续</p>
             <p><span><下班去哪>华东最棒严管</span></p>
@@ -90,59 +83,60 @@
                 </div>
             </div>
         </form>
-
+<a name="fangxin">
         <ul id="ul3" class="light-bg  defaultClass2">
 
             <li id="yinxiang" on-click="hotelbtn1();">印象</li>
-            <li id="fangxin" on-click="hotelbtn2();">房型</li>
+            <li id="fangxin" class="fangxin" on-click="hotelbtn2();">房型</li>
 
         </ul>
-        <div id="contener3">
+		</a>
+        <div   id="contener3">
             <div class="no" style="display: block;" id="mess1">
                 <div class="hotelbanner">
-                    <div class="details_section"><img src="../img/hotel1.jpeg"></div>
+                    <div class="details_section"><img src="../../img/hotel1.jpeg"></div>
                     <P>护卫无不与号我的烟雾弹Yui因为五月底吴云 恒温库防护好ueuifyi，废话为国分忧use复合句顾长卫u
 
                         快捷键考四级才开始上课的基础上了大抽奖空了搜救度搜。就是看好吃会计师的立场上了就是才看见离开房产局
                         健康的窗口试乘试驾激烈的检查kjdckshdui
                     </P>
-                    <div class="details_section"><img src="../img/hotel2.jpeg"></div>
-                    <div class="details_section"><img src="../img/hotel3.jpeg"></div>
+                    <div class="details_section"><img src="../../img/hotel2.jpeg"></div>
+                    <div class="details_section"><img src="../../img/hotel3.jpeg"></div>
                     <P>护卫无不与号我的烟雾弹Yui因为五月底吴云 恒温库防护好ueuifyi，废话为国分忧use复合句顾长卫u
 
                         快捷键考四级才开始上课的基础上了大抽奖空了搜救度搜。就是看好吃会计师的立场上了就是才看见离开房产局
                         健康的窗口试乘试驾激烈的检查kjdckshdui
                     </P>
 
-                    <div class="details_section"><img src="../img/hotel4.jpeg"></div>
+                    <div class="details_section"><img src="../../img/hotel4.jpeg"></div>
                     <P>护卫无不与号我的烟雾弹Yui因为五月底吴云 恒温库防护好ueuifyi，废话为国分忧use复合句顾长卫u
 
                         快捷键考四级才开始上课的基础上了大抽奖空了搜救度搜。就是看好吃会计师的立场上了就是才看见离开房产局
                         健康的窗口试乘试驾激烈的检查kjdckshdui
                     </P>
-                    <div class="details_section"><img src="../img/hotel5.jpeg"></div>
-                    <div class="details_section"><img src="../img/hotel6.jpeg"></div>
+                    <div class="details_section"><img src="../../img/hotel5.jpeg"></div>
+                    <div class="details_section"><img src="../../img/hotel6.jpeg"></div>
 
                 </div>
                 <div class="map">
                     <a href="map.html" target="_blank">
-                        <img src="../img/map.png">
+                        <img src="../../../img/map.png">
                     </a>
                 </div>
                 <div class="mapfoot">
-                    <img src="../img/dizhiicon.png" width="25px" height="25px">
+                    <img src="../../../img/dizhiicon.png" width="25px" height="25px">
                     <span>成都市青羊区宽巷子8号，近金河路</span>
                 </div>
                 <div class="mapfoot">
-                    <img src="../img/phone.png" width="18px" height="18px">
+                    <img src="../../../img/phone.png" width="18px" height="18px">
                     <span>028-8888786</span>
                 </div>
                 <div class="bg2"></div>
-                <div class="end"><img src="../img/mmexport.png"></div>
+                <div class="end"><img src="../../../img/mmexport.png"></div>
             </div>
-            <div class="no" id="mess2">
+            <div   id="mess2">
                 <div id="hotelbanner" class="hotelbanner">
-                    <div class="details_section"><img src="../img/hotel5.jpeg"></div>
+                    <div class="details_section"><img src="../../../img/hotel5.jpeg"></div>
                     <h5>北玉桂阁楼</h5>
                     <p>快捷键考四级才开始上课的基础上了大抽奖空了搜救度搜。就是看好吃会计师的立场上了就是才看见离开房产局
                         健康的窗口试乘试驾激烈的检查kjdckshdui</p>
@@ -155,7 +149,7 @@
                         </a>
                     </div>
 
-                    <div class="details_section"><img src="../img/hotel5.jpeg"></div>
+                    <div class="details_section"><img src="../../../img/hotel5.jpeg"></div>
                     <h5>北玉桂阁楼</h5>
                     <p>快捷键考四级才开始上课的基础上了大抽奖空了搜救度搜。就是看好吃会计师的立场上了就是才看见离开房产局
                         健康的窗口试乘试驾激烈的检查kjdckshdui</p>
@@ -173,17 +167,16 @@
     </div>
     <div class="hotelfoot light-bg" id="yuding">
         <div class="hotelprice">￥900 起/晚</div>
-        <div on-click="hotelbtn2();" class="yudingbtn light" id="impress">预订</div>
-
+      <a href="#fangxin" class="fangxinjiudian">  <div  class="yudingbtn light" id="impress">选房间</div></a>
     </div>
 
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $('#myCarousel').carousel({interval: 2000});//每隔5秒自动轮播
-        });
+<script type="text/javascript" src="http://www.daixiaorui.com/Public/js/jquery.min.js"></script>
 
+    <script type="text/javascript">
+	
+	
         $(function () {
-            $.ajax({
+           $.ajax({
                 type: 'post',
                 data: {'id': GetQueryString('id')},
                 dataType: 'json',
@@ -191,7 +184,7 @@
                 success: function (obj) {
                     console.log(obj);
                     // 轮播图片
-                    obj['hotel']['hotel_images'].map(function (value, index, array) {
+                    obj['hotel'].map(function (value, index, array) {
                         $('.carousel-inner > div >img').eq(index).attr('src', value)
                     });
                     $('.message >p').eq(0).html(obj['hotel']['hotel_name']);

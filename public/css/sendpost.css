@@ -1,11 +1,51 @@
 *{
-	margin: 0;
+box-sizing: border-box;
 	padding: 0;
-	font-size: 0.9rem;
+    font-size: 0.9rem;
+}
+body{margin:0px;
+      font-size:14px;
+    line-height: 1.42857143;
+	}
+textarea {
+	width:100% !important;
+	border:1px solid gray !important;
+
+}
+#facebox>table>tbody>tr>td>img{
+	width:30px;
+}
+#facebox>table>tbody>tr>td{
+ width:43px;
+ height:40px;
+}
+#facebox{
+	
+	background-color:white !important;
+	position:relative !important;
+	top:0px !important;
+	left:0px !important;
+	
+}
+.mycolor {
+    position: relative;
+    top: -5px;
+    font-size: 0.87rem;
+    margin: 0px 0px 12px;
+    text-align: center;
+    text-decoration: none;
+    text-overflow: ellipsis;
+}
+.bar{
+	
+	position:static;
 }
 .emoji-wysiwyg-editor.textarea-control {
     height: 7em;
     }
+textarea{
+	text-align;
+}	
 .content{
 
 	width: 100%;
@@ -13,22 +53,36 @@
 	overflow: scroll;
 	float: left;
 	position: absolute;
-	margin-top: 10%;
+	margin-top:15px;
 	
 }
-
-
+.emoji-picker-icon{
+	
+	display:none;
+}
+.fa-smile-o{	
+	display:none;
+}
+.emoji-menu {
+	
+}
+.fa-smile-o:before {
+	content: "" !important;
+}
+	
 li{
 	list-style-type: none;
 }
 .post-box{
 	position:relative;
-	top:10px;
+	top:0px;
 	left: 0;
 	width: 100%;
-	height: 140px;
-}
 
+}
+.label{
+	display:none;
+}
 
 .save{
 	width: 90%;
@@ -40,3 +94,308 @@ li{
 	color: white;
 	margin-top: 10px;
 }
+/*cover*/
+
+
+a {
+  border-bottom: 1px dotted #e6e6e6;
+  color: #e6e6e6; }
+  a:focus, a:hover {
+    text-decoration: none;
+    color: white; }
+
+/* Custom default button */
+.btn-secondary {
+  background-color: #fff;
+  text-shadow: none;
+  /* Prevent inheritence from `body` */
+  border: .05rem solid #ffffff; }
+  .btn-secondary.btn-secondary:hover, .btn-secondary.btn-secondary:focus {
+    background-color: #e6e6e6; }
+  .btn-secondary.btn-secondary:active {
+    background-color: #cccccc; }
+
+/*
+ * Base structure
+ */
+html,
+body {
+  height: 100%;
+  }
+  html .lead:first-of-type,
+  body .lead:first-of-type {
+    padding-bottom: 1em; }
+
+input{
+	outline: none;
+}
+body {
+  color: #000;
+  text-align: center; }
+  body .emoji-wysiwyg-editor {
+    text-align: left; }
+    body .emoji-wysiwyg-editor.textarea-control {
+      min-height: 3em;
+      resize: vertical;
+      outline: none; 
+      background-color: #FFFFFF;}
+
+/* Extra markup and styles for table-esque vertical and horizontal centering */
+.site-wrapper {
+  display: table;
+  width: 100%;
+  height: 100%;
+  /* For at least Firefox */
+  min-height: 100%;
+  -webkit-box-shadow: inset 0 0 5rem rgba(0, 0, 0, 0.5);
+  box-shadow: inset 0 0 5rem rgba(0, 0, 0, 0.5); }
+
+.site-wrapper-inner {
+  display: table-cell;
+  vertical-align: top; }
+
+.cover-container {
+  margin-right: auto;
+  margin-left: auto; }
+
+/* Padding for spacing */
+.inner {
+  padding: 2rem; }
+
+/*
+ * Header
+ */
+.masthead {
+  margin-bottom: 2rem; }
+
+.masthead-brand {
+  margin-bottom: 0; }
+
+.nav-masthead .nav-link {
+  padding: .25rem 0;
+  font-weight: bold;
+  color: rgba(255, 255, 255, 0.5);
+  background-color: transparent;
+  border-bottom: .25rem solid transparent; }
+
+.nav-masthead .nav-link + .nav-link {
+  margin-left: 1rem; }
+
+.nav-masthead .active {
+  color: #fff;
+  border-bottom-color: #fff; }
+
+@media (min-width: 48em) {
+  .masthead-brand {
+    float: left; }
+
+  .nav-masthead {
+    float: right; } }
+/*
+ * Cover
+ */
+.cover {
+  padding: 0 1.5rem; }
+
+.cover .btn-lg {
+  padding: .75rem 1.25rem;
+  font-weight: bold; }
+
+/*
+ * Footer
+ */
+.mastfoot {
+  color: rgba(255, 255, 255, 0.5); }
+
+/*
+ * Affix and center
+ */
+@media (min-width: 40em) {
+  /* Pull out the header and footer */
+  .masthead {
+    position: fixed;
+    top: 0; }
+
+  .mastfoot {
+    position: fixed;
+    bottom: 0; }
+
+  /* Start the vertical centering */
+  .site-wrapper-inner {
+    vertical-align: middle; }
+
+  /* Handle the widths */
+  .masthead,
+  .mastfoot,
+  .cover-container {
+    width: 100%;
+    /* Must be percentage or pixels for horizontal alignment */ } }
+@media (min-width: 62em) {
+  .masthead,
+  .mastfoot,
+  .cover-container {
+    width: 42rem; } }
+
+/*# sourceMappingURL=cover.css.map */
+
+@CHARSET "UTF-8"; 
+form{ font-size:84%; margin:0; line-height:1.5; color:#333; font-family:Arial, sans-serif;}
+a{color:#34538b; text-decoration:none;}a:hover{text-decoration:underline;}
+
+.upload_box{ margin:1em auto;}
+.upload_main{border-width:1px 1px 2px; border-style:solid; border-color:#ccc #ccc #ddd; background-color:#fbfbfb;}
+.upload_choose{padding:1em;}
+.upload_drag_area{display:inline-block; width:63%; padding:4em 0; margin-left:.5em; border:1px dashed #ddd; background:#fff no-repeat 20px center; color:#999; text-align:center; vertical-align:middle;}
+.upload_drag_hover{border-color:#069; box-shadow:inset 2px 2px 4px rgba(0, 0, 0, .5); color:#333;}
+.upload_preview{border-top:1px solid #D2D2D2; border-bottom:1px solid #bbb; background-color:#fff;  _zoom:1;}
+.upload_append_list{height:100%; margin:1em; float:left; position:relative;}
+.upload_append_list:hover{cursor:pointer;}
+.upload_delete{margin-left:2em;}
+.upload_image{/* max-height:135px; */ padding:0px;}
+.iconkuang{
+	
+	background-color:#F0F0F0 ;
+	padding:0px 20px;
+	text-align:left;
+}
+.filePicker {
+    display: inline-block;
+    height: 44px;
+    width: 60px;
+    
+}
+.filePicker  img{
+	
+	margin-left: 5%;
+	margin-top: 5px;
+}
+
+.smilePicker {
+    display: inline-block;
+    height: 44px;
+    width:60px;
+ 
+}
+.smilePicker img{
+	
+	margin-left: 5%;
+	margin-top: 5px;
+}
+.demo{
+	margin: auto;
+}
+.convent_choice{
+	float: left;
+    height: 130px;
+    width: 35%;
+}
+
+#fileImage{
+	display: none;
+}
+
+.status_bar{
+	border-top: 1px solid #DADADA;
+    height: 45px;
+    line-height: 45px;
+    padding: 0 10px;
+    position: relative;
+    vertical-align: middle;
+    background-color: #FFFFFF;
+}
+.info{
+	float:left;
+	color:#666666;
+	display: inline-block;
+}
+.btns{
+	position: absolute;
+	right: 16px;
+	line-height: 30px;
+    top: 6px;
+}
+
+
+/* 每个图片上的操作bar */
+.file_bar{
+	margin: 0;
+    left: 0px;
+    right: 0px;
+    position: absolute;
+    top: 0px;
+    height:0px;
+    padding:0px;
+    margin: 0;
+    opacity: 0.8;
+    color:#fff;
+    background: none repeat scroll 0 0 #000000;
+    transition: all 0.5s;
+	-moz-transition: all 0.5s;
+	-webkit-transition: all 0.5s;
+	-o-transition: all 0.5s;
+	overflow: hidden;
+}
+.file_bar a{
+	color: #FFFFFF;
+    position: absolute;
+    right: 10px;
+}
+.file_hover{
+	height:30px;
+	cursor:pointer;
+}
+.uploadImg{
+	margin:0px;
+	height: 60px;
+	overflow: hidden;
+}
+
+.file_name{
+	margin:0px;
+	white-space: nowrap;
+    width: 66%;                  /* IE6 需要定义宽度 */
+    overflow: hidden;            
+    -o-text-overflow: ellipsis;    /* Opera */
+    text-overflow:    ellipsis;    /* IE, Safari (WebKit) */
+    float: left;
+}
+
+.file_del{
+	background: url("../img/delete_white.png") no-repeat scroll 0 0 transparent;
+	width:18px;
+	height:18px;
+	display: inline;
+	-moz-user-select: none;
+	position: absolute;
+	right:3px;
+	margin-top:4px;
+}
+.file_del:hover{
+	background: url("../img/delete_blue.png") no-repeat scroll 0 0 transparent;
+}
+
+/* 设置图片等比例缩放 并且垂直居中*/
+
+.uploadImg {
+	margin: auto;
+}
+.uploadImg img{
+	border:none;	
+	width:60px;
+	height: auto!important;
+}
+				
+
+
+
+
+
+
+
+
+ /*zyupload*/
+ 
+
+
+
+

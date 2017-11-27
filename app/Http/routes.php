@@ -6,7 +6,7 @@ Route::group(['namespace' => "Api"], function () {
     Route::any('banana/TravelInfo', "BananController@getTravelInfo");                // 获取某个旅行详情
     Route::any('banana/User/Enrol', 'BananController@getTravelUserEnrol');           // 获取旅游用户信息
     Route::any('travel/time', 'BananController@getTravelTime');                      // 获取项目的时间
-    Route::any('travel/user/all', 'BananController@getUserAll');                     // 获取参加用户
+    Route::any('travel/user/all', 'BananController@getUserAll');                     // 获取参加用户e
 
 
     Route::any('user/info', "UserController@getUserInfo");                           // 获取用户信息
@@ -64,7 +64,7 @@ Route::group(['namespace' => "Api"], function () {
     Route::any('unread/dialogue', 'FriendController@getUnreadDialogue');               // 获取未读消息
 
     Route::any('update/image', 'ApiController@ajaxUpdateFileImage');                      // ajax上传图片
-    Route::any('update/image2', 'ApiController@ajaxUpdateFileImage2');                      // ajax上传图片
+    Route::any('update/image2', 'ApiController@ajaxUpdateFileImage2');                    // ajax上传图片
     Route::any('image/name', 'ApiController@getAjaxImageName');                           // 获取ajax上传图片的名字
 
     //Route::any('wechate/pay', 'WxApiController@index');                                 // 微信支付
@@ -75,7 +75,7 @@ Route::group(['namespace' => "Api"], function () {
     Route::any('province', 'MapController@getProvince');                                  // 获取省份
     Route::any('city', 'MapController@getCity');                                          // 获取城市
     Route::any('district', 'MapController@getDistrict');                                  // 获取区域
-
+    Route::any('wx/login/{url?}', 'WxApiController@userInfo');                            // 微信登录
 });
 
 
@@ -89,7 +89,6 @@ Route::group(["namespace" => "Admin"], function () {
     Route::get("admin-permission", "AdminController@permission");
     Route::get("admin-role", "AdminController@role");
     Route::get("admin-role-add", "AdminController@role_add");
-
 
     Route::get("article-add", "ArticleController@add");
     Route::get("article-list", "ArticleController@lists");
@@ -106,7 +105,7 @@ Route::group(["namespace" => "Admin"], function () {
     Route::get("picture-list", "PictureController@lists");
     Route::get("picture-show", "PictureController@show");
 
-    Route::get("product-add", "ProductController@add");
+    Route::get("product-add/{id?}", "ProductController@add");  // 添加修改商品
     Route::get("product-brand", "ProductController@brand");
     Route::get("product-category", "ProductController@cateGory");
     Route::any("product-category-add", "ProductController@cateGoryAdd");
@@ -115,10 +114,10 @@ Route::group(["namespace" => "Admin"], function () {
     Route::any('product-hotel', 'ProductController@hotelList');           // 酒店订单
 
 
-    Route::any('add/good', 'ProductController@addGood');                  // 添加产品
-    Route::any('add/brand', 'ProductController@brandAdd');                // 添加旅游项目
-    Route::any('add/room', 'ProductController@addRoom');                  // 添加房间
-    Route::any('add/hotel', 'ProductController@hotelAdd');                // 添加酒店
+    Route::any('add/good/{id?}', 'ProductController@addGood');                        // 添加产品
+    Route::any('add/brand/{id?}', 'ProductController@brandAdd');                // 添加旅游项目
+    Route::any('add/room/{id?}', 'ProductController@addRoom');                  // 添加房间
+    Route::any('add/hotel/{id?}', 'ProductController@hotelAdd');                // 添加酒店
 
     Route::get("system-base", "SystemController@base");
     Route::get("system-category", "SystemController@cateGory");
@@ -129,7 +128,6 @@ Route::group(["namespace" => "Admin"], function () {
 
     Route::get('feedback-list', 'PostController@lists');
 
-
     Route::get('order-travel', 'OrderController@travel');
     Route::get('order-hotel', 'OrderController@hotel');
     Route::get('order-good', 'OrderController@good');
@@ -138,16 +136,16 @@ Route::group(["namespace" => "Admin"], function () {
     Route::post('alert/admin', 'AdminController@alterAdmin');            // 修改密码
     Route::post('login/admin', 'AdminController@loginAdmin');            // 用户登录
 
-
 });
 
-Route::any('image/file', 'TestController@getImageFile');            // 获取图片名称
+
+Route::any('image/file', 'TestController@getImageFile');                  // 获取图片名称
 Route::any('test', "TestController@index");
+Route::any('/', 'TestController@login');
 
-
-Route::any('/', function () {
-    echo '<script type="text/javascript">window.location.href="http://www.bananatrip.cn/index.html" </script>';
-});
+Route::any('test2', function () {
+    echo serialize(array('http://www.bananatrip.cn/img/s1.jpg', 'http://www.bananatrip.cn/img/s1.jpg', 'http://www.bananatrip.cn/img/s1.jpg'));
+});   // 等级
 
 
 

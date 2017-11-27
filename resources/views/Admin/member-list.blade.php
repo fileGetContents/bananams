@@ -53,8 +53,7 @@
                 <tr class="text-c">
                     <td><input type="checkbox" value="1" name=""></td>
                     <td>{{$value->user_id}}</td>
-                    <td><u style="cursor:pointer" class="text-primary"
-                           onclick="member_show('张三','member-show.html','10001','360','400')">{{$value->user_name}}</u>
+                    <td>{{$value->user_name}}
                     </td>
                     <td style="display: none"></td>
                     <td>{{$value->user_tel}}</td>

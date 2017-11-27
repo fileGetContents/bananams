@@ -6,7 +6,7 @@
 a {
   $color: white;
 
-  border-bottom: 1px dotted darken($color, 10%);
+  border: 1px solid darken($color, 10%);
   color: darken($color, 10%);
 
   &:focus,

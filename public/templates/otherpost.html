@@ -138,7 +138,7 @@
                 // console.log(obj);
                 obj['return'].map(function (value, index, array) {
                     //  贴纸
-                    var users = '<img src="' + obj["info_user"]["user_images"] + '" href="other.html?id=' + obj["info_user"]["user_id"] + '"><h2 id="name">' + obj["info_user"]["user_name"] + '</h2>';
+                    var users = '<img src="' + obj["info_user"]["user_headimgurl"] + '" href="other.html?id=' + obj["info_user"]["user_id"] + '"><h2 id="name">' + obj["info_user"]["user_name"] + '</h2>';
                     var post = '<ul class="list" style="float: left;width: 100%;">' +
                             '<li class="item item-avatar-left" style="border: 0">' + users +
                             '<p id="date" class="date">' + formatDate(value["post_time"]) + '</p>' +
@@ -151,12 +151,12 @@
                     // 用户点赞
                     var user = '';
                     value['user'].map(function (value, index, array) {
-                        user = user + '<img src="' + value["user_images"] + '">';
+                        user = user + '<img src="' + value["user_headimgurl"] + '">';
                     });
                     $('.content').append('<div class="list_banner"><img src="../img/zan.png"><div class="post_list">' + user + '</div></div>');
                     // 用户评论
                     value['review'].map(function (value, index, array) {
-                        var review = '<div class="list_banner"><div class="post_list"><img src="' + value["user_images"] + '"><div class="post_mess"><p>' + value["user_name"] + '</p><p class="mess">' + value["review_body"] + '</p> </div> <span class="rightzan"><img src="../img/zan.png" class="like"></span></div></div>'
+                        var review = '<div class="list_banner"><div class="post_list"><img src="' + value["user_headimgurl"] + '"><div class="post_mess"><p>' + value["user_name"] + '</p><p class="mess">' + value["review_body"] + '</p> </div> <span class="rightzan"><img src="../img/zan.png" class="like"></span></div></div>'
                         $('.content').append(review);
                     });
                 })

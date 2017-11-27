@@ -25,27 +25,31 @@
 </head>
 <body>
 <div class="pd-20">
-    <form action="{{ URL('add/room') }}" enctype="multipart/form-data" method="post" class="form form-horizontal"
+    <form action="{{ $url }}" enctype="multipart/form-data" method="post" class="form form-horizontal"
           id="form-article-add">
 
         <div class="row cl">
             <label class="form-label col-2"><span class="c-red">*</span>酒店名称：</label>
             <div class="formControls col-10">
-                <input type="text" class="input-text" value="" placeholder="" id="" name="hotel_name">
+                <input type="text" class="input-text" value="@if(is_object($hotel))  {{ $hotel->hotel_name }}  @endif"
+                       placeholder="" id="" name="hotel_name">
             </div>
         </div>
 
         <div class="row cl">
             <label class="form-label col-2"><span class="c-red">*</span>参考价格：</label>
             <div class="formControls col-10">
-                <input type="text" class="input-text" value="" placeholder="" id="" name="hotel_price">
+                <input type="text" class="input-text" value="@if(is_object($hotel))  {{ $hotel->hotel_price }}  @endif"
+                       placeholder="" id="" name="hotel_price">
             </div>
         </div>
 
         <div class="row cl">
             <label class="form-label col-2"><span class="c-red">*</span>详细地址：</label>
             <div class="formControls col-10">
-                <input type="text" class="input-text" value="" placeholder="" id="" name="hotel_address">
+                <input type="text" class="input-text"
+                       value="@if(is_object($hotel))  {{ $hotel->hotel_address }}  @endif" placeholder="" id=""
+                       name="hotel_address">
             </div>
         </div>
 
@@ -59,7 +63,7 @@
                 </div>
             </div>
         </div>
-        <div  class="row cl">
+        <div class="row cl">
             <label class="form-label col-2">图片上传：</label>
             <div class="formControls col-10">
                 <div class="uploader-list-container">
@@ -83,12 +87,12 @@
                 </div>
             </div>
         </div>
-
-
         <div class="row cl">
             <label class="form-label col-2">印象：</label>
             <div class="formControls col-10">
-                <script id="editor" name="hotel_info" type="text/plain" style="width:100%;height:400px;"></script>
+                <script id="editor" name="hotel_info" type="text/plain" style="width:100%;height:400px;">
+                    @if(is_object($hotel))  {{ $hotel->hotel_info }}  @endif
+                </script>
             </div>
         </div>
         <div class="row cl">
@@ -332,11 +336,11 @@
                         window['expressinstallcallback'] = function (state) {
                             switch (state) {
                                 case 'Download.Cancelled':
-                                    alert('您取消了更新！')
+                                    alert('您取消了更新！');
                                     break;
 
                                 case 'Download.Failed':
-                                    alert('安装失败')
+                                    alert('安装失败');
                                     break;
 
                                 default:
@@ -391,7 +395,7 @@
                 chunked: false,
                 chunkSize: 512 * 1024,
                 //server: 'http://lib.h-ui.net/webuploader/0.1.5/server/fileupload.php',
-                server: '{{URL('test')}}',
+                server: '{{URL('update/image2')}}',
                 // runtimeOrder: 'flash',
 
                 // accept: {

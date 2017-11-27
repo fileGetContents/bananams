@@ -10,6 +10,9 @@
     <link href="../css/bootstrap.css" rel="stylesheet">
     <script src="../js/jquery.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>
+	<script src="../js/jquery-2.1.1.js"></script>
+	<script src="../js/indexx.js"></script>
+	<script src="../js/touchslide.1.1.js"></script>
 </head>
 <body>
 <div class="foot">
@@ -17,6 +20,8 @@
         <p class="mycolor">首页</p></a>
     <a class="foot-tab " href="friend.html"><img src="../img/ion/friend2.png">
         <p>社区</p></a>
+    <a class="foot-tab " href="sendpost.html"><img src="../img/ion/fatie.png">
+            <p>发帖</p></a>
     <a class="foot-tab " href="home.html"><img src="../img/ion/home.png">
         <p>小店</p></a>
     <a class="foot-tab " href="person.html"><img src="../img/ion/my2.png">
@@ -32,27 +37,17 @@
     <div class="title title-center header-item" style="left: 15px; right: 15px;">店铺首页</div>
 </ion-header-bar>
 <div class="content">
-    <div id="myCarousel" class="carousel slide" data-ride="carousel">
-        <!-- 轮播（Carousel）指标 -->
-        <ol class="carousel-indicators">
-            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-            <li data-target="#myCarousel" data-slide-to="1"></li>
-            <li data-target="#myCarousel" data-slide-to="2"></li>
-        </ol>
-        <!-- 轮播（Carousel）项目 -->
-        <div class="carousel-inner" style="height:150px;">
-            <div class="item active">
-                <img src="../img/find.jpg" alt="First slide">
-            </div>
-            <div class="item">
-                <img src="../img/hotel4.jpeg" alt="Second slide">
-            </div>
-            <div class="item">
-                <img src="../img/hotel8.jpeg" alt="Third slide">
-            </div>
-        </div>
-
-    </div>
+    <div id="slideBox" class="slideBox">
+		<div class="bd">
+			<ul>
+                        <li> <img style="height: 300px;" src="../img/find.jpg" alt="First slide"></li>
+                        <li> <img style="height: 300px;" src="../img/hotel4.jpeg" alt="Second slide"></li>
+                        <li> <img style="height: 300px;" src="../img/hotel8.jpeg" alt="Third slide"></li>
+                        
+             </ul>
+		</div>
+		<div class="hd"><ul></ul></div>
+	</div>
     <div class="bg"></div>
     <div class="row light-bg" style="margin: 0">
         <a class="tab-item " href="home-class.html"><img src="../img/ion/fenlei.png" width="45px" height="45px">
@@ -73,12 +68,18 @@
         </div>
     </div>
     <div class="title2"><p>- - 本周热销 - -</p></div>
-    <div class="section"><img id="tag_20" src="../img/post5.jpg"></div>
+    <div class="section">
+	
+		<a href="details.html" style="height:100%;display:block;">
+		<img id="tag_20" src="../img/post5.jpg" style="height:100%;">
+		</a>
+		</div>
     <div class="title2"><p>- - 推荐商品 - -</p></div>
     <div style="margin-bottom: 10px">
-        <div class="section" id="tag_10">
-            <a href_ture="details.html" href="#">
-                <img src="../img/find.jpg">
+        <div class="section" id="tag_10" style="">
+			
+            <a href="details.html" style="height:100%;display:block;">
+                <img src="../img/find.jpg" style="height:100%;">
             </a>
         </div>
         <div class="sectionbottom">
@@ -86,7 +87,7 @@
             <span class="span2">2017年 新年创意福字门贴</span>
         </div>
     </div>
-    <div class="section"><img id="tag_40" src="../img/post1.jpg"></div>
+    <div class="section"><a href="details.html" style="height:100%;display:block;"><img id="tag_40" style="height:100%;" src="../img/post1.jpg"></a></div>
     <div id="good_list">
         <!--<div class="small_section" style="border: 0">-->
         <!--<div class="projectbox" ui-sref="details.html">-->
@@ -107,11 +108,15 @@
     <div class="bg5" style="margin-top: 50px" ui-sref="all.html"><p><a href="all.html">查看更多</a></p></div>
     <div class="footer"><span>店铺首页</span><span style="margin-left: 10px">个人中心</span></div>
 </div>
+
 <script type="text/javascript">
     $(document).ready(function () {
         $('#myCarousel').carousel({interval: 1000}); // 每隔5秒自动轮播
+		$('#mycarousel-inner').swipeleft(function(){
+		$(this).carousel('next');
+		});
     });
-
+	
     $(function () {
         var limit = 0;
         // 本周热销

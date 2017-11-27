@@ -97,7 +97,7 @@
             url: 'http://www.bananatrip.cn/user/info',
             success: function (obj) {
                 console.log(obj);
-                $('#name').prev().attr('src', obj.user_images);
+                $('#name').prev().attr('src', obj.user_headimgurl);
                 $('#name').html(obj.user_name)
             },
             error: function (obj) {

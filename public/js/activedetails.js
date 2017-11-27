@@ -88,16 +88,3 @@ $('#wrap').scroll(function(){
 	}
 	
 })
-//function fixNav(){
-// var ul2 = document.getElementById("ul2");
-// 
-//var wrap=document.getElementById('wrap'); 	
-//alert(wrap.scrollTop);
-// if(wrap.scrollTop>100){
-//
-// 	ul2.className="fix";
-// }
-// else{
-// 	ul2.className=" defaultClass";
-// }
-//};fixNav()

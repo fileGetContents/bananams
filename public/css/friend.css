@@ -1,8 +1,25 @@
 *{
 	margin: 0;
 	padding: 0;
-	font-size: 0.9rem;
+	box-sizing: border-box;
 	text-align: left;
+
+}
+.mycolor{position:relative;top:-5px;font-size:0.9rem;}
+.xinxin{
+	width:10%;
+	float:left;
+	text-align:center;
+	line-height:30px;
+	height:100%;
+}
+body{
+	
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+     font-size:0.9rem;
+    line-height: 1.42857143;
+    color: #333;
+    background-color: #fff;
 }
 a{
 	text-decoration: none;
@@ -19,23 +36,22 @@ a{
 .content{
 
 	width: 100%;
-	height: 80%;
+	height: 100%;
 	overflow: scroll;
 	float: left;
-	position: absolute;
-	margin-top: 10%;
-	
+	position:fixed;
+
+    top:0;
 
 }
 .friend-banner{
+    display: block;
     position:relative;
     width:100%;
-    height:6.6rem;
-    overflow:hidden;
+ 
     background-image: url("../img/details3.JPG") ;
-    background-size: cover;
-
-   
+    background-size: 100% 88%;
+    background-repeat:no-repeat;
     color: #ebebeb;
 }
 .data{
@@ -64,31 +80,66 @@ a{
     padding-top: 1px;
     padding-bottom: 1px;
     padding-left: 0;
-    margin-bottom: 20px;
-    float: left;
-    width: 100%;
+    margin-bottom: 10px;
+    float:left;
+    width:20%;
+	
+	
+}
+.name{
+	color:#848c9f;
+	font-weight:200;
+	font-size:16px;
+	
+}
+
+#date{
+	color:#b7b7b7;
+	font-weight:600;
+	font-size:14px;
+	float:left;
+	width:50%;
+	height:50px;
+	line-height:50px;
+	
+}
+
+li{
+	list-style-type: none;
+	
+}
+.xinxikuang{
+	overflow:hidden
+}
+.frind-kuang{
+	line-height: 1.5;
+    border-bottom: 1px solid #e2e2e2;
+    padding-bottom: 15px;
+	margin:10px 0px;
 }
 .list .item {
     border-color: #ddd;
-    background-color: #fff;
+  
     color: #444;
     position: relative;
     z-index: 2;
     display: block;
-    margin: -1px;
-    padding-right: 16px;
+   
+ 
     border-width: 1px;
     border-style: solid;
     font-size: 12px;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+	
 }
+
 .item>h2,.item>p{
-	margin-top: 10px;
+	margin-top: 20px;
 }
 .item-avatar-left{
-    padding-left: 72px;
+
     min-height: 52px;
 }
 .item-avatar-left > img{
@@ -99,17 +150,28 @@ a{
     max-height: 40px;
     width: 100%;
     height: 100%;
-    border-radius: 50%;
+  
 }
 
 .left1{
 	float: left;
+	width:80%;
+	padding:15px 0px;
+	
+}
+.left1>.container{
+    width:100%;
+    
+    box-sizing: border-box;
+    padding-right:20px;
+	padding-top:15px;
 }
 .describe{
-    margin-top: -20px;
+    /*margin-top: -20px;*/
     font-size: 0.7rem;
     color: #66667A;
     padding:5px 30px 5px 30px;
+	padding-left:0px;
     text-align: left;
 }
 .favorable3{
@@ -140,62 +202,74 @@ a{
 
 }
 .zan-bg{
-    position: relative;
-    width: 100%;
-    height: 1.8rem;
-    margin-top: 10px;
-    float: left;
-    border-top:0.1rem solid rgba(218,218,218,0.5);
+	display:none;
+	padding:5px 15px;
+    position:absolute;
+	right:50px;
+    overflow:hide !important;
+    /*margin-top: 10px;*/
+    float: right;
+    border-bottom:1px solid rgba(218,218,218,0.5);
+    box-sizing: border-box;
+	background-color:#393a3f;
+    border-radius:4px;
+	text-align:center;
 }
 .zan-bg>img{
     margin-top: 0.3rem;
-    float: left;
-   
+    float: left;  
 }
 .zan-bg  span{
     font-size: 0.8rem;
-  margin-top: 0.8rem;
-    line-height: 0.3rem;
     float: left;
     margin-left: 0.1rem;
     color: #5e5e5e;
 }
+
 .zhuan{
-	margin-left: 10px;
+	margin-left: 0px;
 	
 }
 .zhuan>img{
 	width: 20px;
 	height: 20px;
 	margin-left: 5%;
-	margin-top: 3px;
+	margin-top: 6px;
 	float: left;
 }
 .pinglun{
-	width: auto;
-	height: auto;
-	display: inline-block;
+    margin-right:15px;
+    overflow:hide !important;
+	float:left;
+	line-height:20px;
 }
+
+
 .pinglun >span{
 	float: left;
 	text-align: center;
-	left: 50%;
-	position: absolute;
-	margin-top: 0;
+	height:18px;
+	color:#fff;
+	line-height:20px;
 }
 .pinglun >span>span{
 	float: right;
 	margin: 0 0 0 5px;
+	color:#fff;
 }
 .pinglun>img{
-    position: absolute;
-    top:3px;
-    left: 44%;
-    width: 20px;
-	height: 20px;
+   
+    float: left;
+    width: 22px;
+	height: 18px;
+	background-color:#fff;
 }
 .zan>span{
 	float: left;
+	color:#fff;
+}
+#like_data{
+	margin:0px 0px 0px 5px;
 }
 .pinglun_data{
 	margin-left: 37%;
@@ -204,26 +278,45 @@ a{
     display: block;
 }
 .zan{
-    position: absolute;
-    top:0;
-    left: 78%;
+   overflow:hide !important;
+   height:20px;
+   float:left;
+   line-height:20px;
 }
 .zan>img{
-	width: 20px;
-	height: 20px;
+	width: 22px;
+	height: 18px;
 	float: left;
-	margin-top: 2px;
+	background-color:#fff;
 }
 .pinglun-box{
-       position: absolute;
-    width: 100%;
-    height: 100px;
-    background-color: #F8F8F8;
-  margin-top: 15px;
-  
-    float: left;
-    z-index: 400;
-    left: 0;
+    position:fixed;
+    width:100%; 
+	height:50px;
+    background-color:#E4E4E4;
+    z-index:100;
+    left:0px;
+	bottom:0px;
+	padding:8px 5px;
+}
+.cover{
+	
+	float:left;
+	width:77%;
+	padding:0px 5px !important;
+}
+.face li{
+	
+	padding-bottom:0px;
+}
+.lead{
+	
+	padding:0px !important;
+}
+textarea{
+	
+	
+	
 }
 .show{
 	display: block;
@@ -243,18 +336,18 @@ border-radius: 5px;
 resize: none;
 }
 .replay{
-    position: absolute;
-    top: 60px;
-    left: 20px;
-    display: inline-block;
-    z-index: 500;
+
+    display: inline-block;	
+}
+
+#add_post{
+	background-color:green;
 }
 .btn{
 
 float:left;
 }
 .container{
-    width: 80%;
     height: auto;
     margin: auto;
 }
@@ -262,22 +355,32 @@ float:left;
     height: auto;
     width: 100%;
 }
+.container>ul>a{
+    display:inline-block;
+    height:100%;
+    border-bottom:none;
+
+}
 .container>ul>a>li{
     float: left;
-    width: 33%;
-    height: 50px;
+    width: 100%;
+    height:auto;
+     margin:8px 0px !important;
 }
 .container>ul>a>li>img{
-    width: 95%;
-    height: 95%;
-    margin: auto;
+    width:100%;
+	height:80px;
+    max-height:90px;
+    max-width:85px;
+    padding-right: 5px;
+    float: left;
+    object-fit: cover;
 }
 
 
 .gallery:after {
     content: '';
     display: block;
-    height: 2px;
     margin: .5em 0 1.4em;
     background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0) 0%, rgba(77,77,77,1) 50%, rgba(0, 0, 0, 0) 100%);
     background: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(77,77,77,1) 50%, rgba(0, 0, 0, 0) 100%);
@@ -287,14 +390,11 @@ float:left;
     height: 100%;
 }
 
-li{
-	list-style-type: none;
-	
-}
+
 .face>li{
-	
+	margin:0px !important;
 	float: left;
-	width: 50px;
+	width: 62px;
 }
 .new{
 	display: block;
@@ -386,4 +486,32 @@ background-color: #FFFFFF;
     font-size: 14px;
     line-height: 16px;
     
+}
+/*获取手机图片样式*/
+.camre{
+	position: absolute;
+    width: 24px;
+    height: 20px;
+    top: 10px;
+    left: 90%;
+    background-size: cover;
+	z-index:999;
+}
+/*弹出层*/
+.popups{
+	display: black;
+    position: absolute;
+    top: 16%;
+    right: 0;
+    left: 26%;
+    z-index:999;
+   background-color:#fff;
+    width:50%;
+	height:20%;
+}
+/*10-18 社区样式修改*/
+.date{
+   width:100%;
+   height:20px;
+
 }

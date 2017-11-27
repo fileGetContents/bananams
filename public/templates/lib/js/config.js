@@ -1,3 +1,9 @@
+
+	
+	
+	
+	
+	
 'use strict';
 var Config = {};
 Config.Emoji = {

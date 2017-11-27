@@ -14,6 +14,9 @@
 	background-color: #1ABC9C;
 
 }
+a{
+	text-decoration: none;
+}
 i{
 	margin-top: 10px;
 }

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no,width=device-width">
@@ -14,6 +14,8 @@
         <p>首页</p></a>
     <a class="foot-tab " href="friend.html"><img src="../img/ion/friend2.png">
         <p>社区</p></a>
+		<a class="foot-tab " href="sendpost.html"><img src="../img/ion/fatie.png">
+            <p>发帖</p></a>
     <a class="foot-tab " href="home.html"><img src="../img/ion/home.png">
         <p>小店</p></a>
     <a class="foot-tab " href="person.html"><img src="../img/ion/my2.png">
@@ -30,16 +32,16 @@
     <div class="title title-center header-item" style="left: 15px; right: 15px;">最新</div>
 </ion-header-bar>
 <div class="content">
-    <div class="section" style="border: 0">
-        <a href="details.html">
-            <div class="projectbox"><img src="../img/find.jpg">
-                <p>2017年 新年创意</p>
-                <p class="price2">￥ 18.00</p>
-            </div>
-        </a>
-    </div>
+    <!--<div class="section" style="border: 0">-->
+        <!--<a href="details.html">-->
+            <!--<div class="projectbox"><img src="../img/find.jpg">-->
+                <!--<p>2017年 新年创意</p>-->
+                <!--<p class="price2">￥ 18.00</p>-->
+            <!--</div>-->
+        <!--</a>-->
+    <!--</div>-->
     <a href="all.html">
-        <div style="margin-top: 50px" class="bg5" style="margin-top: 10px"><p>查看更多</p></div>
+        <div style="margin-top: 200px" class="bg5" ><p>查看更多</p></div>
     </a>
 </div>
 </body>
@@ -48,20 +50,22 @@
 <script type="text/javascript">
     $(function () {
         // 加载其他
-            $.ajax({
-                type: 'post',
-                data: {'tag': 50},
-                dataType: 'json',
-                url: 'http://www.bananatrip.cn/new/good',
-                success: function (obj) {
-                    obj.map(function (value, index, array) {
+        $.ajax({
+            type: 'post',
+            data: {'tag': 50},
+            dataType: 'json',
+            url: 'http://www.bananatrip.cn/new/good',
+            success: function (obj) {
+                obj.map(function (value, index, array) {
+                    if (index == 0) {
                         var good_list = '<div class="section" style="border: 0"> <a href="details.html?id=' + value["good_id"] + '"> <div class="projectbox"><img src="' + value['image'] + '"> <p>' + value['good_name'] + '</p> <p class="price2">￥' + value["good_amount"] + '</p> </div> </a> </div>';
                         $('.content').append(good_list);
-                    });
-                },
-                error: function (obj) {
-                }
-            });
+                    }
+                });
+            },
+            error: function (obj) {
+            }
+        });
 
         $('.content').on('click', 'li', function () {
             window.location.href = $(this).attr("href");

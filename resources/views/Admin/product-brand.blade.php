@@ -23,8 +23,9 @@
         #DataTables_Table_0_info {
             display: none;
         }
+
         #DataTables_Table_0_paginate {
-            display:none
+            display: none
         }
     </style>
     <title>产品管理</title>
@@ -34,7 +35,8 @@
     <i class="Hui-iconfont">&#xe67f;</i> 首页
     <span class="c-gray en">&gt;</span> 旅游管理
     <span class="c-gray en">&gt;</span>
-    <a class="btn btn-success radius r mr-20" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新">
+    <a class="btn btn-success radius r mr-20" style="line-height:1.6em;margin-top:3px"
+       href="javascript:location.replace(location.href);" title="刷新">
         <i class="Hui-iconfont">&#xe68f;</i>
     </a>
 </nav>
@@ -73,11 +75,13 @@
                     <td>{{ $value->travel_venue }}</td>
                     <td>{{ $value->travel_sort }}</td>
                     <td class="text-l">{{ $value->travel_expense }}</td>
-                    <td>{{ $value->travel_time }}</td>
+                    <td>{{ date('Y-m-d H:i:s',$value->travel_time) }}</td>
                     <td style="display: none;" class="td-status"><span class="label label-success radius"></span></td>
                     <td class="td-manage">
                         {{--<a style="text-decoration:none" onClick="member_stop(this,'10001')" href="javascript:;" title="停用"><i class="Hui-iconfont">&#xe631;</i></a>--}}
-                        {{--<a title="编辑" href="javascript:;" onclick="member_edit('编辑','member-add.html','4','','510')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a>--}}
+                        <a title="编辑" href="javascript:;"
+                           onclick="member_edit('编辑','add/brand/{{$value->travel_id}}','4','','510')" class="ml-5"
+                           style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a>
                         {{--<a style="text-decoration:none" class="ml-5" onClick="change_password('修改密码','change-password.html','10001','600','270')" href="javascript:;" title="修改密码"><i class="Hui-iconfont">&#xe63f;</i></a>--}}
                         <a title="删除" href="javascript:;" onclick="member_del(this,'{{$value->travel_id}}')"
                            class="ml-5" style="text-decoration:none">

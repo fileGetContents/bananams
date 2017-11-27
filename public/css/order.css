@@ -14,6 +14,10 @@
 	background-color:#f8f8f8 ;
 
 }
+#contener{
+	height: auto;
+	width: 100%;
+}
 .light-bg {
     background-color: #fff;
 }
@@ -23,7 +27,7 @@
   	color: white;
   }
 .order_banner {
-	height:170px ;
+	height:auto ;
 	margin-top: 5px;
 	padding-left: 10px;
 	padding-right:10px ;
@@ -55,7 +59,7 @@
 	
 }
 .imgbanner{
-	width: 70px;
+	width: 22%;
 	height: 60px;
 	border: 1px solid #F0F0F0;
 	margin-top: 10px;
@@ -68,13 +72,18 @@
 	margin-top: 20px;
 }
 .inform{
-	width:auto;
+	overflow:hide;
+	width:70%;
 	float: left;
 	height: 60px;
-	line-height: 60px;
+	line-height: 20px;
 	margin-top: 20px;
-	margin-left: 20px;
+	margin-left: 10px;
 	font-size: 0.8rem;
+	vertical-align:center;
+}
+.inform>p{	
+	color:gray;
 }
 .no{
 	display: none;

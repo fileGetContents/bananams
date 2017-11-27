@@ -21,6 +21,8 @@ class TestController extends Controller
         dump($request->input());
         dump($request->all());
         $input = file_get_contents("php://input", true);
+		
+		dump($input);
         //dump($request->all());
         //dump(Crypt::encrypt("admin"));
         //dump(Crypt::decrypt('eyJpdiI6ImFSXC8yVU9OUU80OHBDRHB2SW5VbWFBPT0iLCJ2YWx1ZSI6InhnWm1vcldCVU9aQjRYOEs1VW5OYmc9PSIsIm1hYyI6IjZjNTBhZjAzOTM2OGZmZTgyODNlYTNjNTYwMzk1Mjk4Mjg0ZWZlNDJkZjY2ZDQxN2QyNTk0NjQ1ZDBhMDFiMzAifQ=='));

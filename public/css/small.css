@@ -1,8 +1,16 @@
-*{
+﻿*{
 	margin: 0;
 	padding: 0;
 	font-size: 0.9rem;
 }
+
+.slideBox { position: relative; overflow: hidden; margin: 0 auto; width: 100%;height:150px; }
+.slideBox .hd { position: absolute; height: 28px; line-height: 28px; bottom: 0; right: 0; z-index: 1; text-align: center; width: 100%; }
+.slideBox .hd li { display: inline-block; width: 10px; height: 10px; -webkit-border-radius: 10px; -moz-border-radius: 10px; border-radius: 10px; background:rgba(242, 12, 17, 0.49); text-indent: -9999px; overflow: hidden; margin: 0 2px; }
+.slideBox .hd li.on {  background: #f20c11;}
+.slideBox .bd { position: relative; z-index: 0; }
+.slideBox .bd li { position: relative; text-align: center; }
+.slideBox .bd li img { background: url(../images/loading.gif) center center no-repeat; vertical-align:middle; width: 100%; }
 .content{
 
 	width: 100%;
@@ -17,9 +25,10 @@
 .header{
 	width: 100%;
 	height:50px ;
-	line-height: 50px;
+	line-height: 30px;
 	position: relative;
 	padding-left: 10px;
+	padding:10px 10px 10px 10px;
 }
 
 .title2{
@@ -55,7 +64,7 @@
     font-size: 12px;
     overflow: hidden;
     text-overflow: ellipsis;
-    white-space: nowrap;
+  
 }
 .item-thumbnail-left{
     padding-top: 8px;
@@ -88,56 +97,61 @@
 	padding: 0 2px 0 2px;
 	color: #ff5000;
 }
+/*修改输入框文字开始*/
 .find3{
-    border-radius: 5%;
+	border-radius: 5px;
     border:0.1rem solid  #D0D0D0;
     width: 60%;
     height: 30px;
-   position: absolute;
- top:10px;
- right: 40px;
+    position: relative;
+    left: 9rem;
+    
 }
 
 .find3>input{
-background-color:transparent;
-    width:80%;
-    height: 100%;
-    border: 0;margin-top: -2px;
-    position: absolute;
-padding-left: 10px;
-outline: none;
-
+	width: 80%;
+	height: 100%;
+	border: 0px;
+	position: absolute;
+    left: 0rem;
+    top: 0rem;
+    text-indent: 0.3rem;
+    outline: none;
+	line-height:12.96px;
 }
+/*修改输入框文字结束*/
 
 .find3>input::-webkit-input-placeholder{
-  color: #d5d5d5;
+  	color: #d5d5d5;
     font-size:0.8rem;
     line-height: 1.2rem;
     overflow: hidden;
     padding-left: 0;
 }
-
+.more{margin-left:10px;}
 
 select {
-  border: 0;
-appearance:none;
-  -moz-appearance:none;
-  -webkit-appearance:none;
- background: url("http://ourjs.github.io/static/2015/arrow.png") no-repeat scroll right center transparent;
-  max-width: 70px;
-  overflow: hidden;
-  padding-right: 14px;
-  margin-left:10px ;
-  margin-right:5px ;
-  font-size: 0.7rem;
+  	border: 0;
+	background:transparent ;
+ 	width:50px;
+	float:left;
+    height:30px;
+	margin:0px auto;
+ 
+ color:#262626;
   outline: none;
  
-  
+  line-height:14px;
+ 
+ appearance:none;
+-moz-appearance:none;
+-webkit-appearance:none;
+padding-right: -20px;
+ 
 }
+/*清除ie的默认选择框样式清除，隐藏下拉箭头*/
+select::-ms-expand { display: none; }
 
-select::-ms-expand { 
-	display: none; 
-	}
 .find3 img{
 	top: 5px;
 	right: 2px;

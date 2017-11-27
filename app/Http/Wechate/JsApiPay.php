@@ -54,6 +54,8 @@ class JsApiPay
             $openid = $this->getOpenidFromMp($code);
             return $openid;
         }
+        //https://ebs-51272/svn/banana
+
     }
 
     /**
@@ -101,7 +103,7 @@ class JsApiPay
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
         curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, FALSE);
         curl_setopt($ch, CURLOPT_HEADER, FALSE);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         if (WxPayConfig::CURL_PROXY_HOST != "0.0.0.0"
             && WxPayConfig::CURL_PROXY_PORT != 0
         ) {

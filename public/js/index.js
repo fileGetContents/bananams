@@ -1,5 +1,5 @@
 $(".like").click(function () {
-
+alert(0000);
     if (this.src.match("after")) {
         this.src = "../img/zan.png";
 
@@ -32,12 +32,12 @@ buy_button.click = function () {
 };
 
 
-//$(document).ready(function(){
-////	$('#left-panel-link').panelslider();
-//	$('#right-panel-link').panelslider({side: 'right', clickClose: false, duration: 200 });
-//	$('#close-panel-bt').click(function() {
-//		$.panelslider.close();
-//	});
-//});
+$(document).ready(function(){
+//	$('#left-panel-link').panelslider();
+	$('#right-panel-link').panelslider({side: 'right', clickClose: false, duration: 200 });
+	$('#close-panel-bt').click(function() {
+		$.panelslider.close();
+	});
+});
 
  

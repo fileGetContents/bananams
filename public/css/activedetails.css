@@ -6,7 +6,7 @@
 .content{
 
 	width: 100%;
-	height: 80%;
+	height: 83%;
 	overflow: scroll;
 	float: left;
 	position: absolute;
@@ -163,10 +163,7 @@ li{
     display:inline-block;
     float: left;
     color: #484848;
-    
-    
   }
-
   .padding>div{
 	font-size: 0.7rem;
 	color:#7E7E7E ;
@@ -187,7 +184,7 @@ li{
     border-radius: 35px;
     background: rgba(24,30,25,0.5);
     position: fixed;
-    bottom: 100px;
+    bottom: 20%;
     left: 85%;
     text-align: center;
     display: none;
@@ -200,27 +197,32 @@ li{
 .footer{
 	
 	 float: left;
-    position:absolute;
-    bottom:55px;
+    position:fixed;
+    bottom:0px;
     left: 0;
     margin-top: 0;
-  width:100%;
-    height:40px;
+    width:100%;
+    height:60px;
     background-color:#FFAF15;
     line-height: 40px;
     text-align: center;
 }
 .kefu{
 	width: 20%;
-	height: 40px;
+	height: 60px;
 	background-color: white;
 	float: left;
+	line-height:60px;
 }
 .buy_button2{
 	width: 80%;
-	height: 40px;
+	height: 60px;
 	text-align: center;
 	float: left;
+	vertical-align:middle;
+	margin:auto auto;
+	line-height:60px;
+	font-size:18px;
 	
 }
 .discount{

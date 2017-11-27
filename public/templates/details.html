@@ -17,6 +17,8 @@
         <p class="mycolor">首页</p></a>
     <a class="foot-tab " href="friend.html"><img src="../img/ion/friend2.png">
         <p>社区</p></a>
+		<a class="foot-tab " href="sendpost.html"><img src="../img/ion/fatie.png">
+            <p>发帖</p></a>
     <a class="foot-tab " href="home.html"><img src="../img/ion/home.png">
         <p>小店</p></a>
     <a class="foot-tab " href="person.html"><img src="../img/ion/my2.png">
@@ -60,8 +62,8 @@
         <div><span>运费：免运费</span><span class="sale">销量：8件</span></div>
     </div>
     <div class="bg3 ">
-        <div class="choose light-bg" data-toggle="modal" data-target="#myModal">请选择：款式 数量<i class=""><img
-                src="../img/right.png"></i></div>
+        <a onclick="return false;" class="choose light-bg" data-toggle="modal" data-target="#myModal">请选择：款式 数量<i class=""><img
+                src="../img/right.png"></i></a>
     </div>
 
     <div id="info">
@@ -72,7 +74,8 @@
     </div>
 
 </div>
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<span style="position: relative; z-index: 9999;"> 
+<div class="modal fade" id="myModal"  style="cursor: pointer;" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="titheader">
@@ -124,6 +127,8 @@
     </style>
 
 </div>
+
+ </span>
 <script>
     $(document).ready(function () {
         $('#myCarousel').carousel({interval: 1000});//每隔5秒自动轮播
@@ -196,11 +201,9 @@
                 dataType: 'json',
                 url: 'http://www.bananatrip.cn/is/login',
                 success: function (obj) {
-                    if (obj["info"] == 1) {
-                        window.location.href = 'payorder.html?id=' + id + '&way=' + way + '&num=' + num + '&good_id=' + GetQueryString('id');
-                    } else {
-                        window.location.href = 'login.html';
-                    }
+                 
+					 window.location.href = 'payorder.html?id=' + id + '&way=' + way + '&num=' + num + '&good_id=' + GetQueryString('id');
+					
                 },
                 error: function () {
 

@@ -25,26 +25,31 @@
 </head>
 <body>
 <div class="pd-20">
-    <form action="{{ URL('add/room') }}"  enctype="multipart/form-data"  method="post" class="form form-horizontal" id="form-article-add">
+    <form action="{{ $url  }}" enctype="multipart/form-data" method="post" class="form form-horizontal"
+          id="form-article-add">
 
         <div class="row cl">
             <label class="form-label col-2"><span class="c-red">*</span>房间名称：</label>
             <div class="formControls col-10">
-                <input type="text" class="input-text" value="" placeholder="" id="" name="room_name">
+                <input type="text" class="input-text" value="@if(is_object($info)) {{ $info->room_name }} @endif"
+                       placeholder="" id=""
+                       name="room_name">
             </div>
         </div>
 
         <div class="row cl">
             <label class="form-label col-2"><span class="c-red">*</span>房间价格：</label>
             <div class="formControls col-10">
-                <input type="text" class="input-text" value="" placeholder="" id="" name="room_price">
+                <input type="text" class="input-text" value="@if(is_object($info)) {{$info->room_price}} @endif"
+                       placeholder="" id="" name="room_price">
             </div>
         </div>
 
         <div class="row cl">
             <label class="form-label col-2"><span class="c-red">*</span>剩余数量：</label>
             <div class="formControls col-10">
-                <input type="text" class="input-text" value="" placeholder="" id="" name="room_num">
+                <input type="text" class="input-text" value="@if(is_object($info)) {{$info->room_num}} @endif"
+                       placeholder="" id="" name="room_num">
             </div>
         </div>
 
@@ -52,26 +57,22 @@
             <label class="form-label col-2"><span class="c-red">*</span>:所属酒店</label>
             <div class="formControls col-10">
                 <select name="hotel" id="hotel">
-                    <option value="" >--请选择--</option>
+                    <option value="">--请选择--</option>
                     @foreach($hotel as $value)
-                        <option value="{{$value->hotel_id }}" >{{  $value->hotel_name }}</option>
+                        <option value="{{$value->hotel_id }}">{{  $value->hotel_name }}</option>
                     @endforeach
                 </select>
             </div>
         </div>
-
         <div class="row cl">
             <label class="form-label col-2">主图：</label>
             <div class="formControls col-10">
                 <div class="uploader-thum-container">
                     <div id="fileList" class="uploader-list"></div>
-                    <input type="file" name="file2"  />
+                    <input type="file" name="file2"/>
                 </div>
             </div>
         </div>
-
-
-
         <div style="display: none" class="row cl">
             <label class="form-label col-2">图片上传：</label>
             <div class="formControls col-10">
@@ -98,11 +99,12 @@
         </div>
 
 
-
         <div class="row cl">
             <label class="form-label col-2">房间信息：</label>
             <div class="formControls col-10">
-                <script id="editor" name="room_info" type="text/plain" style="width:100%;height:400px;"></script>
+                <script id="editor" name="room_info" type="text/plain" style="width:100%;height:400px;">
+                    @if(is_object($info)) {{$info->room_info}} @endif
+                </script>
             </div>
         </div>
         <div class="row cl">

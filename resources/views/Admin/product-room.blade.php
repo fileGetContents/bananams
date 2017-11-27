@@ -24,7 +24,11 @@
     <title>商品列表</title>
 </head>
 <body class="pos-r">
-<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 商品管理 <span class="c-gray en">&gt;</span> 商品列表 <a class="btn btn-success radius r mr-20" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
+<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 商品管理 <span
+            class="c-gray en">&gt;</span> 商品列表 <a class="btn btn-success radius r mr-20"
+                                                  style="line-height:1.6em;margin-top:3px"
+                                                  href="javascript:location.replace(location.href);" title="刷新"><i
+                class="Hui-iconfont">&#xe68f;</i></a></nav>
 <div>
     <div class="pd-20">
         <div class="cl pd-5 bg-1 bk-gray mt-20">
@@ -42,7 +46,7 @@
                     <th width="40">编号</th>
                     <th width="60">主图</th>
                     <th width="100">名称</th>
-                    <th >描述</th>
+                    <th>描述</th>
                     <th width="100">所属酒店</th>
                     <th width="40">剩余分数</th>
                     <th width="60">发布状态</th>
@@ -50,18 +54,18 @@
                 </tr>
                 </thead>
                 <tbody>
-                 @foreach($room as $value)
+                @foreach($room as $value)
                     <tr class="text-c va-m">
                         <td><input name="" type="checkbox" value=""></td>
                         <td>
-                          {{ $value->room_id }}
+                            {{ $value->room_id }}
                         </td>
                         <td><a onClick="product_show('','product-show','10001')" href="javascript:;">
                                 <img width="60" class="product-thumb" src="{{ $value->room_image }}">
                             </a>
                         </td>
                         <td class="text-l">
-                           {{ $value->room_name }}
+                            {{ $value->room_name }}
                         </td>
                         <td class="text-l">
                             {{ $value->room_info }}
@@ -73,15 +77,19 @@
                             </span>
                         </td>
                         <td class="td-status">
-                                <span class="label label-success radius">默认</span>
+                            <span class="label label-success radius">默认</span>
                         </td>
                         <td class="td-manage">
-                            <a style="text-decoration:none" class="ml-5" onClick="product_del(this,'{{$value->room_id}}')" href="javascript:;" title="删除">
+                            <a title="编辑" href="javascript:;"
+                               onclick="member_edit('编辑','add/room/{{$value->room_id}}','4','','510')" class="ml-5"
+                               style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a>
+                            <a style="text-decoration:none" class="ml-5"
+                               onClick="product_del(this,'{{$value->room_id}}')" href="javascript:;" title="删除">
                                 <i class="Hui-iconfont">&#xe6e2;</i>
                             </a>
                         </td>
                     </tr>
-               @endforeach
+                @endforeach
                 </tbody>
             </table>
         </div>
@@ -96,6 +104,9 @@
 <script type="text/javascript" src="admin/js/H-ui.js"></script>
 <script type="text/javascript" src="admin/js/H-ui.admin.js"></script>
 <script type="text/javascript">
+    function member_edit(title, url, id, w, h) {
+        layer_show(title, url, w, h);
+    }
     var setting = {
         view: {
             dblClickExpand: false,

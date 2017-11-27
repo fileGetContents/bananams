@@ -9,13 +9,13 @@ use App\Http\Wechate;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-
 class WxApiController extends Controller
 {
     protected $goodModel;
     protected $travelModel;
     protected $hotelModel;
     protected $publicModel;
+    protected $PurposeModel;
 
     public function __construct()
     {
@@ -23,6 +23,7 @@ class WxApiController extends Controller
         $this->travelModel = new Model\BananaModel();
         $this->hotelModel = new Model\HotelModel();
         $this->publicModel = new Model\PublicModel();
+        $this->PurposeModel = new Model\PurposeModel();
     }
 
     /**
@@ -125,13 +126,15 @@ class WxApiController extends Controller
 //        }
         // ①、获取用户openid
         $tools = new Wechate\JsApiPay();
-        $openId = $tools->GetOpenid();
+        //$openId = $tools->GetOpenid();
+        $use = $this->PurposeModel->selectFirst('user', ['user_id' => 29]);
+        $openId = $use->user_openid;
         // ②、统一下单
         $input = new Wechate\WxPayUnifiedOrder();
         $input->SetBody($pay['body']);                           // 设置商品或支付单简要描述
         $input->SetAttach($pay['attach']);                       // 附加信息
         $input->SetOut_trade_no($pay['trade_no']);               // 商户订单号
-        $input->SetTotal_fee($pay['total_fee']);                                 // 订单总金额，只能为整数，详见支付金额
+        $input->SetTotal_fee($pay['total_fee']);                 // 订单总金额，只能为整数，详见支付金额
         $input->SetTime_start(date("YmdHis"));                   // 交易起始时间
         $input->SetTime_expire(date("YmdHis", time() + 36000));  // 交易结束时间
         //$input->SetGoods_tag("test");
@@ -140,15 +143,15 @@ class WxApiController extends Controller
         $input->SetOpenid($openId);
         $WxPayApi = new Wechate\WxPayApi();
         $order = $WxPayApi->unifiedOrder($input);
-        echo '<meta charset="utf-8" />';
         // $order = Wechate\WxPayApi::unifiedOrder($input);
         // echo '<font color="#f00"><b>统一下单支付单信息</b></font><br/>';
         //$jsApiParameters = $tools->GetJsApiParameters($order);
         $jsApiParameters = $tools->GetJsApiParameters($order);
         // 获取共享收货地址js函数参数
         $editAddress = $tools->GetEditAddressParameters();
+        die;
         return view('WechatePay')->with([
-            'pay' => $pay['total_fee']/100,
+            'pay' => $pay['total_fee'] / 100,
             'jsApiParameters' => $jsApiParameters,
             'editAddress' => $editAddress
         ]);
@@ -224,37 +227,66 @@ class WxApiController extends Controller
 //                }
 //            }
 //        }
-//
     }
 
     /**
-     *
-     * 获取用户信息
+     * 微信登录
+     * @param Request $request
      */
-    public function getUserInfo(Request $request)
+    public function userInfo(Request $request)
     {
+
+        $config = new Wechate\WxPayConfig();
         if (isset($_GET['code'])) {
-            $getAccessToken = 'https://api.weixin.qq.com/sns/oauth2/access_token?appid=wx53bb0f13b94ab34d&secret=f3b35ead3c880e9712c4d38efbb6eb89&code=' . $_GET['code'] . '&grant_type=authorization_code';
-            $up = json_decode(file_get_contents($getAccessToken)); // 获取用户信息
-            $getInfo = 'https://api.weixin.qq.com/sns/userinfo?access_token=' . $up["access_token"] . '&openid=' . $up["openid"];
-            $info = json_decode(file_get_contents($getInfo));
-            // 查询数据库
-            $user = $this->publicModel->selectFirst('user', array('user_openid' => $info['openid']));
-            if (is_null($user)) {
-                $id = $this->publicModel->up('user', array(
-                    'user_openid' => $info['openid'],
-                    'user_images' => $info['headimgurl'],
-                    'user_name' => $info['nickname']
-                ));
-                if (is_numeric($id) && $id > 0) {
-                    $request->session()->put('user_id', $id);
-                }
+            $accJson = file_get_contents('https://api.weixin.qq.com/sns/oauth2/access_token?appid=' . $config::APPID . '&secret=' . $config::APPSECRET . '&code=' . $_GET["code"] . '&grant_type=authorization_code ');
+            $accArray = json_decode($accJson, true);
+            $infoJson = file_get_contents('https://api.weixin.qq.com/sns/userinfo?access_token=' . $accArray["access_token"] . '&openid=' . $accArray['openid'] . '&lang=zh_CN ');
+            $infoArray = json_decode($infoJson, true);
+            $whether = $this->PurposeModel->selectFirst('user', [
+                'user_openid' => $infoArray['openid'],
+            ]);
+            if (!is_null($whether)) {
+                session(["user_id" => $whether->user_id]);
+                // 更新头像
+                $this->PurposeModel->up('user', ['user_id' => $whether->user_id], ['user_headimgurl' => $infoArray['headimgurl']]);
             } else {
-                $request->session()->put('user_id', $user->id);
-            };
-            header("Location: http://www.bananatrip.cn/templates/start.html");
+                $id = $this->PurposeModel->insertGetId('user', [
+                    'user_name' => $infoArray['nickname'],
+                    'user_openid' => $infoArray['openid'],
+                    'user_headimgurl' => $infoArray['headimgurl'],
+                ]);
+                session(['user_id' => $id]);
+            }
+            echo '<script type="text/javascript">window.location.href="' . $this->getBaseUrl($request->url) . '";</script>';
+        } else {
+            $baseUrl = urlencode('http://www.bananatrip.cn/wx/login/' . $request->url);
+            $url = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=' . $config::APPID . '&redirect_uri=' . $baseUrl . '&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect';
+            echo '<script type="text/javascript">window.location.href="' . $url . '";</script>';
+        }
+    }
+
+    /**
+     * @param $last
+     * @return string  获取返回地址
+     */
+    public function getBaseUrl($last)
+    {
+        switch ($last) {
+            case  'sendpost'; // 旅行发帖
+                return 'http://www.bananatrip.cn/templates/sendpost.html';
+                break;
+            case  'post';   // 旅行社区
+                return 'http://www.bananatrip.cn/templates/friend.html';
+                break;
+            case  'order';// 我的订单
+                return 'http://www.bananatrip.cn/templates/order.html';
+                break;
+            default;
+                return 'http://www.bananatrip.cn/templates/start.html';
         }
 
+
     }
+
 
 }

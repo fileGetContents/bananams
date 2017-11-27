@@ -12,16 +12,7 @@
     <script src="../js/bootstrap.min.js"></script>
 </head>
 <body>
-<div class="foot">
-    <a class="foot-tab" href="start.html"><img src="../img/ion/start.png">
-        <p>首页</p></a>
-    <a class="foot-tab " href="friend.html"><img src="../img/ion/friend2.png">
-        <p>社区</p></a>
-    <a class="foot-tab " href="home.html"><img src="../img/ion/home2.png">
-        <p>小店</p></a>
-    <a class="foot-tab " href="person.html"><img src="../img/ion/my2.png">
-        <p>我的</p></a>
-</div>
+
 <ion-header-bar class="stable-bg bar bar-header" align-title="center">
     <button class="button " onclick="history.go(-1)">
         <i class="icon ion-android-arrow-back"></i>
@@ -34,7 +25,8 @@
 </ion-header-bar>
 <div class="content">
     <div class="header">
-        <select name="city" ng-model="vm.pace">
+       <div style="float:left;">出发地:&nbsp;</div>
+	<select name="city" ng-model="vm.pace" style="background:url('../img/select.jpg') no-repeat scroll right center transparent;appearance:none;">
             <option value="成都">成都</option>
             <option value="上海">上海</option>
             <option value="成都">成都</option>

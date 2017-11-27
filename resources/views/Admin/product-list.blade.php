@@ -24,7 +24,11 @@
     <title>商品列表</title>
 </head>
 <body class="pos-r">
-<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 商品管理 <span class="c-gray en">&gt;</span> 商品列表 <a class="btn btn-success radius r mr-20" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
+<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 商品管理 <span
+            class="c-gray en">&gt;</span> 商品列表 <a class="btn btn-success radius r mr-20"
+                                                  style="line-height:1.6em;margin-top:3px"
+                                                  href="javascript:location.replace(location.href);" title="刷新"><i
+                class="Hui-iconfont">&#xe68f;</i></a></nav>
 <div>
     <div class="pd-20">
         <div class="cl pd-5 bg-1 bk-gray mt-20">
@@ -82,9 +86,10 @@
                         <td class="td-manage">
                             {{--<a style="text-decoration:none" onClick="product_stop(this,'10001')" href="javascript:;"--}}
                             {{--title="下架"><i class="Hui-iconfont">&#xe6de;</i></a>--}}
-                            {{--<a style="text-decoration:none" class="ml-5"--}}
-                            {{--onClick="product_edit('产品编辑','product-add','10001')" href="javascript:;" title="编辑"><i--}}
-                            {{--class="Hui-iconfont">&#xe6df;</i></a>--}}
+                            <a style="text-decoration:none" class="ml-5"
+                               onClick="product_edit('产品编辑','{{URL('product-add/'.$value->good_id)}}','10001')" href="javascript:;"
+                               title="编辑"><i
+                                        class="Hui-iconfont">&#xe6df;</i></a>
                             <a style="text-decoration:none" class="ml-5"
                                onClick="product_del(this,'{{$value->good_id}}')"
                                href="javascript:;" title="删除"><i class="Hui-iconfont">&#xe6e2;</i></a>

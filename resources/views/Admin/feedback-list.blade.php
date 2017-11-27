@@ -40,11 +40,11 @@
                     <td><input type="checkbox" value="1" name=""></td>
                     <td>{{$value->post_id}}</td>
                     <td>
-                        <a href="javascript:;" onclick="member_show('张三','member-show.html','10001','360','400')">
+
                             <i class="avatar size-L radius">
                                 {{$value->user_tel}}
                             </i>
-                        </a>
+
                     </td>
                     <td class="text-l">
                         <div class="c-999 f-12">

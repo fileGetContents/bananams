@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no,width=device-width">
+    <meta charset="UTF-8">
+    <title></title>
+    <link href="../css/foot.css" rel="stylesheet">
+    <link href="../css/head.css" rel="stylesheet">
+    <link href="../css/details.css" rel="stylesheet">
+    <link href="../css/bootstrap.css" rel="stylesheet">
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="foot">
+    <a class="foot-tab" href="start.html"><img src="../img/ion/start2.png">
+        <p class="mycolor">首页</p></a>
+    <a class="foot-tab " href="friend.html"><img src="../img/ion/friend2.png">
+        <p>社区</p></a>
+    <a class="foot-tab " href="home.html"><img src="../img/ion/home.png">
+        <p>小店</p></a>
+    <a class="foot-tab " href="person.html"><img src="../img/ion/my2.png">
+        <p>我的</p></a>
+</div>
+<ion-header-bar class="stable-bg bar bar-header" align-title="center">
+
+    <button class="button " onclick="history.go(-1)">
+        <i class="icon ion-android-arrow-back"></i>
+				<span class="back-text">
+				<img src="../img/ion/return.png">
+				</span>
+    </button>
+    <div class="title title-center header-item" style="left: 15px; right: 15px;">商品详情</div>
+</ion-header-bar>
+<div class="content">
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <!-- 轮播（Carousel）指标 -->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+        <!-- 轮播（Carousel）项目 -->
+        <div class="carousel-inner" style="height:150px;">
+            <div class="item active">
+                <img src="../img/find.jpg" alt="First slide">
+            </div>
+            <div class="item">
+                <img src="../img/hotel4.jpeg" alt="Second slide">
+            </div>
+            <div class="item">
+                <img src="../img/hotel8.jpeg" alt="Third slide">
+            </div>
+        </div>
+
+    </div>
+    <div class="message">
+        <p>2017年 旅游快进</p>
+        <p class="assertive">￥ 18.00</p>
+        <div><span>运费：免运费</span><span class="sale">销量：8件</span></div>
+    </div>
+    <div class="bg3 ">
+        <div class="choose light-bg" data-toggle="modal" data-target="#myModal">请选择：款式 数量<i class=""><img
+                src="../img/right.png"></i></div>
+    </div>
+
+    <div id="info">
+        <img src="../img/details1.JPG">
+        <img src="../img/details2.JPG">
+        <img src="../img/details3.JPG">
+        <img src="../img/details4.JPG">
+    </div>
+
+</div>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="titheader">
+                <div class="buy-box">
+                    <div class="buy_section1">
+                        <div class="buy_img">
+                            <img src=" ../img/details2.JPG">
+                        </div>
+                        <div class="buy_message">
+                            <p>成都三元乔亚朵酒店</p>
+                            <p style="color: red">￥1400元起</p>
+                        </div>
+                        <i class="close" data-dismiss="modal">
+                            <img src="../img/close.png" width="20px" height="20px">
+                        </i>
+                    </div>
+                    <div class="buy_section2" id="buy_section2">
+                        <p>款式：</p>
+                        <!--<button class="pitch light-bg">套餐一</button>-->
+                        <!--<button class="pitch light-bg">套餐二</button>-->
+                        <!--<button class="pitch light-bg">套餐二</button>-->
+                    </div>
+                    <div class="buy_section2">
+                        <p>购买数量:剩余<span id="kuchun">10</span>件</p>
+                        <div class="catecenter">
+                            <em id="min1" onclick="minus();">-</em>
+                            <input type="number" id="text_box1" class="num" value="1">
+                            <em id="add1" onclick="add();">+</em>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <a id="go_buy" href="#">
+                        <div class="buy_button light">
+                            立即购买
+                        </div>
+                    </a>
+                </div>
+            </div><!-- /.modal-content -->
+
+        </div>
+    </div>
+
+
+    <style type="text/css">
+        .way {
+            border: 1px solid red;
+        }
+    </style>
+
+</div>
+<script>
+    $(document).ready(function () {
+        $('#myCarousel').carousel({interval: 1000});//每隔5秒自动轮播
+    });
+</script>
+
+
+<script src="../js/details.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $.ajax({
+            type: 'post',
+            data: {'id': GetQueryString('id')},
+            dataType: 'json',
+            url: 'http://www.bananatrip.cn/good/info',
+            success: function (obj) {
+                console.log(obj);
+                var freight = '免运费';
+                if (parseInt(obj['good']['good_freight']) != 0) {
+                    freight = '￥ ' + obj['good']['good_freight'];
+                }
+                $('.message').html('<p>' + obj['good']["good_name"] + '</p> <p class="assertive">￥ ' + obj['good']["good_price"] + '</p> <div><span>运费：' + freight + '</span><span class="sale">销量：' + obj['good']["good_sales"] + '件</span></div>');
+                // 替换轮播图片
+                obj['good']['good_images'].map(function (value, index, array) {
+                    $(".carousel-inner >div >img").eq(index).attr('src', value)
+                });
+                $("#info").html(obj['good']['good_details']);
+
+                $('.buy_img > img').attr('src', obj['good']['good_images']);
+                $('.buy_message').html('<p>' + obj['good']['good_name'] + '</p><p style="color: red">￥' + obj['good']['good_price'] + '元</p>')
+
+                obj['info'].map(function (value, index, array) {
+                    var arr = new Array('一', '二', '三', '四', '五', '六', '七');
+                    if (index == 0) {
+                        var buy_way = '<button  way="' + value['info_type'] + '" id="' + value['info_id'] + '"  num="' + value['info_num'] + '"   class="pitch light-bg way">套餐' + arr[index] + '</button>';
+                    } else {
+                        var buy_way = '<button  way="' + value['info_type'] + '" id="' + value['info_id'] + '"  num="' + value['info_num'] + '"   class="pitch light-bg">套餐' + arr[index] + '</button>';
+                    }
+                    $('#buy_section2').append(buy_way);
+                });
+            },
+            error: function (obj) {
+
+            }
+        });
+        $('#buy_section2').on('click', 'button', function () {
+            $(this).click(function () {
+                $('#kuchun').html($(this).attr('num'))
+            });
+            $(this).siblings('button').attr('class', 'pitch light-bg');
+            $(this).attr('class', 'pitch light-bg  way')
+        });
+
+        $('#text_box1').change(function () {
+            if (parseInt($(this).val()) > parseInt($('#kuchun').html())) {
+                $(this).val($('#kuchun').html())
+            }
+        });
+
+        //  跳转购买
+        $('#go_buy').click(function () {
+            var way = parseInt($('.way').attr('way')); // 购买方式
+            var id = parseInt($('.way').attr('id'));   // id
+            var num = parseInt($('#text_box1').val()); // 购买数量
+
+            // 检查是否登录
+            $.ajax({
+                type: 'post',
+                data: {'id': GetQueryString('id')},
+                dataType: 'json',
+                url: 'http://www.bananatrip.cn/is/login',
+                success: function (obj) {
+                    if (obj["info"] == 1) {
+                        window.location.href = 'payorder.html?id=' + id + '&way=' + way + '&num=' + num + '&good_id=' + GetQueryString('id');
+                    } else {
+                        window.location.href = 'login.html';
+                    }
+                },
+                error: function () {
+
+                }
+            });
+
+
+        });
+
+
+    });
+
+
+    function GetQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+        var r = window.location.search.substr(1).match(reg); //获取url中"?"符后的字符串并正则匹配
+        var context = "";
+        if (r != null)
+            context = r[2];
+        reg = null;
+        r = null;
+        return context == null || context == "" || context == "undefined" ? "" : context;
+    }
+
+</script>
+</body>
+</html>

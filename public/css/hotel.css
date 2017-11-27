@@ -3,10 +3,23 @@
 	padding: 0;
 	font-size: 0.9rem;
 }
+html{
+	width: 100%;
+	height:100%;
+}
+body{
+	width: 100%;
+	height:100%;
+}
+#page{
+	width: 100%;
+	height:100%;
+	overflow:hide !important;
+}
 .content{
 
 	width: 100%;
-	height: 80%;
+	height:100%;
 	overflow: scroll;
 	float: left;
 	position: absolute;
@@ -28,7 +41,8 @@
 .disbanner{
 	width: 100%;
 	height: 70px;
-	margin-top: 10px;
+padding: 5px 0px;
+	
 	background-color:rgba(253,216,126,0.8);
 	
 }
@@ -104,9 +118,10 @@ color: #ef473a;
  	height:45px;
  	border-bottom:1px solid #DDDDDD;
  	margin: 0;
- 	margin-top: 10px;
  }
+#yinxiang{border-bottom:2px solid #FFAF15;}
 .defaultClass2 li{
+	
     width: 50%;
     text-align: center;
     height: 45px;
@@ -125,32 +140,33 @@ color: #ef473a;
 	
 }
 .fix{
-	position: fixed;
 
-  top: 34px;
-
-   left: 0;
-   z-index: 500;
-    
-  
+ position:fixed;
+top:0px;
+   z-index: 500; 
+}
+.page{
+	
+	overflow:hide;
 }
 .hotelbanner>p{
 	font-size: 0.8rem;
 	color:#262625 ;
 }
 .hotelfoot{
-	float: left;
-    position: absolute;
-    bottom: 55px;
+	overflow:hide;
+    position:fixed;
+    bottom: 0px;
     left: 0;
     margin-top: 0;
     padding-left: 20px;
+	    padding-right: 20px;
     width: 100%;
     height: 40px;
     line-height: 40px;
     border-top: 1px solid #DDDDDD;
    
-
+vertical-align:middle;
 }
 .hotelprice{
 	color: #FF5000;
@@ -168,15 +184,26 @@ color: #ef473a;
 .yudingbtn{
 	background-color:#FF5000 ;
 	width: 25%;
-	height: 55%;
-	border-radius: 30px;
+	height:40px;
+ font-size:22px;
 	float: right;
-	line-height: 20px;
-	margin: 8px 5px 0 0;
-	letter-spacing: 5px;
+	line-height:40px;
+	margin: 0px auto;
+	letter-spacing: 0px;
 	text-align: center;
+	vertical-align:middle;
 	
 }
+.fangxinjiudian{
+	
+	width:100%;
+height:60px;
+clear:both;
+overflow:hide !important;
+ line-height:60px;
+ vertical-align:middle;
+ margin:auto auto;
+ }
 .manfangbtn{
 	background:rgba(166,166,166,0.6);
 	width: 25%;
@@ -297,4 +324,5 @@ p {
 	float: left;
 	margin-left:15% ;
 	margin-top: -5px;
+	height: 50px;
 }

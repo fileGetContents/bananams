@@ -53,12 +53,11 @@
                 var multiple = "";  // 设置多选的参数
                 para.multiple ? multiple = "multiple" : multiple = "";
                 var html = '';
-                html += '<div class="filePicker"><img src="../img/pic.png"></div>';
-                html += '<input id="fileImage" type="file" size="30" name="fileselect[]" ' + multiple + '>';
-
+                html += '<div class="iconkuang"><div class="filePicker"><img src="../img/pic.png"></div>';
+				html += '<div class="emotion"><img src="../img/smile.png"></div></div>';
+                html += '<input id="fileImage" type="file" capture="camera" accept="image/*" size="30" name="fileselect[]" ' + multiple + '>';
                 html += '<div class="status_bar">';
                 html += '<div id="status_info" class="info">选中0张文件，共0B。</div>';
-
                 html += '</div>';
                 html += '<div id="preview" class="upload_preview"></div>';
                 html += '</div>';
@@ -348,6 +347,13 @@
                     });
                 }
 
+		/*		 if ($(".smilePicker").length > 0) {
+                    // 绑定选择事件
+                    $(".smilePicker").bind("click", function (e) {
+                        $(".emoji-picker-icon").click();
+                    });
+                }
+		*/		
                 // 绑定继续添加点击事件
                 $(".webuploader_pick").bind("click", function (e) {
                     $("#fileImage").click();

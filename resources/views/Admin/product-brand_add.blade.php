@@ -11,11 +11,11 @@
     <script type="text/javascript" src="{{asset('admin/lib/respond.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('admin/lib/PIE_IE678.js')}}"></script>
     <![endif]-->
-    <link href="{{asset('')}}admin/css/H-ui.min.css" rel="stylesheet" type="text/css"/>
-    <link href="{{asset('')}}admin/css/H-ui.admin.css" rel="stylesheet" type="text/css"/>
-    <link href="{{asset('')}}admin/lib/icheck/icheck.css" rel="stylesheet" type="text/css"/>
-    <link href="{{asset('')}}admin/lib/Hui-iconfont/1.0.1/iconfont.css" rel="stylesheet" type="text/css"/>
-    <link href="{{asset('')}}admin/lib/webuploader/0.1.5/webuploader.css" rel="stylesheet" type="text/css"/>
+    <link href="{{asset('admin/css/H-ui.min.css')}}" rel="stylesheet" type="text/css"/>
+    <link href="{{asset('admin/css/H-ui.admin.css')}}" rel="stylesheet" type="text/css"/>
+    <link href="{{asset('admin/lib/icheck/icheck.css')}}" rel="stylesheet" type="text/css"/>
+    <link href="{{asset('admin/lib/Hui-iconfont/1.0.1/iconfont.css')}}" rel="stylesheet" type="text/css"/>
+    <link href="{{asset('admin/lib/webuploader/0.1.5/webuploader.css')}}" rel="stylesheet" type="text/css"/>
     <!--[if IE 6]>
     <script type="text/javascript" src="{{asset('')}}admin/lib/DD_belatedPNG_0.0.8a-min.js"></script>
     <script>DD_belatedPNG.fix('*');</script>
@@ -24,49 +24,50 @@
 </head>
 <body>
 <div class="pd-20">
-    <form action="{{URL('add/brand')}}" enctype="multipart/form-data" method="post" class="form form-horizontal"
+    <form action="{{$url}}" enctype="multipart/form-data" method="post" class="form form-horizontal"
           id="form-article-add">
+        <input type="text" hidden="hidden" name="id" value="{{ $id }}"/>
         <div class="row cl">
             <label class="form-label col-2"><span class="c-red">*</span>标题：</label>
             <div class="formControls col-10">
-                <input type="text" class="input-text" value="" placeholder="" id="" name="travel_name">
+                <input type="text" class="input-text" value="@if(is_object($travel)){{ $travel->travel_name }} @endif" placeholder="" id="" name="travel_name">
             </div>
         </div>
         <div class="row cl">
             <label class="form-label col-2">集结地：</label>
             <div class="formControls col-10">
-                <input type="text" name="travel_venue" id="" value="" class="input-text">
+                <input type="text" name="travel_venue" id="" value="@if(is_object($travel)){{ $travel->travel_venue }} @endif" class="input-text">
             </div>
         </div>
         <div class="row cl">
             <label class="form-label col-2">游客须知:</label>
             <div class="formControls col-10">
-                <input type="text" name="travel_notice" id="" value="" class="input-text">
+                <input type="text" name="travel_notice" id="" value="@if(is_object($travel)){{ $travel->travel_notice }} @endif" class="input-text">
             </div>
         </div>
         <div class="row cl">
             <label class="form-label col-2">航程:</label>
             <div class="formControls col-10">
-                <input type="text" name="travel_voyage" id="" value="" class="input-text">
+                <input type="text" name="travel_voyage" id="" value="@if(is_object($travel)){{ $travel->travel_voyage }} @endif" class="input-text">
             </div>
         </div>
         <div class="row cl">
             <label class="form-label col-2">目的地:</label>
             <div class="formControls col-10">
-                <input type="text" name="travel_bourn" id="" value="" class="input-text">
+                <input type="text" name="travel_bourn" id="" value="@if(is_object($travel)){{ $travel->travel_bourn }} @endif" class="input-text">
             </div>
         </div>
         <div class="row cl">
             <label class="form-label col-2">费用:</label>
             <div class="formControls col-10">
-                <input type="text" name="travel_expense" id="" value="" class="input-text">
+                <input type="text" name="travel_expense" id="" value="@if(is_object($travel)){{ $travel->travel_expense }} @endif" class="input-text">
             </div>
         </div>
 
         <div class="row cl">
             <label class="form-label col-2">排序:</label>
             <div class="formControls col-10">
-                <input type="text" name="good_amount" id="" value="" class="input-text">
+                <input type="text" name="good_amount" id="" value="@if(is_object($travel)){{ $travel->travel_sort }} @endif" class="input-text">
             </div>
         </div>
 
@@ -191,7 +192,9 @@
         <div class="row cl">
             <label class="form-label col-2">详细内容：</label>
             <div class="formControls col-10">
-                <script id="editor" name="good_details" type="text/plain" style="width:100%;height:400px;"></script>
+                <script id="editor" name="good_details" type="text/plain" style="width:100%;height:400px;">
+
+                </script>
             </div>
         </div>
         <div class="row cl">

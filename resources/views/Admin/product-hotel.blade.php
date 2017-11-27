@@ -46,9 +46,9 @@
                     <th width="40">编号</th>
                     <th width="60">主图</th>
                     <th width="100">名称</th>
-                    <th>描述</th>
-                    <th width="100">所属酒店</th>
-                    <th width="40">剩余分数</th>
+                    <th>地址</th>
+                    <th width="100">添加时间</th>
+                    <th width="40">参考价</th>
                     <th width="60">发布状态</th>
                     <th width="100">操作</th>
                 </tr>
@@ -58,24 +58,32 @@
                     <tr class="text-c va-m">
                         <td><input name="" type="checkbox" value=""></td>
                         <td>
+                            {{$value->hotel_id}}
                         </td>
-                        <td><a onClick="product_show('','product-show','10001')" href="javascript:;">
+                        <td>
                                 <img width="60" class="product-thumb" src="{{ $value->hotel_image }}">
-                            </a>
                         </td>
                         <td class="text-l">
+                            {{$value->hotel_name}}
                         </td>
                         <td class="text-l">
+                            {{$value->hotel_address}}
                         </td>
-                        <td></td>
+                        <td>
+                            {{ date( 'Y-m-d H:i:s',$value->hotel_time)}}
+                        </td>
                         <td>
                             <span class="price">
+                                 {{$value->hotel_price}}
                             </span>
                         </td>
                         <td class="td-status">
                             <span class="label label-success radius">默认</span>
                         </td>
                         <td class="td-manage">
+                            <a title="编辑" href="javascript:;"
+                               onclick="member_edit('编辑','add/hotel/{{$value->hotel_id}}','4','','510')" class="ml-5"
+                               style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a>
                             <a style="text-decoration:none" class="ml-5" onClick="product_del(this,'')"
                                href="javascript:;" title="删除">
                                 <i class="Hui-iconfont">&#xe6e2;</i>
@@ -137,13 +145,14 @@
     //	{ id:121, pId:12, name:"三级分类 1-2-1"},
     //	{ id:122, pId:12, name:"三级分类 1-2-2"},
     //];
-
     var code;
-
     function showCode(str) {
         if (!code) code = $("#code");
         code.empty();
         code.append("<li>" + str + "</li>");
+    }
+    function member_edit(title, url, id, w, h) {
+        layer_show(title, url, w, h);
     }
 
     //$(document).ready(function(){
