@@ -171,6 +171,7 @@ class WxApiController extends Controller
 
         DB::table('test')->insert($xml);
 
+        echo $xmkNO;
         die;
         $base = new Wechate\WxPayResults();
         $data = $base->FromXml($xml);
