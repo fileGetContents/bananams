@@ -13,7 +13,6 @@
 </head>
 <body>
 <div id="page">
-  
     <ion-header-bar class="stable-bg bar bar-header" align-title="center">
         <button class="button " onclick="history.go(-1)">
             <i class="icon ion-android-arrow-back"></i>
@@ -21,115 +20,141 @@
 				<img src="../img/ion/return.png">
 				</span>
         </button>
-
         <div class="title title-center header-item" style="left: 15px; right: 15px;">活动详情</div>
     </ion-header-bar>
     <div class="content" id="wrap">
-   <style type="text/css">
+        <style type="text/css">
 
-   .slideBox { position: relative; overflow: hidden; margin: 0 auto; width: 100%;height:150px; }
-.slideBox .hd { position: absolute; height: 28px; line-height: 28px; bottom: 0; right: 0; z-index: 1; text-align: center; width: 100%; }
-.slideBox .hd li { display: inline-block; width: 10px; height: 10px; -webkit-border-radius: 10px; -moz-border-radius: 10px; border-radius: 10px; background:rgba(242, 12, 17, 0.49); text-indent: -9999px; overflow: hidden; margin: 0 2px; }
-.slideBox .hd li.on {  background: #f20c11;}
-.slideBox .bd { position: relative; z-index: 0; }
-.slideBox .bd li { position: relative; text-align: center; }
-.slideBox .bd li img { background: url(../images/loading.gif) center center no-repeat; vertical-align:middle; width: 100%; }
-   </style>
-	<script src="../js/indexx.js"></script>
-	<script src="../js/touchslide.1.1.js"></script>
-	
-	    <div id="slideBox" class="slideBox">
-		<div class="bd">
-			<ul>
-                        <li> <img  src="../img/find.jpg" alt="First slide"></li>
-                        <li> <img   src="../img/hotel4.jpeg" alt="Second slide"></li>
-                        <li> <img  src="../img/hotel8.jpeg" alt="Third slide"></li>                       
-             </ul>
-		</div>
-		<div class="hd"><ul></ul></div>
-	</div>
-   
+            .slideBox {
+                position: relative;
+                overflow: hidden;
+                margin: 0 auto;
+                width: 100%;
+                height: 150px;
+            }
+
+            .slideBox .hd {
+                position: absolute;
+                height: 28px;
+                line-height: 28px;
+                bottom: 0;
+                right: 0;
+                z-index: 1;
+                text-align: center;
+                width: 100%;
+            }
+
+            .slideBox .hd li {
+                display: inline-block;
+                width: 10px;
+                height: 10px;
+                -webkit-border-radius: 10px;
+                -moz-border-radius: 10px;
+                border-radius: 10px;
+                background: rgba(242, 12, 17, 0.49);
+                text-indent: -9999px;
+                overflow: hidden;
+                margin: 0 2px;
+            }
+
+            .slideBox .hd li.on {
+                background: #f20c11;
+            }
+
+            .slideBox .bd {
+                position: relative;
+                z-index: 0;
+            }
+
+            .slideBox .bd li {
+                position: relative;
+                text-align: center;
+            }
+
+            .slideBox .bd li img {
+                background: url(../images/loading.gif) center center no-repeat;
+                vertical-align: middle;
+                width: 100%;
+            }
+        </style>
+        <script src="../js/indexx.js"></script>
+        <script src="../js/touchslide.1.1.js"></script>
+
+        <div id="slideBox" class="slideBox">
+            <div class="bd">
+                <ul>
+                    <li><img src="../img/find.jpg" alt="First slide"></li>
+                    <li><img src="../img/hotel4.jpeg" alt="Second slide"></li>
+                    <li><img src="../img/hotel8.jpeg" alt="Third slide"></li>
+                </ul>
+            </div>
+            <div class="hd">
+                <ul></ul>
+            </div>
+        </div>
+
         <div class="message light-bg">
             <p>【2017年 旅游快进 】亲子游巴拉巴拉 建行卡号地块骄傲好滴好滴继续</p>
-            <p><span><下班去哪>华东最棒严管</span></p>
+            <p><span></span></p>
             <p class="assertive">￥ 1888.00起</p>
-
         </div>
         <div class="disbanner">
             <div class="discount"><span class="assertive-bg xsbtn light ">优惠</span><span
                     class="dismess ">注册送十元代金券</span></div>
             <div class="discount"><span class="xsbtn assertive">立减</span><span class="dismess ">下单立减</span></div>
         </div>
-        <div class="light-bg" style="padding-left: 20px;"><img src="../img/dizhi2.png" width="20px" height="20px"
-                                                               style="margin-top: 10px; margin-right:10px ;"><span
-                class="dismess" style="position: absolute;margin-top: 10px;">集合地:浙江省 杭州</span></div>
-
-
-        <div class="datebanner light-bg">
-            <div class="dateimg"><img src="../img/date.png" width="20px" height="20px"></div>
-            <div class="choosedate">选择日期</div>
+        <div class="light-bg" style="padding-left: 20px;">
+            <img src="../img/dizhi2.png" style="margin-top: 10px; margin-right:10px ;width: 20px;height: 20px;">
+            <span class="dismess" style="position: absolute;margin-top: 10px;">集合地:浙江省 杭州</span>
         </div>
+        <!--<div class="datebanner light-bg">-->
+        <!--<div class="dateimg"><img src="../img/date.png" width="20px" height="20px"></div>-->
+        <!--<div class="choosedate">选择日期</div>-->
+        <!--</div>-->
+        <!--<ion-scroll zooming="true" direction="x" style="width: 500px; height: 100px"-->
+        <!--class="scroll-view ionic-scroll overflow-scroll scroll-x">-->
+        <!--<div class="scroll">-->
+        <!--<div class="datewrapper light-bg">-->
+        <!--<ul class="dateul" id="dateul">-->
+        <!--<li class="datebox hover">-->
+        <!--<p>08-23(周三)</p>-->
+        <!--<p class="price3">￥329</p>-->
+        <!--</li>-->
+        <!--<li class="datebox">-->
+        <!--<p>08-24(周四)</p>-->
+        <!--<p class="price3">￥329</p>-->
+        <!--</li>-->
+        <!--<li class="datebox">-->
+        <!--<p>08-25(周五)</p>-->
+        <!--<p class="price3">￥329</p>-->
+        <!--</li>-->
+        <!--<li class="datebox">-->
+        <!--<p>08-26(周六)</p>-->
+        <!--<p class="price3">￥329</p>-->
+        <!--</li>-->
+        <!--<li class="datebox">-->
+        <!--<p>08-27(周日)</p>-->
+        <!--<p class="price3">￥329</p>-->
+        <!--</li>-->
+        <!--</ul>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--</ion-scroll>-->
 
-        <ion-scroll zooming="true" direction="x" style="width: 500px; height: 100px"
-                    class="scroll-view ionic-scroll overflow-scroll scroll-x">
-            <div class="scroll">
-                <div class="datewrapper light-bg">
-                    <ul class="dateul" id="dateul">
-                        <!--<li class="datebox hover">-->
-                        <!--<p>08-23(周三)</p>-->
-                        <!--<p class="price3">￥329</p>-->
-                        <!--</li>-->
-
-                        <!--<li class="datebox">-->
-                        <!--<p>08-24(周四)</p>-->
-                        <!--<p class="price3">￥329</p>-->
-                        <!--</li>-->
-
-
-                        <!--<li class="datebox">-->
-                        <!--<p>08-25(周五)</p>-->
-                        <!--<p class="price3">￥329</p>-->
-                        <!--</li>-->
-
-                        <!--<li class="datebox">-->
-                        <!--<p>08-26(周六)</p>-->
-                        <!--<p class="price3">￥329</p>-->
-                        <!--</li>-->
-
-                        <!--<li class="datebox">-->
-                        <!--<p>08-27(周日)</p>-->
-                        <!--<p class="price3">￥329</p>-->
-                        <!--</li>-->
-
-
-                    </ul>
-                </div>
-            </div>
-        </ion-scroll>
-
-        <div class="datebanner light-bg user_image" >
+        <div class="datebanner light-bg user_image">
             <!--<img src="../img/1.jpg">-->
             <!--<img src="../img/2.jpg">-->
             <!--<img src="../img/3.jpg">-->
             <!--<img src="../img/4.jpg">-->
             <!--<span style="float: right;margin-top: -5px;">55人报名-->
-<span style="color: #FDD87E;float:right;margin:-5px 0 0 3px; font-size:20px ;" id="right-panel-link" href="#right-panel">&gt;</span>
+            <span style="color: #FDD87E;float:right;margin:-5px 0 0 3px; font-size:20px ;" id="right-panel-link" href="#right-panel">&gt;</span>
             <!--</span>-->
         </div>
         <ul id="ul2" class="defaultClass light-bg">
-
-            <a href="#know">
-                <li>须知</li>
-            </a>
-            <a href="#journey">
-                <li>行程</li>
-            </a>
-            <a href="#cost">
-                <li> 费用</li>
-            </a>
-            <a href="#bourn">
-                <li>目的地</li>
-            </a>
+            <li><a href="#know">须知</a></li>
+            <li><a href="#journey">行程 </a></li>
+            <li><a href="#cost"> 费用 </a></li>
+            <li><a href="#bourn">目的地 </a></li>
         </ul>
 
         <div class="padding" id="know">
@@ -144,7 +169,7 @@
         </div>
         <div class="padding" id="journey">
             <p class="arttit">
-                <img src="../img/xingchen.png" width="18px" height="18px">
+                <img src="../img/xingchen.png" style="width: 18px;height: 18px;">
                 <span>行程</span>
             </p>
             <div id="travel_voyage">
@@ -155,9 +180,8 @@
                 <p>本事大客户v靠山吃山</p>
             </div>
         </div>
-
         <div class="padding" id="cost">
-            <p class="arttit"><img src="../img/feiyong.png" width="30px" height="30px"><span>费用</span></p>
+            <p class="arttit"><img src="../img/feiyong.png" style="width: 30px;height: 30px"><span>费用</span></p>
             <div id="travel_expense2">
                 <p>本事大客户v靠山吃山</p>
                 <p>本事大客户v靠山吃山</p>
@@ -166,9 +190,8 @@
                 <p>本事大客户v靠山吃山</p>
             </div>
         </div>
-
         <div class="padding" id="bourn">
-            <p class="arttit"><img src="../img/mudi.png" width="30px" height="30px"><span>目的地</span></p>
+            <p class="arttit"><img src="../img/mudi.png" style="width:30px;height: 30px"><span>目的地</span></p>
             <div id="travel_bourn">
                 <p>本事大客户v靠山吃山</p>
                 <p>本事大客户v靠山吃山</p>
@@ -184,33 +207,32 @@
         <div class="top"><img src="../img/top.png"></div>
     </a>
     <div class="footer">
+        <div class="kefu">
+            <a href="https://static.meiqia.com/dist/standalone.html?_=t&eid=83432">
+                <img src="../img/kefu.png" width="30px" height="30px"></a>
+            <script type='text/javascript'>
+                (function (m, ei, q, i, a, j, s) {
+                    m[i] = m[i] || function () {
+                                (m[i].a = m[i].a || []).push(arguments)
+                            };
+                    j = ei.createElement(q),
+                            s = ei.getElementsByTagName(q)[0];
+                    j.async = true;
+                    j.charset = 'UTF-8';
+                    j.src = 'https://static.meiqia.com/dist/meiqia.js?_=t';
+                    s.parentNode.insertBefore(j, s);
+                })(window, document, 'script', '_MEIQIA');
+                _MEIQIA('entId', 83432);
 
-        <div  class="kefu">
-
-           <a href="https://static.meiqia.com/dist/standalone.html?_=t&eid=83432"> <img src="../img/kefu.png" width="30px" height="30px"></a>
-<script type='text/javascript'>
-    (function(m, ei, q, i, a, j, s) {
-        m[i] = m[i] || function() {
-            (m[i].a = m[i].a || []).push(arguments)
-        };
-        j = ei.createElement(q),
-            s = ei.getElementsByTagName(q)[0];
-        j.async = true;
-        j.charset = 'UTF-8';
-        j.src = 'https://static.meiqia.com/dist/meiqia.js?_=t';
-        s.parentNode.insertBefore(j, s);
-    })(window, document, 'script', '_MEIQIA');
-    _MEIQIA('entId', 83432);
-	
-	_MEIQIA('withoutBtn');
-</script>
-<style type="text/css">  
-            p{  
-                color: crimson;  
-            }  
-        </style>  
+                _MEIQIA('withoutBtn');
+            </script>
+            <style type="text/css">
+                p {
+                    color: crimson;
+                }
+            </style>
         </div>
-        <a id="buy" href="OrderDetail.html">
+        <a id="buy" href="#">
             <div class="buy_button2 light">立即购买</div>
         </a>
 
@@ -274,7 +296,7 @@
                     $('.carousel-inner >div > img').eq(index).attr('src', obj['travel_images'][index])
                 });
                 $('.message > p').eq(0).html(obj['travel_name']);
-                $('.message > p').eq(1).html("<span>下班去哪里</span>" + obj['travel_venue']);
+                $('.message > p').eq(1).html("<span></span>" + obj['travel_venue']);
                 $('.message > p').eq(2).html("￥" + obj['travel_expense'] + "起");
                 // 添加基础信息
                 $("#travel_activity").html(obj['travel_activity']);
@@ -310,17 +332,19 @@
         // 用户
         $.ajax({
             type: 'post',
-            data: {'test': GetQueryString('id')},
+            data: {'id': GetQueryString('id')},
             dataType: 'json',
-            url: 'http://www.bananatrip.cn/banana/User/Enrol',
+            // url: 'http://www.bananatrip.cn/banana/User/Enrol',
+            url: 'http://localhost/banan/public/banana/User/Enrol',
             success: function (obj) {
+                console.log(obj);
                 var user_num = 0;
                 if (obj.all_user != 0) {
                     obj['user_info'].map(function (value, index, array) {
                         user_num++;
-                        var images = "<img src='" + obj["user_info"][index]["user_images"] + "' >";
+                        var images = "<img src='" + obj["user_info"][index]["user_headimgurl"] + "' >";
                         if (user_num == obj['user_info'].length) {
-                            images = images + ' <span style="float: right;margin-top: -5px;">' + user_num + '人报名 </span>'
+                            images = images + '<span style="float: right;margin-top: -5px;">' + user_num + '人报名 </span>'
                         }
                         $('.user_image').append(images);
                     })
@@ -331,15 +355,11 @@
             }
         });
 
-        // 选择时间
-        $("#dateul").on('click', 'li', function () {
-            $(this).siblings().removeClass('hover');
-            $(this).addClass('hover');
-            var href = 'ordermess.html?id=' + GetQueryString('id') + '&time_id=' + $(this).attr('time_id');
+        // 跳转
+        $('#buy').click(function () {
+            var href = 'OrderDetail.html?id=' + GetQueryString('id');
             $('#buy').attr('href', href);
         })
-
-
     });
 
 

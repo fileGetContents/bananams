@@ -1,77 +1,115 @@
 <html>
 <head>
-<meta charset="UTF-8">
-<title>选择出行日期和人数 - 香蕉旅行旅游网</title>
-<meta name="keywords" content="香蕉旅行">
-<meta name="description" content="香蕉旅行">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="apple-touch-fullscreen" content="yes">
-<meta name="apple-mobile-web-app-title" content="香蕉旅行">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta http-equiv="Cache-Control" content="no-siteapp">
-<!-- Android 主屏图标================================================== -->
-
-<link rel="stylesheet" href="../css/orderdata.css">
-<link href="../css/head.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <title>选择出行日期和人数 - 香蕉旅行旅游网</title>
+    <meta name="keywords" content="香蕉旅行">
+    <meta name="description" content="香蕉旅行">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="apple-mobile-web-app-title" content="香蕉旅行">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <!-- Android 主屏图标================================================== -->
+    <link rel="stylesheet" href="../css/orderdata.css">
+    <link href="../css/head.css" rel="stylesheet">
 </head>
 <body id="batch" class="indexBody">
 
-<header> 
-<ion-header-bar class="stable-bg bar bar-header" align-title="center" style="position:static;">
-  <button class="button " onclick="history.go(-1)">
-        <i class="icon ion-android-arrow-back"></i>
+<header>
+    <ion-header-bar class="stable-bg bar bar-header" align-title="center" style="position:static;">
+        <button class="button " onclick="history.go(-1)">
+            <i class="icon ion-android-arrow-back"></i>
 				<span class="back-text">
 				<img src="../img/ion/return.png">
 		</span>
-    </button>
-  <div class="headerCenter"> 选择出行日期和人数 </div>
-  </ion-header-bar>
-<body id="batch" class="indexBody">
-                                
-                <div class="container">
-    <div id="calendar" data-date="2017-11-26"></div>
-    <div class="calendarInfo" id="j-peopleNum">
-        <i class="current-peopleNum full"></i>
-        <span class="current-peopleText">报名已满</span>
-    </div> 
-    <div class="d-title hover">月份/批次</div>
-    <div id="wrapper" class="wrapper re-batch">
-        <div id="scroller">
-            <ul>
-                                    <li data-date="2017-11"><a href="javascript:;" class="active"><span>11月</span></a></li>
-                
-            </ul>
+        </button>
+        <div class="headerCenter"> 选择出行日期和人数</div>
+    </ion-header-bar>
+
+    <div class="container">
+        <div id="calendar" data-date="2017-11-26"></div>
+        <div class="calendarInfo" id="j-peopleNum">
+            <i class="current-peopleNum full"></i>
+            <span class="current-peopleText">报名已满</span>
+        </div>
+        <div class="d-title hover">月份/批次</div>
+        <div id="wrapper" class="wrapper re-batch">
+            <div id="scroller">
+                <ul id="scroller_ul">
+                    <li data-date="2017-11">
+                        <a href="javascript:;" class="active"><span>11月</span></a></li>
+                    <li data-date="2017-12">
+                        <a href="javascript:;" class="active"><span>11月</span></a></li>
+                    <li data-date="2018-1">
+                        <a href="javascript:;" class="active"><span>11月</span></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div id="batchType"></div>
+        <div class="c-okBox re-okBox">
+            <div class="okInfo">
+                <p class="okInfo-c" id="j-dateOk">请选择日期</p>
+            </div>
+            <form action="ordermess.html" method="get">
+                <input type="hidden" name="bid" id="j-data">
+                <input type="hidden" name="pid" value="18962"/>
+                <a href="ordermess.html" class="c-ok j-submit">下一步</a>
+            </form>
         </div>
     </div>
-    <div id="batchType"></div>
-    <div class="c-okBox re-okBox">
-        <div class="okInfo">
-            <p class="okInfo-c" id="j-dateOk">请选择日期</p>
-        </div>
-        <form action="ordermess.html" method="get">
-            <input type="hidden" name="bid" id="j-data">
-            <input type="hidden" name="pid" value="18962"/>
 
-            <a href="ordermess.html" class="c-ok j-submit">下一步</a>
-        </form>
-    </div>
-</div>
-
-
-<script type="text/javascript" src="../js/jquery-2.1.3.min.js"></script> 
-<script type="text/javascript" src="../js/iscroll-lite.js"></script> 
-
-<script type="text/javascript" src="../js/orderdata.js"></script> 
-
-
-<script type="text/javascript">
-        var dataUrl = "hui.php";
+    <script type="text/javascript" src="../js/jquery-2.1.3.min.js"></script>
+    <script type="text/javascript" src="../js/iscroll-lite.js"></script>
+    <script type="text/javascript" src="../js/orderdata.js"></script>
+    <script type="text/javascript">
+        var dataUrl = 'http://localhost/banan/public/travel/time?id=' + GetQueryString('id');
         var pid = "19050";
-        var now = "2017-11-14";
-        var bid="0";
-        var typeUrl="../lines/typelist";
+        var now = getNowTime();
+        var bid = "0";
+        var typeUrl = "../lines/typelist";
         $.dataPage();
-    </script> 
+        $.ajax({
+            type: 'post',
+            data: {'id': GetQueryString('id')},
+            dataType: 'json',
+            url: 'http://localhost/banan/public/travel/time/month',
+            //url:'http://www.bananatrip.cn/travel/time/month',
+            success: function (data) {
+                var string = '';
+                data.map(function (value, index, array) {
+                    string += '<li data-date="' + value.info_month + '"><a href="javascript:;"><span>' + value.info_month + '</span></a></li>'
+                });
+                $('#scroller_ul').html(string);
+            },
+            error: function () {
+            }
+        });
+
+
+
+
+        function GetQueryString(name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+            var r = window.location.search.substr(1).match(reg); //获取url中"?"符后的字符串并正则匹配
+            var context = "";
+            if (r != null)
+                context = r[2];
+            reg = null;
+            r = null;
+            return context == null || context == "" || context == "undefined" ? "" : context;
+        }
+        function getNowTime() {
+            var today = new Date();//获得当前日期
+            var year = today.getFullYear();//获得年份
+            var month = today.getMonth() + 1;//此方法获得的月份是从0---11，所以要加1才是当前月份
+            var day = today.getDate();//获得当前日期
+            return year + '-' + month + '-' + day;
+        }
+        //        console.log(getNowTime());
+
+
+    </script>
 
 </body>
 </html>

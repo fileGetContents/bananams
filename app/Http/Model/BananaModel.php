@@ -118,5 +118,36 @@ class BananaModel extends Model
     }
 
 
+    /**
+     * 获取旅游当前
+     *
+     * @param int $id
+     * @param null $month
+     * @return mixed
+     */
+    public function selectTravelTimeInfo($id = 3, $month = null)
+    {
+        $month = is_null($month) ? strtotime(date('Y-m-d', $_SERVER['REQUEST_TIME'])) : strtotime($month);
+        return DB::table('travel_info')
+            ->where('info_time', '>=', $month)
+            ->where(['info_travel_id' => $id])
+            ->orderBy('info_month', 'asc')
+            ->get();
+    }
+
+    /**
+     * 查询不重复的月份
+     * @param int $id
+     * @return mixed
+     */
+    public function getDistinctMonth($id = 3)
+    {
+        return DB::table('travel_info')
+            ->select('info_month')
+            ->where(['info_travel_id' => $id])
+            ->distinct('info_month')
+            ->get();
+    }
+
 
 }

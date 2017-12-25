@@ -110,20 +110,20 @@
 //            }
 //        });
         // 检查是否登录
-        $.ajax({
-            type: 'post',
-            dataType: 'json',
-            url: 'http://www.bananatrip.cn/is/login',
-            data: {'type': 1},
-            success: function (obj) {
-                if (obj.info == 1) {
-                    window.location.href = 'http://www.bananatrip.cn/wx/login/order';
-                }
-            },
-            error: function (obj) {
-                console.log(obj);
-            }
-        });
+//        $.ajax({
+//            type: 'post',
+//            dataType: 'json',
+//            url: 'http://www.bananatrip.cn/is/login',
+//            data: {'type': 1},
+//            success: function (obj) {
+//                if (obj.info == 1) {
+//                    window.location.href = 'http://www.bananatrip.cn/wx/login/order';
+//                }
+//            },
+//            error: function (obj) {
+//                console.log(obj);
+//            }
+//        });
 
 
         // 产品名称

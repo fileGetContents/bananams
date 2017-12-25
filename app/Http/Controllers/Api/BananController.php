@@ -2,22 +2,27 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\OrderModel;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Http\Model;
 use Illuminate\Support\Facades\DB;
 
+
 class BananController extends Controller
 {
     private $banModel;
     private $enrolModel;
     private $publcModel;
+    private $orderModel;
+
     public function __construct()
     {
         $this->banModel = new Model\BananaModel();
         $this->enrolModel = new Model\EnrolModel();
         $this->publcModel = new Model\PublicModel();
+        $this->orderModel = new Model\OrderModel();
     }
 
     /**
@@ -51,6 +56,7 @@ class BananController extends Controller
     public function getTravelAddress(Request $request)
     {
 
+
     }
 
     // 获取某个旅行信息
@@ -64,17 +70,15 @@ class BananController extends Controller
     // 获取单个旅游的用户信息
     public function getTravelUserEnrol(Request $request)
     {
-        $userInfo = $this->enrolModel->getTravelUser($request->input('id', 2));
+        $userInfo = $this->orderModel->getTravelOrderUserById($request->input('id', 3));
         $return['user_info'] = $userInfo; // 详情
         $return['pay_user'] = 0;  // 支付人数
         $return['all_user'] = 0;  // 用户
-        if (!empty($userInfo)) {
-            foreach ($userInfo as $value) {
-                $return['all_user']++;
-                if ($value->enrol_tag >= 10) {
-                    $return['pay_user']++;
-                }
+        foreach ($userInfo as $value) {
+            if ($value->order_tag == 10) {
+                $return['pay_user']++;
             }
+            $return['all_user']++;
         }
         echo collect($return)->toJson();
     }
@@ -85,12 +89,44 @@ class BananController extends Controller
      */
     public function getTravelTime(Request $request)
     {
-        $time = $this->banModel->selectTravelTime(array(
-            'info_travel_id' => $request->input('id', 1),
-        ));
-        // dump($time);
-        echo collect($time)->toJson();
+        $travel = $this->banModel->selectTravelTimeInfo($request->input('id', 3));
+        if (empty($travel)) {
+            return collect(['data' => [], 'status' => 0]);
+        } else {
+            $status['status'] = 1;
+            $msg = [];
+            foreach ($travel as $key => $value) {
+                $msg[] = array(
+                    'adultprice' => '0',
+                    'batch' => rand(10, 20),
+                    'bid' => $value->info_time,
+                    'childprice' => '-1',
+                    'diff' => '',
+                    'limit_max' => 0,
+                    'people_count' => 0,
+                    'price_label' => '0',
+                    'price_status' => 1,
+                    'starttime' => $value->info_time,
+                    'status' => 1,
+                    'status_label' => $value->info_text,
+                    'val' => date('Y-m-d', $value->info_time),
+                );
+            }
+            $status['data'] = $msg;
+            return collect($status)->toJson();
+        }
     }
+
+    /**
+     * @param Request $request
+     * @return string
+     */
+    public function getTravelMonth(Request $request)
+    {
+        $month = $this->banModel->getDistinctMonth($request->input('id', 3));
+        return collect($month)->toJson();
+    }
+
 
     /**
      * 获取参加旅游的用户
