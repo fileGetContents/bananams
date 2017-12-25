@@ -298,7 +298,7 @@ class WxApiController extends Controller
         $input->SetOut_trade_no(date('YmdHis'));
         $input->SetTotal_fee("1");
         $input->SetTime_start(date("YmdHis"));
-        $input->SetTime_expire(date("YmdHis", time() + 600));
+        $input->SetTime_expire(date("YmdHis", time() + 36000));
         $input->SetGoods_tag("test");
         $input->SetNotify_url("http://paysdk.weixin.qq.com/example/notify.php");
         $input->SetTrade_type("NATIVE");
