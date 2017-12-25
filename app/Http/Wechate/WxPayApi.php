@@ -30,7 +30,7 @@ class WxPayApi
      * @throws WxPayException
      * @return 成功时返回，其他抛异常
      */
-    public function unifiedOrder($inputObj, $timeOut = 6)
+    public  function unifiedOrder($inputObj, $timeOut = 6)
     {
 
         $url = "https://api.mch.weixin.qq.com/pay/unifiedorder";
