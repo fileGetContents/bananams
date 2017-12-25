@@ -284,9 +284,28 @@ class WxApiController extends Controller
             default;
                 return 'http://www.bananatrip.cn/templates/start.html';
         }
-
-
     }
 
+    /**
+     *
+     */
+    public function native()
+    {
+        $notify = new Wechate\NativePay();
+        $input = new Wechate\WxPayUnifiedOrder();
+        $input->SetBody("test");
+        $input->SetAttach("test");
+        $input->SetOut_trade_no(date('YmdHis'));
+        $input->SetTotal_fee("1");
+        $input->SetTime_start(date("YmdHis"));
+        $input->SetTime_expire(date("YmdHis", time() + 600));
+        $input->SetGoods_tag("test");
+        $input->SetNotify_url("http://paysdk.weixin.qq.com/example/notify.php");
+        $input->SetTrade_type("NATIVE");
+        $input->SetProduct_id("123456789");
+        $result = $notify->GetPayUrl($input);
+        $url2 = $result["code_url"];
+        echo '<img  src="' . $url2 . '" >';
+    }
 
 }

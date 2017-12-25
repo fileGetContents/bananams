@@ -80,6 +80,7 @@ Route::group(['namespace' => 'Api'], function () {
     Route::any('city', 'MapController@getCity');                                          // 获取城市
     Route::any('district', 'MapController@getDistrict');                                  // 获取区域
     Route::any('wx/login/{url?}', 'WxApiController@userInfo');                            // 微信登录
+    Route::any('native', 'WxApiController@native');                                       // 微信生成二维码
 });
 
 
