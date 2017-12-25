@@ -305,6 +305,8 @@ class WxApiController extends Controller
         $input->SetProduct_id("123456789");
         $result = $notify->GetPayUrl($input);
         $url2 = $result["code_url"];
+        dump($url2);
+        die;
         echo '<img  src="' . $url2 . '" >';
     }
 
