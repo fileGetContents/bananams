@@ -304,7 +304,7 @@ class WxApiController extends Controller
         $input->SetTrade_type("NATIVE");
         $input->SetProduct_id("123456789");
         $result = $notify->GetPayUrl($input);
-        dump($url2);
+        dump($result);
         die;
         $url2 = $result["code_url"];
         echo '<img  src="' . $url2 . '" >';
