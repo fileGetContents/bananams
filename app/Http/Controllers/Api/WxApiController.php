@@ -305,7 +305,7 @@ class WxApiController extends Controller
         $input->SetProduct_id("123456789");
         $result = $notify->GetPayUrl($input);
         $url2 = $result["code_url"];
-        echo '<img  src="' . $url2 . '" >';
+        echo '<img alt="模式二扫码支付" src="http://paysdk.weixin.qq.com/example/qrcode.php?data=' . $url2 . '" style="width:150px;height:150px;"/>';
     }
 
 }
