@@ -7,9 +7,9 @@ use Illuminate\Support\Facades\DB;
 
 class HotelModel extends Model
 {
-    protected $table = "hotel";
-    protected $roomTable = "hotel_room";
-    protected $orderTable = "hotel_order";
+    protected $table = 'hotel';
+    protected $roomTable = 'hotel_room';
+    protected $orderTable = 'hotel_order';
 
 
     /**

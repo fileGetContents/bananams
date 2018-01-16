@@ -7,10 +7,10 @@ use Illuminate\Support\Facades\DB;
 
 class CommunityModel extends Model
 {
-    protected $table = "post";
-    protected $post_review = "post_review";
-    protected $post_praise = "post_praise";
-    protected $review_like = "review_like";
+    protected $table = 'post';
+    protected $post_review = 'post_review';
+    protected $post_praise = 'post_praise';
+    protected $review_like = 'review_like';
 
     /**
      * @param int $skip int  开始位置

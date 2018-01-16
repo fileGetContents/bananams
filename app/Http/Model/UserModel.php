@@ -8,8 +8,8 @@ use Crypt;
 
 class UserModel extends Model
 {
-    protected $table = "user";
-    protected $address = "user_address";
+    protected $table = 'user';
+    protected $address = 'user_address';
 
     public function getUserInfoFirst($user_id = 1)
     {

@@ -17,12 +17,7 @@ class TestController extends Controller
      */
     public function index(Request $request)
     {
-        dump($request->file());
-        dump($request->input());
-        dump($request->all());
-        $input = file_get_contents("php://input", true);
-		
-		dump($input);
+        echo strtotime('2018-1-16');
         //dump($request->all());
         //dump(Crypt::encrypt("admin"));
         //dump(Crypt::decrypt('eyJpdiI6ImFSXC8yVU9OUU80OHBDRHB2SW5VbWFBPT0iLCJ2YWx1ZSI6InhnWm1vcldCVU9aQjRYOEs1VW5OYmc9PSIsIm1hYyI6IjZjNTBhZjAzOTM2OGZmZTgyODNlYTNjNTYwMzk1Mjk4Mjg0ZWZlNDJkZjY2ZDQxN2QyNTk0NjQ1ZDBhMDFiMzAifQ=='));
@@ -34,7 +29,6 @@ class TestController extends Controller
         //);
         //$request->session()->put('nameFile', $nameFile);
         //echo collect(array('nameFile' => $nameFile))->toJson();
-
     }
 
     /**
@@ -67,29 +61,29 @@ class TestController extends Controller
 
     public function login(Request $request)
     {
-        if (isset($_GET['code'])) {
-            $getAccessToken = 'https://api.weixin.qq.com/sns/oauth2/access_token?appid=wx53bb0f13b94ab34d&secret=f3b35ead3c880e9712c4d38efbb6eb89&code=' . $_GET['code'] . '&grant_type=authorization_code';
-            $up = json_decode(file_get_contents($getAccessToken)); // 获取用户信息
-            $getInfo = 'https://api.weixin.qq.com/sns/userinfo?access_token=' . $up["access_token"] . '&openid=' . $up["openid"];
-            $info = json_decode(file_get_contents($getInfo));
-            // 查询数据库
-            $user = $this->publicModel->selectFirst('user', array('user_openid' => $info['openid']));
-            if (is_null($user)) {
-                $id = $this->publicModel->up('user', array(
-                    'user_openid' => $info['openid'],
-                    'user_images' => $info['headimgurl'],
-                    'user_name' => $info['nickname']
-                ));
-                if (is_numeric($id) && $id > 0) {
-                    $request->session()->put('user_id', $id);
-                }
-            } else {
-                $request->session()->put('user_id', $user->id);
-            };
-            header("Location: http://www.bananatrip.cn/templates/start.html");
-        } else {
-            echo '<script type="text/javascript">window.location.href="http://www.bananatrip.cn/index.html"</script>';
-        }
+//        if (isset($_GET['code'])) {
+//            $getAccessToken = 'https://api.weixin.qq.com/sns/oauth2/access_token?appid=wx53bb0f13b94ab34d&secret=f3b35ead3c880e9712c4d38efbb6eb89&code=' . $_GET['code'] . '&grant_type=authorization_code';
+//            $up = json_decode(file_get_contents($getAccessToken)); // 获取用户信息
+//            $getInfo = 'https://api.weixin.qq.com/sns/userinfo?access_token=' . $up["access_token"] . '&openid=' . $up["openid"];
+//            $info = json_decode(file_get_contents($getInfo));
+//            // 查询数据库
+//            $user = $this->publicModel->selectFirst('user', array('user_openid' => $info['openid']));
+//            if (is_null($user)) {
+//                $id = $this->publicModel->up('user', array(
+//                    'user_openid' => $info['openid'],
+//                    'user_images' => $info['headimgurl'],
+//                    'user_name' => $info['nickname']
+//                ));
+//                if (is_numeric($id) && $id > 0) {
+//                    $request->session()->put('user_id', $id);
+//                }
+//            } else {
+//                $request->session()->put('user_id', $user->id);
+//            };
+//            header("Location: http://www.bananatrip.cn/templates/start.html");
+//        } else {
+//            echo '<script type="text/javascript">window.location.href="http://www.bananatrip.cn/index.html"</script>';
+//        }
     }
 
 }

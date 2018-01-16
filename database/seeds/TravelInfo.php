@@ -14,8 +14,8 @@ class TravelInfo extends Seeder
     {
         foreach (range(4, 10) as $value) {
             DB::table('travel_info')->insert([
-                'info_time' => $_SERVER['REQUEST_TIME'] + 60 * 60 * 24 * $value,
-                'info_month' => date('Y-m', $_SERVER['REQUEST_TIME'] + 60 * 60 * 24 * $value),
+                'info_time' => $_SERVER['REQUEST_TIME'] + 60 * 60 * 24 * 30 * $value,
+                'info_month' => date('Y-m', $_SERVER['REQUEST_TIME'] + 60 * 30 * 60 * 24 * $value),
                 'info_text' => '放心大胆的选',
                 'info_travel_id' => 3
             ]);

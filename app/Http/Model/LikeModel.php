@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\DB;
 
 class LikeModel extends Model
 {
-    protected $table = "review_like";
+    protected $table = 'review_like';
 
     /**
      * @param $like_id int 编号

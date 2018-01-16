@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\OrderModel;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -10,7 +9,7 @@ use App\Http\Model;
 use Illuminate\Support\Facades\DB;
 
 
-class BananController extends Controller
+class BananaController extends Controller
 {
     private $banModel;
     private $enrolModel;
@@ -91,29 +90,52 @@ class BananController extends Controller
     {
         $travel = $this->banModel->selectTravelTimeInfo($request->input('id', 3));
         if (empty($travel)) {
-            return collect(['data' => [], 'status' => 0]);
+            echo collect(['data' => [], 'status' => 0]);
         } else {
-            $status['status'] = 1;
             $msg = [];
             foreach ($travel as $key => $value) {
                 $msg[] = array(
                     'adultprice' => '0',
                     'batch' => rand(10, 20),
-                    'bid' => $value->info_time,
+                    'bid' => $value->info_id,
                     'childprice' => '-1',
                     'diff' => '',
-                    'limit_max' => 0,
+                    'limit_max' => 50,
                     'people_count' => 0,
                     'price_label' => '0',
                     'price_status' => 1,
                     'starttime' => $value->info_time,
                     'status' => 1,
                     'status_label' => $value->info_text,
-                    'val' => date('Y-m-d', $value->info_time),
+                    'val' => date('Y-m-d ', $value->info_time),
                 );
             }
             $status['data'] = $msg;
-            return collect($status)->toJson();
+            $status['status'] = 1;
+            return view('Api.getTravelTime')->with([
+                'name' => json_encode($status),
+            ]);
+        }
+    }
+
+
+    /**
+     * 获取时间价格
+     * @param Request $request
+     * @return mixed
+     */
+    public function getTimePrice(Request $request)
+    {
+        $info = DB::table('travel_info')
+            ->where(['info_time' => strtotime($request->input('data')), 'info_travel_id' => $request->input('id')])
+            ->first();
+        if (is_object($info)) {
+            $weekarray = array('周日', '周一', '周二', '周三', '周四', '周五', '周六');
+            $info->info_week = $weekarray[date('w', strtotime($request->input('data')))];
+            $info->info_start = $request->input('data');
+            return collect(['data' => $info, 'message' => 1]);
+        } else {
+            return collect(['data' => 'error', 'message' => 0]);
         }
     }
 
@@ -140,5 +162,6 @@ class BananController extends Controller
             ->get();
         echo collect($user)->toJson();
     }
+
 
 }

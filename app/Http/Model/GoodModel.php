@@ -7,8 +7,8 @@ use Illuminate\Support\Facades\DB;
 
 class GoodModel extends Model
 {
-    protected $table = "good";
-    protected $order = "good_order";
+    protected $table = 'good';
+    protected $order = 'good_order';
 
     /**
      *获取一个商品信息

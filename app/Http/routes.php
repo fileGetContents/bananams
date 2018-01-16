@@ -1,21 +1,19 @@
 <?php
 
 Route::group(['namespace' => 'Api'], function () {
-    Route::any('banana/start', 'BananController@start');                             // 香蕉小发现 周末不浪费
-    Route::any('banana/LikeName', 'BananController@getLikeName');                    // 获取相似位置
-    Route::any('banana/TravelInfo', 'BananController@getTravelInfo');                // 获取某个旅行详情
-    Route::any('banana/User/Enrol', 'BananController@getTravelUserEnrol');           // 获取旅游用户信息
-    Route::any('travel/time', 'BananController@getTravelTime');                      // 获取项目的时间
-    Route::any('travel/time/month', 'BananController@getTravelMonth');               // 获取项目的月份
-
-
-    Route::any('travel/user/all', 'BananController@getUserAll');                     // 获取参加用户
-
+    Route::any('banana/start', 'BananaController@start');                             // 香蕉小发现 周末不浪费
+    Route::any('banana/LikeName', 'BananaController@getLikeName');                    // 获取相似位置
+    Route::any('banana/TravelInfo', 'BananaController@getTravelInfo');                // 获取某个旅行详情
+    Route::any('banana/User/Enrol', 'BananaController@getTravelUserEnrol');           // 获取旅游用户信息
+    Route::any('travel/time', 'BananaController@getTravelTime');                      // 获取项目的时间
+    Route::any('travel/time/month', 'BananaController@getTravelMonth');               // 获取项目的月份
+    Route::any('travel/user/all', 'BananaController@getUserAll');                     // 获取参加用户
+    Route::any('getTimePrice', 'BananaController@getTimePrice');                      // 获取特定时间
 
     Route::any('user/info', 'UserController@getUserInfo');                           // 获取用户信息
     Route::any('user/update/info', 'UserController@updateUserInfo');                 // 更新用戶信息
     Route::any('user/login', 'UserController@userLogin');                            // 用户登录
-    Route::any('user/register', 'UserController@userRegister');                      // 用戶注册
+    Route::any('user/register', 'UserController@userRegister');                      // 用户注册
     Route::any('user/address', 'UserController@addAddress');                         // 添加收获地址
     Route::any('del/address', 'UserController@DelAddress');                          // 删除收获地址
     Route::any('get/address', 'UserController@getAddress');                          // 获取地址
@@ -25,7 +23,6 @@ Route::group(['namespace' => 'Api'], function () {
     Route::any('kims/update', 'UserController@updateUserKims');                      // 更新代金券状态
     Route::any('user/money', 'UserController@getUserMoney');                         // 获取用户的金额
     Route::any('create/user/order', 'UserController@createBalanceOrder');            // 生成余额订单
-
 
     Route::any('api/send/code', 'ApiController@sendSMSCode');                        // 发送短信验证码
     Route::any('good/order', 'ApiController@createGoodOrder');                       // 创建商品订单
@@ -83,7 +80,6 @@ Route::group(['namespace' => 'Api'], function () {
     Route::any('native', 'WxApiController@native');                                       // 微信生成二维码
 });
 
-
 Route::group(['namespace' => 'Admin'], function () {
     Route::get('admin-login', 'IndexController@login');
     Route::get('admin-index', 'IndexController@index');
@@ -118,8 +114,7 @@ Route::group(['namespace' => 'Admin'], function () {
     Route::get('product-room', 'ProductController@roomList');             // 房间列表
     Route::any('product-hotel', 'ProductController@hotelList');           // 酒店订单
 
-
-    Route::any('add/good/{id?}', 'ProductController@addGood');                        // 添加产品
+    Route::any('add/good/{id?}', 'ProductController@addGood');                  // 添加产品
     Route::any('add/brand/{id?}', 'ProductController@brandAdd');                // 添加旅游项目
     Route::any('add/room/{id?}', 'ProductController@addRoom');                  // 添加房间
     Route::any('add/hotel/{id?}', 'ProductController@hotelAdd');                // 添加酒店

@@ -7,9 +7,9 @@ use Illuminate\Support\Facades\DB;
 
 class FriendModel extends Model
 {
-    protected $table = "user_friend";
-    protected $userTable = "user";
-    protected $dialogue = "user_dialogue";
+    protected $table = 'user_friend';
+    protected $userTable = 'user';
+    protected $dialogue = 'user_dialogue';
 
     public function selUserFriend($user_id)
     {

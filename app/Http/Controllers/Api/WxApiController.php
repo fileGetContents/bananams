@@ -127,7 +127,7 @@ class WxApiController extends Controller
         // ①、获取用户openid
         $tools = new Wechate\JsApiPay();
         //$openId = $tools->GetOpenid();
-        $use = $this->PurposeModel->selectFirst('user', ['user_id' => 29]);
+        $use = $this->PurposeModel->selectFirst('user', ['user_id' => 28]);
         $openId = $use->user_openid;
         // ②、统一下单
         $input = new Wechate\WxPayUnifiedOrder();
@@ -135,11 +135,11 @@ class WxApiController extends Controller
         $input->SetAttach($pay['attach']);                       // 附加信息
         $input->SetOut_trade_no($pay['trade_no']);               // 商户订单号
         $input->SetTotal_fee($pay['total_fee']);                 // 订单总金额，只能为整数，详见支付金额
-        $input->SetTime_start(date("YmdHis"));                   // 交易起始时间
-        $input->SetTime_expire(date("YmdHis", time() + 36000));  // 交易结束时间
+        $input->SetTime_start(date('YmdHis'));                   // 交易起始时间
+        $input->SetTime_expire(date('YmdHis', time() + 36000));  // 交易结束时间
         //$input->SetGoods_tag("test");
         $input->SetNotify_url(Wechate\WxPayConfig::NOTIFY_URL);  // 回调地址
-        $input->SetTrade_type("JSAPI");                          // 交易类型
+        $input->SetTrade_type('JSAPI');                          // 交易类型
         $input->SetOpenid($openId);
         $WxPayApi = new Wechate\WxPayApi();
         $order = $WxPayApi->unifiedOrder($input);
@@ -168,9 +168,7 @@ class WxApiController extends Controller
         $xmkOK = "<?xml version='1.0' encoding='utf-8'?><xml><return_code><![CDATA[SUCCESS]]></return_code><return_msg><![CDATA[OK]]></return_msg></xml>";  // 成功
         $xmkNO = "<?xml version='1.0' encoding='utf-8'?><xml><return_code><![CDATA[ERROR]]></return_code><return_msg><![CDATA[NO]]></return_msg></xml>";    // 失败
         $xml = file_get_contents('php://input', 'r');   // 获取xml数
-
         DB::table('test')->insert(['test' => $xml]);
-
         echo $xmkNO;
         die;
         $base = new Wechate\WxPayResults();

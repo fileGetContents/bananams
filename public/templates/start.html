@@ -7,8 +7,6 @@
     <link href="../css/foot.css" rel="stylesheet">
     <link href="../css/index.css" rel="stylesheet">
     <link href="../css/bootstrap.css" rel="stylesheet">
-    <script src="../js/jquery.min.js"></script>
-    <script src="../js/bootstrap.min.js"></script>
 </head>
 <body>
 <div class="foot">
@@ -86,7 +84,7 @@
             <!--<p class="price">RMB 1699起</p>-->
             <!--</div>-->
             <!--</div>-->
-            <!--<div class="left-top"><a href="activedetails.html?id=3"><img src="http://www.bananatrip.cn/img/s1.jpg"></a>-->
+            <!--<div class="left-top"><a href="activedetails.html?id=3"><img src="http://www.bananatrip.com/img/s1.jpg"></a>-->
             <!--<div class="bg4"><p class="place">杭州</p>-->
             <!--<p class="price">RMB100起</p></div>-->
             <!--</div>-->
@@ -115,7 +113,7 @@
         <!--</div>-->
         <!--<div class="contain2-right">-->
         <!--<div class="contain2-img">-->
-        <!--<a href="activedetails.html?id=37"><img src="http://www.bananatrip.cn/images/20170921/10000020170921015003.png"></a>-->
+        <!--<a href="activedetails.html?id=37"><img src="http://www.bananatrip.com/images/20170921/10000020170921015003.png"></a>-->
         <!--</div>-->
         <!--<p class=" p">四川阿坝藏族羌族自治州理县境内</p>-->
         <!--<p class="contain2-price">RMB 800起</p></div>-->
@@ -135,7 +133,7 @@
         <!--</div>-->
         <!--<div class="contain2-right">-->
         <!--<div class="contain2-img">-->
-        <!--<a href="activedetails.html?id=33"><img src="http://www.bananatrip.cn/images/20170921/10000020170921015003.png"></a>-->
+        <!--<a href="activedetails.html?id=33"><img src="http://www.bananatrip.com/images/20170921/10000020170921015003.png"></a>-->
         <!--</div>-->
         <!--<p class=" p">阿洒洒大苏打送达大苏打</p>-->
         <!--<p class="contain2-price">RMB 0起</p></div>-->
@@ -181,51 +179,53 @@
         <!--class="qi">起</span></p>-->
         <!--</li>-->
     </ul>
-    <script type="text/javascript" src="../js/jquery.min.js"></script>
-    <script type="text/javascript">
-        $(function () {
-            $.ajax({
-                type: 'post',
-                data: {'test': 'tes'},
-                dataType: 'json',
-                url: 'http://www.bananatrip.cn/banana/start',
-                success: function (obj) {
-                    var contain = new Array('left-top', 'left-bottom', 'right-top', 'right-bottom');
-                    var sift = obj.sift;       // 香蕉精选
-                    var small = obj.small;     // 香蕉小发现
-                    var weekend = obj.weekend; // 周末不浪费
-                    small.map(function (value, index, array) {
-                        var sift_t = '<div class="' + contain[index] + '"><a href="activedetails.html?id=' + value["travel_id"] + '"><img src="' + small[index]["travel_host_image"] + '"></a><div class="bg4"> <p class="place">' + small[index]["travel_bourn"] + '</p> <p class="price">RMB' + small[index]["travel_expense"] + '起</p> </div> </div>';
-                        if (index <= 1) {
-                            $('#ad-left').append(sift_t);
-                        }
-                        else {
-                            $('#ad-right').append(sift_t);
-                        }
-                    });
-
-                    weekend.map(function (value, index, array) {
-                        var weekend_t = '<div class="contain2-left"><div class="contain2-img"><a href="activedetails.html?id=' + value["travel_id"] + '"><img src="' + weekend[index]["travel_host_image"] + '"/></a></div> <p class=" p">' + weekend[index]["travel_bourn"] + '</p> <p class="contain2-price">RMB ' + weekend[index]["travel_expense"] + '起</p> </div>';
-                        console.log(index);
-                        if (index <= 1) {
-                            $(".contain2").eq(0).append(weekend_t)
-                        } else {
-                            $(".contain2").eq(1).append(weekend_t)
-                        }
-
-                    });
-                    sift.map(function (value, index, array) {
-                        var sift_t = '<li class="item item-thumbnail-left"><a href="activedetails.html?id=' + value["travel_id"] + '"><img src="' + sift[index]["travel_host_image"] + '"><p>' + sift[index]["travel_name"] + '</p></a><p class="list-price"><span class="RMB">RMB </span><span class="bigprice">' + sift[index]["travel_expense"] + '</span><spanclass="qi">起 </span></p> </li>'
-                        $('.list').append(sift_t);
-                    })
-                },
-                error: function (obj) {
-                }
-            })
-        })
-    </script>
 </div>
+<script src="../js/jquery.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $.ajax({
+            type: 'post',
+            data: {'test': 'tes'},
+            dataType: 'json',
+            url: 'http://www.bananatrip.com/banana/start',
+            success: function (obj) {
+                var contain = new Array('left-top', 'left-bottom', 'right-top', 'right-bottom');
+                var sift = obj.sift;       // 香蕉精选
+                var small = obj.small;     // 香蕉小发现
+                var weekend = obj.weekend; // 周末不浪费
 
+                small.map(function (value, index, array) {
+                    var sift_t = '<div class="' + contain[index] + '"><a href="activedetails.html?id=' + value["travel_id"] + '"><img src="' + small[index]["travel_host_image"] + '"></a><div class="bg4"> <p class="place">' + small[index]["travel_bourn"] + '</p> <p class="price">RMB' + small[index]["travel_expense"] + '起</p></div></div>';
+                    if (index <= 1) {
+                        $('#ad-left').append(sift_t);
+                    }
+                    else {
+                        $('#ad-right').append(sift_t);
+                    }
+                });
+
+                weekend.map(function (value, index, array) {
+                    var weekend_t = '<div class="contain2-left"><div class="contain2-img"><a href="activedetails.html?id=' + value["travel_id"] + '"><img src="' + weekend[index]["travel_host_image"] + '"/></a></div> <p class=" p">' + weekend[index]["travel_bourn"] + '</p> <p class="contain2-price">RMB ' + weekend[index]["travel_expense"] + '起</p></div>';
+                    // console.log(index);
+                    if (index <= 1) {
+                        $(".contain2").eq(0).append(weekend_t)
+                    } else {
+                        $(".contain2").eq(1).append(weekend_t)
+                    }
+                });
+
+                sift.map(function (value, index, array) {
+                    var sift_t = '<li class="item item-thumbnail-left"><a href="activedetails.html?id=' + value["travel_id"] + '"><img src="' + sift[index]["travel_host_image"] + '"><p>' + sift[index]["travel_name"] + '</p></a><p class="list-price"><span class="RMB">RMB </span><span class="bigprice">' + sift[index]["travel_expense"] + '</span><spanclass="qi">起 </span></p> </li>'
+                    $('.list').append(sift_t);
+                });
+
+            },
+            error: function (obj) {
+            }
+        })
+    })
+</script>
 <script>
     $(document).ready(function () {
         $('#myCarousel').carousel({interval: 1000});//每隔5秒自动轮播

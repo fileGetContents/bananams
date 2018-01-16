@@ -8,8 +8,59 @@
     <link href="../css/head.css" rel="stylesheet">
     <link href="../css/activedetails.css" rel="stylesheet">
     <link href="../css/bootstrap.css" rel="stylesheet">
-    <script src="../js/jquery.min.js"></script>
-    <script src="../js/bootstrap.min.js"></script>
+    <style type="text/css">
+        .slideBox {
+            position: relative;
+            overflow: hidden;
+            margin: 0 auto;
+            width: 100%;
+            height: 150px;
+        }
+
+        .slideBox .hd {
+            position: absolute;
+            height: 28px;
+            line-height: 28px;
+            bottom: 0;
+            right: 0;
+            z-index: 1;
+            text-align: center;
+            width: 100%;
+        }
+
+        .slideBox .hd li {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            -webkit-border-radius: 10px;
+            -moz-border-radius: 10px;
+            border-radius: 10px;
+            background: rgba(242, 12, 17, 0.49);
+            text-indent: -9999px;
+            overflow: hidden;
+            margin: 0 2px;
+        }
+
+        .slideBox .hd li.on {
+            background: #f20c11;
+        }
+
+        .slideBox .bd {
+            position: relative;
+            z-index: 0;
+        }
+
+        .slideBox .bd li {
+            position: relative;
+            text-align: center;
+        }
+
+        .slideBox .bd li img {
+            background: url(../images/loading.gif) center center no-repeat;
+            vertical-align: middle;
+            width: 100%;
+        }
+    </style>
 </head>
 <body>
 <div id="page">
@@ -23,62 +74,6 @@
         <div class="title title-center header-item" style="left: 15px; right: 15px;">活动详情</div>
     </ion-header-bar>
     <div class="content" id="wrap">
-        <style type="text/css">
-
-            .slideBox {
-                position: relative;
-                overflow: hidden;
-                margin: 0 auto;
-                width: 100%;
-                height: 150px;
-            }
-
-            .slideBox .hd {
-                position: absolute;
-                height: 28px;
-                line-height: 28px;
-                bottom: 0;
-                right: 0;
-                z-index: 1;
-                text-align: center;
-                width: 100%;
-            }
-
-            .slideBox .hd li {
-                display: inline-block;
-                width: 10px;
-                height: 10px;
-                -webkit-border-radius: 10px;
-                -moz-border-radius: 10px;
-                border-radius: 10px;
-                background: rgba(242, 12, 17, 0.49);
-                text-indent: -9999px;
-                overflow: hidden;
-                margin: 0 2px;
-            }
-
-            .slideBox .hd li.on {
-                background: #f20c11;
-            }
-
-            .slideBox .bd {
-                position: relative;
-                z-index: 0;
-            }
-
-            .slideBox .bd li {
-                position: relative;
-                text-align: center;
-            }
-
-            .slideBox .bd li img {
-                background: url(../images/loading.gif) center center no-repeat;
-                vertical-align: middle;
-                width: 100%;
-            }
-        </style>
-        <script src="../js/indexx.js"></script>
-        <script src="../js/touchslide.1.1.js"></script>
 
         <div id="slideBox" class="slideBox">
             <div class="bd">
@@ -92,7 +87,6 @@
                 <ul></ul>
             </div>
         </div>
-
         <div class="message light-bg">
             <p>【2017年 旅游快进 】亲子游巴拉巴拉 建行卡号地块骄傲好滴好滴继续</p>
             <p><span></span></p>
@@ -210,22 +204,7 @@
         <div class="kefu">
             <a href="https://static.meiqia.com/dist/standalone.html?_=t&eid=83432">
                 <img src="../img/kefu.png" width="30px" height="30px"></a>
-            <script type='text/javascript'>
-                (function (m, ei, q, i, a, j, s) {
-                    m[i] = m[i] || function () {
-                                (m[i].a = m[i].a || []).push(arguments)
-                            };
-                    j = ei.createElement(q),
-                            s = ei.getElementsByTagName(q)[0];
-                    j.async = true;
-                    j.charset = 'UTF-8';
-                    j.src = 'https://static.meiqia.com/dist/meiqia.js?_=t';
-                    s.parentNode.insertBefore(j, s);
-                })(window, document, 'script', '_MEIQIA');
-                _MEIQIA('entId', 83432);
 
-                _MEIQIA('withoutBtn');
-            </script>
             <style type="text/css">
                 p {
                     color: crimson;
@@ -246,7 +225,6 @@
 				<img src="../img/ion/return.png">
 				</span>
         </button>
-
         <div class="title title-center header-item" style="left: 15px; right: 15px;">报名名单
         </div>
     </ion-header-bar>
@@ -255,14 +233,9 @@
             <p>【2017年 旅游快进 】亲子游巴拉巴拉 建行卡号地块骄傲好滴好滴继续</p>
             <div><span>[情而不色]艺术是青涩的开始</span></div>
         </div>
-        <div class="choosed">
-            <p>2017/07/27</p>
-            <p>第一批</p>
-        </div>
         <hr class="stable" style="border: 0.1rem solid;">
         <p style="padding-left: 10px;">已报名<span class="assertive">55</span>人支付<span class="assertive">45</span>人</p>
         <div class="pannerbox">
-
             <ul class="list">
                 <li class="item item-avatar-left" style="border: 0">
                     <img src="../img/1.jpg">
@@ -271,29 +244,42 @@
                     </p>
                 </li>
             </ul>
-
         </div>
     </div>
 </div>
-
-<script>
-    $(document).ready(function () {
-        $('#myCarousel').carousel({interval: 2000});//每隔5秒自动轮播
-    });
-</script>
+<script src="../js/jquery.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/indexx.js"></script>
+<script src="../js/touchslide.1.1.js"></script>
 <script src="../js/activedetails.js"></script>
 <script type="text/javascript" src="../js/jquery.panelslider.min.js"></script>
+<script type='text/javascript'>
+    (function (m, ei, q, i, a, j, s) {
+        m[i] = m[i] || function () {
+                    (m[i].a = m[i].a || []).push(arguments)
+                };
+        j = ei.createElement(q);
+        s = ei.getElementsByTagName(q)[0];
+        j.async = true;
+        j.charset = 'UTF-8';
+        j.src = 'https://static.meiqia.com/dist/meiqia.js?_=t';
+        s.parentNode.insertBefore(j, s);
+    })(window, document, 'script', '_MEIQIA');
+    _MEIQIA('entId', 83432);
+
+    _MEIQIA('withoutBtn');
+</script>
 <script type="text/javascript">
     $(function () {
         $.ajax({
             type: 'post',
             data: {'id': GetQueryString('id')},
             dataType: 'json',
-            url: 'http://www.bananatrip.cn/banana/TravelInfo',
+            url: 'http://www.bananatrip.com/banana/TravelInfo',
             success: function (obj) {
                 // 轮播图片
                 obj['travel_images'].map(function (value, index, array) {
-                    $('.carousel-inner >div > img').eq(index).attr('src', obj['travel_images'][index])
+                    $('#slideBox> div > div> ul >li').eq(index).children().eq(0).attr('src', obj['travel_images'][index])
                 });
                 $('.message > p').eq(0).html(obj['travel_name']);
                 $('.message > p').eq(1).html("<span></span>" + obj['travel_venue']);
@@ -313,7 +299,7 @@
             type: 'post',
             data: {'id': GetQueryString('id')},
             dataType: 'json',
-            url: 'http://www.bananatrip.cn/travel/time',
+            url: 'http://www.bananatrip.com/travel/time',
             success: function (obj) {
                 obj.map(function (value, index, array) {
                     var hov = "";
@@ -334,8 +320,8 @@
             type: 'post',
             data: {'id': GetQueryString('id')},
             dataType: 'json',
-            // url: 'http://www.bananatrip.cn/banana/User/Enrol',
-            url: 'http://localhost/banan/public/banana/User/Enrol',
+            url: 'http://www.bananatrip.com/banana/User/Enrol',
+//            url: 'http://localhost/banan/public/banana/User/Enrol',
             success: function (obj) {
                 console.log(obj);
                 var user_num = 0;
@@ -362,7 +348,6 @@
         })
     });
 
-
     function GetQueryString(name) {
         var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
         var r = window.location.search.substr(1).match(reg); //获取url中"?"符后的字符串并正则匹配
@@ -373,7 +358,6 @@
         r = null;
         return context == null || context == "" || context == "undefined" ? "" : context;
     }
-
     function formatDate(num) {
         var now = new Date(num);
         var year = now.getYear();
@@ -384,10 +368,12 @@
         var second = now.getSeconds();
         return month + "-" + date
     }
-
-
 </script>
-
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#myCarousel').carousel({interval: 2000});//每隔5秒自动轮播
+    });
+</script>
 
 </body>
 </html>

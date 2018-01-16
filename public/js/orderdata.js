@@ -62,9 +62,7 @@ $.dataPage = function () {
                                 }
                             });
                         }
-                    }, "json");
-
-
+                    }, 'json');
                 }
                 $("#calendar .current-day").removeClass("active");
                 $(this).addClass("active");
@@ -113,7 +111,7 @@ $.dataPage = function () {
             var have_type = false;
             $('#j-batchType').find('li').each(function () {
                 if ($(this).hasClass("hover")) have_type = true;
-            })
+            });
             if (!have_type) {
                 alert('请先选择类型');
                 return false;
@@ -132,11 +130,11 @@ $.dataPage = function () {
         $("#j-data").val($(this).data("bid"));
         return false;
     });
-    myScroll.scrollToElement(document.querySelector('#scroller li[class="active"]'), 300);
+    myScroll.scrollToElement(document.querySelector('#scroller ul li[class="active"]'), 300);
     $('#scroller_ul').on('click', 'li', function () {
         $('#scroller_ul  li').removeClass('active');
         $(this).addClass('active');
-        myScroll.scrollToElement(document.querySelector('#scroller li[class="active"]'), 300);
+        myScroll.scrollToElement(document.querySelector('#scroller ul li[class="active"]'), 300);
         var obj = {};
         obj.month = window.parseInt($(this).data("date").split("-")[1]) - 1;
         obj.year = $(this).data("date").split("-")[0];
@@ -145,30 +143,23 @@ $.dataPage = function () {
 
 };
 // 内容页
-
-
 var mDate = {};
-
 function calendarWidget(el, params) {
     var that = this;
     var now = new Date();
     var thismonth = now.getMonth();
     var thisyear = now.getYear() + 1900;
-
     var opts = {
         month: thismonth,
         year: thisyear
     };
-
     $.extend(opts, params);
-
     var monthNames = ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'];
     var dayNames = ['日', '一', '二', '三', '四', '五', '六'];
     month = i = parseInt(opts.month);
     year = parseInt(opts.year);
     var m = 0;
     var table = '';
-
     // next month
     if (month == 11) {
         var next_month = '<span class="nextDate nextMonth" data-nextMonth="' + 1 + '" data-nextYear="' + (year + 1) + '"></span>';
@@ -188,15 +179,11 @@ function calendarWidget(el, params) {
     table += prev_month;
     table += next_month;
     table += ('<table class="calendar-month " ' + 'id="calendar-month' + i + ' " cellspacing="0">');
-
     table += '<tr>';
-
     for (d = 0; d < 7; d++) {
         table += '<th class="weekday">' + dayNames[d] + '</th>';
     }
-
     table += '</tr>';
-
     var days = getDaysInMonth(month, year);
     var prev_days = getDaysInMonth(month, year);
     var firstDayDate = new Date(year, month, 1);

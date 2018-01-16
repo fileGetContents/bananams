@@ -12,7 +12,6 @@ class JisuapiModel extends Model
         $arr = array('post' => false, 'referer' => $url, 'cookie' => '', 'useragent' => 'Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.0; Trident/4.0; SLCC1; .NET CLR 2.0.50727; .NET CLR 3.0.04506; customie8)', 'timeout' => 20, 'return' => true, 'proxy' => '', 'userpwd' => '', 'nobody' => false, 'header' => array(), 'gzip' => true, 'ssl' => false, 'isupfile' => false);
         $arr = array_merge($arr, $config);
         $ch = curl_init();
-
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, $arr['return']);
         curl_setopt($ch, CURLOPT_NOBODY, $arr['nobody']);
@@ -38,7 +37,6 @@ class JisuapiModel extends Model
                 curl_setopt($ch, CURLOPT_PROXYUSERPWD, $arr['userpwd']);
             }
         }
-
         //ip�Ƚ����⣬�ü�ֵ��ʾ
         if (!empty($arr['header']['ip'])) {
             array_push($arr['header'], 'X-FORWARDED-FOR:' . $arr['header']['ip'], 'CLIENT-IP:' . $arr['header']['ip']);

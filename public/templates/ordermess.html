@@ -145,20 +145,18 @@
         // 时间
         $.ajax({
             type: 'post',
-            data: {'id': GetQueryString('id')},
+            data: {'id': GetQueryString('id'), 'data': GetQueryString('data')},
             dataType: 'json',
-            url: 'http://www.bananatrip.cn/travel/time',
-            success: function (obj) {
-                console.log(obj);
-                obj.map(function (value, index, array) {
-                    if (value['info_id'] == GetQueryString('time_id')) {
-                        $('.chosendate').html('出行日期:' + formatDate(value['info_start']) + '(' + value['info_week'] + ')');
-                        price = value['info_expense'];
-                        $('.totalprice').html('总额：￥' + price)
-                    }
-                });
-
-
+            url: 'http://www.bananatrip.com/getTimePrice',
+            success: function (data) {
+                console.log(data);
+                if (data['message'] == 1) {
+//                    data['data'].map(function (value, index, array) {
+                    $('.chosendate').html('出行日期:' + data['data'].info_start + '(' + data['data'].info_week + ')');
+                    price = data['data'].info_price;
+                    $('.totalprice').html('总额：￥' + price);
+                    //  })
+                }
             },
             error: function (obj) {
             }
@@ -201,24 +199,22 @@
 
         // 添加订单
         $('#payorder').click(function () {
-
             // 检查是否登录
-            $.ajax({
-                type: 'post',
-                dataType: 'json',
-                url: 'http://www.bananatrip.cn/is/login',
-                data: {'type': 1},
-                success: function (obj) {
-                    console.log(obj);
-                    if (obj.info == 1) {
-                        window.location.href = 'http://www.bananatrip.cn/wx/login';
-                    }
-                },
-                error: function (obj) {
-                    console.log(obj);
-                }
-            });
-
+//            $.ajax({
+//                type: 'post',
+//                dataType: 'json',
+//                url: 'http://www.bananatrip.con/is/login',
+//                data: {'type': 1},
+//                success: function (obj) {
+//                    console.log(obj);
+//                    if (obj.info == 1) {
+//                        window.location.href = 'http://www.bananatrip.cn/wx/login';
+//                    }
+//                },
+//                error: function (obj) {
+//                    console.log(obj);
+//                }
+//            });
             var adg = parseInt($('#text_box2').val());
             var chg = parseInt($('#text_box3').val());
             var good_id = GetQueryString('id');
@@ -252,9 +248,9 @@
                     'price': payg
                 },
                 dataType: 'json',
-                url: 'http://www.bananatrip.cn/travel/order',
+                url: 'http://www.bananatrip.com/travel/order',
                 success: function (obj) {
-                    window.location.href = "http://www.bananatrip.cn/Home/Wxpay?order=" + obj.message + "&table=" + obj.table;
+                    window.location.href = "http://www.bananatrip.com/Home/Wxpay?order=" + obj.message + "&table=" + obj.table;
                 },
                 error: function () {
                 }

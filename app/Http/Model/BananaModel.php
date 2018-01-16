@@ -8,9 +8,9 @@ use Illuminate\Support\Facades\DB;
 
 class BananaModel extends Model
 {
-    protected $table = "travel";
+    protected $table = 'travel';
 
-    protected $travelInfo = "travel_info";
+    protected $travelInfo = 'travel_info';
     protected $travelOrder = 'travel_order';
 
     /**

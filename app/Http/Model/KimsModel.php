@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\DB;
 class KimsModel extends Model
 {
 
-    protected $table = "user_kims";
+    protected $table = 'user_kims';
 
     /**
      * 添加数组

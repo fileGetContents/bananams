@@ -1,3 +1,6 @@
+
+a:16:{s:5:"appid";s:18:"wx511054a5c81bbc93";s:9:"bank_type";s:3:"CFT";s:8:"cash_fee";s:1:"1";s:8:"fee_type";s:3:"CNY";s:12:"is_subscribe";s:1:"Y";s:6:"mch_id";s:10:"1491959462";s:9:"nonce_str";s:32:"7160vaemz7h7hv1wt9kgkun0huvh5ky1";s:6:"openid";s:28:"onbiM0viuaoaYJ-vVONs92G5ysFo";s:12:"out_trade_no";s:18:"201801051705554220";s:11:"result_code";s:7:"SUCCESS";s:11:"return_code";s:7:"SUCCESS";s:4:"sign";s:32:"629EABAFA349B84BCFA3021F8E81BCD8";s:8:"time_end";s:14:"20180105170614";s:9:"total_fee";s:1:"1";s:10:"trade_type";s:6:"NATIVE";s:14:"transaction_id";s:28:"4200000010201801058654579830";}
+
 <?php
 //以下为日志
 namespace App\Http\Wechate;
