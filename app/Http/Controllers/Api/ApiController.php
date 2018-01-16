@@ -206,7 +206,8 @@ class ApiController extends Controller
                 'order_user_id' => intval(session('user_id', 1))
             );
             if ($this->HotelModel->insertOrder($hotel)) {
-                $request->session()->flash('HotelOrder', $hotel);     // 记录session
+                //  $request->session()->flash('HotelOrder', $hotel);     // 记录session
+                session(['HotelOrder' => $hotel]);
                 //   echo '<script type="text/javascript">window.location.href="http://www.bananatrip.cn/index.php/Home/Wxpay"</script>';
                 echo collect(array("info" => 0, "message" => $order_num, 'table' => 'hotel_order'))->toJson();
             } else {
