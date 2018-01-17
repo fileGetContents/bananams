@@ -323,7 +323,6 @@ class ApiController extends Controller
         } else {
             echo collect(array('nameFile' => 'error'))->toJson();
         }
-
     }
 
 

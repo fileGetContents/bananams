@@ -363,7 +363,7 @@ var ZYFILE = {
                     formData.append("file", $("#fileImage")[0].files[0]);
                     formData.append("name", parseInt(num, 10));
                     $.ajax({
-                        url: 'http://www.bananatrip.cn/update/image2',
+                        url: 'http://www.bananatrip.com/update/image2',
                         type: 'POST',
                         data: formData,
                         processData: false,
@@ -379,7 +379,7 @@ var ZYFILE = {
                         }
                     });
                     html += '<div id="uploadList_' + file.index + '" class="upload_append_list">';
-                    html += '<input name="updateName[]"  value="' + parseInt(num, 10) + '" hidden>';
+                    html += '<input name="updateName[]" class="updateImage" value="' + parseInt(num, 10) + '" hidden>';
                     html += '	<div class="file_bar">';
                     html += '		<div style="padding:5px;">';
                     html += '			<p class="file_name">' + file.name + '</p>';

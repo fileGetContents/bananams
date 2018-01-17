@@ -16,14 +16,12 @@ class CommunityModel extends Model
      * @param int $skip int  开始位置
      * @return mixed
      */
-    public function getPostListAll($skip = 0)
+    public function getPostListAll()
     {
         return DB::table($this->table)
-            ->orderBy("post_id", "DESC")
+            ->orderBy('post_id', 'DESC')
             ->leftJoin('user', 'user.user_id', '=', $this->table . '.post_user_id')
-            ->take(5)
-            ->skip($skip)
-            ->get();
+            ->paginate(20);
     }
 
     public function getPostReview($post_id)
@@ -51,7 +49,7 @@ class CommunityModel extends Model
      */
     public function insertReview($array)
     {
-        return DB::table($this->post_review)->insert($array);
+        return DB::table('post_reply')->insertGetId($array);
     }
 
     /**

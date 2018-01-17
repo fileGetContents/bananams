@@ -36,8 +36,7 @@
                 <h2 id="name">Stranger</h2>
             </li>
             <li class="attention light-bg">
-                <input type="button" class="button button-small button-positive btn" onclick="attention();" id="atten"
-                       value="关注TA">
+                <input type="button" class="button button-small button-positive btn" onclick="attention();" id="atten" value="关注TA">
             </li>
         </ul>
     </div>
@@ -50,12 +49,12 @@
         </a>
     </ul>
     <!--<ul class="TA2 light-bg">-->
-        <!--<a class="other" href="#">-->
-            <!--<li><img src="../img/pinglun.png" style="margin: 6px 5px 0 5px" width="20px" height="20px"></li>-->
-            <!--<li style="color: #000000">TA的参与</li>-->
-            <!--<li class="rightli">2</li>-->
-            <!--<li><img src="../img/pinglun.png" style="margin-top:6px;" width="20px" height="20px"></li>-->
-        <!--</a>-->
+    <!--<a class="other" href="#">-->
+    <!--<li><img src="../img/pinglun.png" style="margin: 6px 5px 0 5px" width="20px" height="20px"></li>-->
+    <!--<li style="color: #000000">TA的参与</li>-->
+    <!--<li class="rightli">2</li>-->
+    <!--<li><img src="../img/pinglun.png" style="margin-top:6px;" width="20px" height="20px"></li>-->
+    <!--</a>-->
     <!--</ul>-->
     <ul class="TA light-bg"><a id="talk" true_url="talk.html" href="">
         <li><img src="../img/pinglun.png" style="margin: 6px 5px 0 5px" width="20px" height="20px"></li>
@@ -70,31 +69,20 @@
             type: 'post',
             data: {'user_id': GetQueryString('id')},
             dataType: 'json',
-            url: 'http://www.bananatrip.cn/user/all/post',
+            url: 'http://www.bananatrip.com/user/all/post',
             success: function (obj) {
-                $('.rightli').eq(0).html(obj.length)
+                $('.rightli').eq(0).html(obj.return.length)
             },
             error: function (obj) {
 
             }
         });
-        $.ajax({
-            type: 'post',
-            data: {'user_id': GetQueryString('id')},
-            dataType: 'json',
-            url: 'http://www.bananatrip.cn/user/join',
-            success: function (obj) {
-                $('.rightli').eq(1).html(obj.length)
-            },
-            error: function (obj) {
 
-            }
-        });
         $.ajax({
             type: 'post',
             data: {'id': GetQueryString('id')},
             dataType: 'json',
-            url: 'http://www.bananatrip.cn/user/info',
+            url: 'http://www.bananatrip.com/user/info',
             success: function (obj) {
                 console.log(obj);
                 $('#name').prev().attr('src', obj.user_headimgurl);
@@ -103,12 +91,31 @@
             error: function (obj) {
             }
         });
+
+        $.ajax({
+            type: 'post',
+            data: {'friend_id': GetQueryString('id')},
+            dataType: 'json',
+            url: 'http://www.bananatrip.com/is/friend',
+            success: function (data) {
+                if (data == 0) {
+                    $('#atten').val('关注TA');
+                } else {
+                    $('#atten').val('已关注');
+                }
+            },
+            error: function () {
+
+            }
+        });
+
+
         $('#atten').click(function () {
             $.ajax({
                 type: 'post',
                 data: {'id': GetQueryString('id')},
                 dataType: 'json',
-                url: 'http://www.bananatrip.cn/add/friend',
+                url: 'http://www.bananatrip.com/add/friend',
                 success: function (obj) {
 
                 },

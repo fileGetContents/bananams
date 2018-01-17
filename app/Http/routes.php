@@ -33,6 +33,7 @@ Route::group(['namespace' => 'Api'], function () {
     Route::any('user/order', 'ApiController@getGoodOrder');                          // 获取用户的id
 
     Route::any('api/post/all', 'CommunityController@getPostAll');                     // 获取帖子
+    Route::any('postAll', 'CommunityController@postAll');                       // 获取帖子
     Route::any('api/post/review', 'CommunityController@getPostReview');               // 获取贴子和评论信息
     Route::any('update/post/praise', 'CommunityController@updatePostPraise');         // 为贴子添加点赞
     Route::any('update/Like', 'CommunityController@updateLike');                      // 为评论点赞

@@ -40,7 +40,7 @@ class FriendController extends Controller
      */
     public function addFriend(Request $request)
     {
-        $whether = $this->friendModel->addCancelFriend(session('user_id', 1), $request->input("id", 10));
+        $whether = $this->friendModel->addCancelFriend(session('user_id', 1), $request->input('id', 10));
         if ($whether) {
             echo collect(array("info" => 0, "message" => "success"));
         } else {
@@ -54,8 +54,8 @@ class FriendController extends Controller
     public function isFriend(Request $request)
     {
         $whether = $this->friendModel->isFriend(array(
-            'friend_friend_id' => $request->input("friend_id", 10),
-            'friend_user_id' => session("user_id", 1)
+            'friend_friend_id' => $request->input('friend_id', 10),
+            'friend_user_id' => session('user_id', 1)
         ));
         if (is_null($whether)) {
             echo 0;

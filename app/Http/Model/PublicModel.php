@@ -65,9 +65,6 @@ class PublicModel extends Model
     }
 
 
-
-
-
     /**
      * 通用添加
      *
@@ -80,7 +77,29 @@ class PublicModel extends Model
     }
 
 
-
+    /**
+     * 发表显示
+     * @param int $unixEndTime
+     * @return int
+     */
+    public static function getPublished($unixEndTime = 0)
+    {
+        $time = time() - $unixEndTime;
+        if ($time > 86400 * 29) {
+            $moth = (int)($time / (86400 * 29));
+            return $moth . '月前';
+        }
+        if ($time >= 86400) { // 如果大于1天
+            $days = (int)($time / 86400);
+            return $days . '天前';
+        }
+        if ($time >= 3600) { // 如果大于1小时
+            $xiaoshi = (int)($time / 3600);
+            return $xiaoshi . '小时前';
+        }
+        $fen = (int)($time / 60); // 剩下的毫秒数都算作分
+        return $fen . '分钟前';
+    }
 
 
 }

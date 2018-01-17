@@ -14,22 +14,61 @@ class CommunityController extends Controller
     protected $communityModel;
     protected $likeModel;
     protected $userModel;
+    protected $db;
 
     public function __construct()
     {
         $this->communityModel = new Model\CommunityModel();
         $this->likeModel = new Model\LikeModel();
         $this->userModel = new Model\UserModel();
+        $this->db = new Model\SQLModel();
     }
 
     /**
      * 返回参数
      * @param Request $request
      */
-    public function getPostAll(Request $request)
+    public function getPostAll()
     {
-        $post = $this->communityModel->getPostListAll($request->input('skip', 0));
+        $post = $this->communityModel->getPostListAll();
         echo collect($post)->toJson();
+    }
+
+    /**
+     *
+     * @param Request $request
+     * @return $this
+     */
+    public function postAll(Request $request)
+    {
+        $post = DB::table('post')
+            ->orderBy('post_id', 'DESC')
+            ->leftJoin('user', 'user.user_id', '=', 'post.post_user_id')
+            ->paginate(20);
+        // 回帖
+        $reply = array();
+        // 点赞
+        $like = array();
+        // 时间
+        $time = array();
+        $num = array();
+        foreach ($post as $key => $value) {
+            $reply[$value->post_id] = DB::table('post_reply')
+                ->where(['reply_post_id' => $value->post_id])
+                ->orderBy('reply_time', 'desc')
+                ->get();
+            $like[$value->post_id] = DB::table('post_praise')->where(['praise_post_id' => $value->post_id])->groupBy('praise_user_id')->get();
+            $time [$value->post_id] = Model\PublicModel::getPublished($value->post_time);
+            $num[$value->post_id] = DB::table('post_reply')->where(['reply_post_id' => $value->post_id])->count();
+        }
+        return view('Api.getPostPage')->with([
+            'post' => $post,
+            'reply' => $reply,
+            'like' => $like,
+            'user' => Model\UserModel::getALlToArray(),
+            'time' => $time,
+            'num' => $num
+        ]);
     }
 
     /**
@@ -93,10 +132,9 @@ class CommunityController extends Controller
         $review = DB::table("post_review")->where("review_id", "=", $request->input('id', 1))->first();
         DB::beginTransaction();
         try {
-            $sql1 = DB::table("post_review")
+            $sql1 = DB::table('post_review')
                 ->where('review_id', '=', $review->review_id)
-                ->update(array("review_user_num" => $review->review_user_num + 1));
-
+                ->update(array('review_user_num' => $review->review_user_num + 1));
             $sql2 = DB::table("review_like")
                 ->insert(array(
                     "like_review_id" => $review->review_id,
@@ -122,17 +160,32 @@ class CommunityController extends Controller
     public function addReview(Request $request)
     {
         $array = array(
-            'review_post_id' => $request->input('post_id', 1),
-            'review_body' => $request->input('message', "不错呦!"),
-            'review_user_id' => session("user_id", 1),
-            'review_time' => time(),
+            'reply_post_id' => $request->input('post_id', 1),
+            'reply_text' => $request->input('message', "不错呦!"),
+            'reply_user_id' => session("user_id", 1),
+            'reply_time' => time(),
         );
-        $insert = $this->communityModel->insertReview($array);
-        if ($insert) {
-            echo collect(array("info" => 0, "message" => "添加成功"));
-        } else {
-            echo collect(array("info" => 1, "message" => "添加失败"));
+        if ($request->hasFile('friend_id')) {
+            $array['reply_friend_id'] = $request->input('friend_id');
         }
+        $id = $this->communityModel->insertReview($array);
+        if ($id > 0) {
+            $reply = DB::table('post_reply')->where(['reply_id' => $id])->first();
+            $user = Model\UserModel::getALlToArray();
+            if ($reply->reply_friend_id == 0) {
+                $string = '<div><div class="avtkuang"><img class="po-avt data-avt zanavt pinglunavt" src="' . $user[$reply->reply_user_id]['headimgurl'] . '"></div><div class="pingluncontent"><span>' . $user[$reply->reply_user_id]['nick_name'] . '</span><div>' . $reply->reply_text . '</div></div></div>';
+            } else {
+                $string = '<div><div class="avtkuang"><img class="po-avt data-avt zanavt pinglunavt" src="' . $user[$reply->reply_user_id]['headimgurl'] . '"></div><div class="pingluncontent"><span>' . $user[$reply->reply_user_id]['nick_name'] . '</span>回复 <span>' . $user[$reply->reply_friend_id]['nick_name'] . '</span><div>' . $reply->reply_text . '</div></div></div>';
+            }
+            return collect(['info' => 0, 'message' => $string]);
+        } else {
+            return collect(array('info' => 1, 'message' => '添加失败'));
+        }
+//        if ($insert) {
+//            echo collect(array('info' => 0, 'message' => '添加成功'));
+//        } else {
+//            echo collect(array('info' => 1, 'message' => '添加失败'));
+//        }
     }
 
     /**
@@ -149,16 +202,22 @@ class CommunityController extends Controller
         );
         // 添加图片
         //<a href="../img/thumbnails/tibet-1.jpg"><li><img src="../img/thumbnails/tibet-1.jpg" alt="Cuo Na Lake"></li></a>
-        if (is_array($request->input('updateName'))) {
-            foreach ($request->input('updateName') as $value) {
-                $array['post_images'] = $array['post_images'] . '<a href="http://www.bananatrip.cn/images/' . date('Ymd') . '/' . $value . '.png"><li><img src="http://www.bananatrip.cn/images/' . date('Ymd') . '/' . $value . '.png" alt="Cuo Na Lake"></li></a>';
+//        if (is_array($request->input('updateName'))) {
+//            foreach ($request->input('updateName') as $value) {
+//                $array['post_images'] = $array['post_images'] . '<a href="http://www.bananatrip.com/images/' . date('Ymd') . '/' . $value . '.png"><li><img src="http://www.bananatrip.cn/images/' . date('Ymd') . '/' . $value . '.png" alt="Cuo Na Lake"></li></a>';
+//            }
+//        }
+        if ($request->input('updateName') != '') {
+            $arr = array_filter(explode('&', $request->input('updateName')));
+            foreach ($arr as $value) {
+                $array['post_images'] = $array['post_images'] . '<a href="http://www.bananatrip.com/images/' . date('Ymd') . '/' . $value . '.png"><li><img src="http://www.bananatrip.com/images/' . date('Ymd') . '/' . $value . '.png" alt="Cuo Na Lake"></li></a>';
             }
         }
         $whether = $this->communityModel->insertPost($array);
         if ($whether) {
-            return back();
+            return collect(['info' => '0', 'message' => '发表成功']);
         } else {
-            return back();
+            return collect(['info' => '1', 'message' => '发表失败']);
         }
     }
 

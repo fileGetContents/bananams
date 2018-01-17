@@ -111,6 +111,20 @@ class UserModel extends Model
         return DB::table($this->table)->where('user_id', '=', $user_id)->first();
     }
 
+    /**
+     * 获取全部
+     * @return array
+     */
+    public static function getALlToArray()
+    {
+        $user = DB::table('user')->get();
+        $return = array();
+        foreach ($user as $value) {
+            $return[$value->user_id]['nick_name'] = $value->user_name;
+            $return[$value->user_id]['headimgurl'] = $value->user_headimgurl;
+        }
+        return $return;
+    }
 
 }
 
