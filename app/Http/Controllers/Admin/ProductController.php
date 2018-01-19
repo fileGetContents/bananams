@@ -11,7 +11,7 @@ use Storage;
 class ProductController extends Controller
 {
     //
-    private $file = "Admin.product-";
+    private $file = 'Admin.product-';
     private $goodModel;
     private $bananModel;
     private $hotelModel;
@@ -46,8 +46,8 @@ class ProductController extends Controller
      */
     public function brand()
     {
-        $travel = DB::table('travel')->orderBy('travel_id', 'desc')->paginate(10);
-        return view($this->file . "brand")->with([
+        $travel = DB::table('travel')->orderBy('travel_id', 'desc')->get();
+        return view($this->file . 'brand')->with([
             'travel' => $travel
         ]);
     }

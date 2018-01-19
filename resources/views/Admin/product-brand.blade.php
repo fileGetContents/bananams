@@ -19,15 +19,6 @@
     <script type="text/javascript" src="http://lib.h-ui.net/DD_belatedPNG_0.0.8a-min.js"></script>
     <script>DD_belatedPNG.fix('*');</script>
     <![endif]-->
-    <style type="text/css">
-        #DataTables_Table_0_info {
-            display: none;
-        }
-
-        #DataTables_Table_0_paginate {
-            display: none
-        }
-    </style>
     <title>产品管理</title>
 </head>
 <body>
@@ -93,7 +84,6 @@
             </tbody>
         </table>
     </div>
-    {!! $travel->render() !!}
 </div>
 <script type="text/javascript" src="admin/lib/jquery/1.9.1/jquery.min.js"></script>
 <script type="text/javascript" src="admin/lib/layer/1.9.3/layer.js"></script>
