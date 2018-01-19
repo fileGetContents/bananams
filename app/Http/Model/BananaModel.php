@@ -86,6 +86,20 @@ class BananaModel extends Model
         return DB::table($this->travelOrder)->where($where)->get();
     }
 
+    /**
+     * 获取
+     * @param $id
+     * @return mixed
+     */
+    public function getUserOrder($id)
+    {
+        return DB::table($this->travelOrder)
+            ->leftJoin('travel', 'travel_order.order_travel_id', '=', 'travel.travel_id')
+            ->leftJoin('travel_info', 'travel_order.order_info_id', '=', 'travel_info.info_id')
+            ->where(['order_user_id' => $id])
+            ->get();
+    }
+
 
     /**
      * 添加一个订单号

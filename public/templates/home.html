@@ -10,9 +10,9 @@
     <link href="../css/bootstrap.css" rel="stylesheet">
     <script src="../js/jquery.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>
-	<script src="../js/jquery-2.1.1.js"></script>
-	<script src="../js/indexx.js"></script>
-	<script src="../js/touchslide.1.1.js"></script>
+    <script src="../js/jquery-2.1.1.js"></script>
+    <script src="../js/indexx.js"></script>
+    <script src="../js/touchslide.1.1.js"></script>
 </head>
 <body>
 <div class="foot">
@@ -21,7 +21,7 @@
     <a class="foot-tab " href="friend.html"><img src="../img/ion/friend2.png">
         <p>社区</p></a>
     <a class="foot-tab " href="sendpost.html"><img src="../img/ion/fatie.png">
-            <p>发帖</p></a>
+        <p>发帖</p></a>
     <a class="foot-tab " href="home.html"><img src="../img/ion/home.png">
         <p>小店</p></a>
     <a class="foot-tab " href="person.html"><img src="../img/ion/my2.png">
@@ -38,16 +38,17 @@
 </ion-header-bar>
 <div class="content">
     <div id="slideBox" class="slideBox">
-		<div class="bd">
-			<ul>
-                        <li> <img style="height: 300px;" src="../img/find.jpg" alt="First slide"></li>
-                        <li> <img style="height: 300px;" src="../img/hotel4.jpeg" alt="Second slide"></li>
-                        <li> <img style="height: 300px;" src="../img/hotel8.jpeg" alt="Third slide"></li>
-                        
-             </ul>
-		</div>
-		<div class="hd"><ul></ul></div>
-	</div>
+        <div class="bd">
+            <ul>
+                <li><img style="height: 300px;" src="../img/find.jpg" alt="First slide"></li>
+                <li><img style="height: 300px;" src="../img/hotel4.jpeg" alt="Second slide"></li>
+                <li><img style="height: 300px;" src="../img/hotel8.jpeg" alt="Third slide"></li>
+            </ul>
+        </div>
+        <div class="hd">
+            <ul></ul>
+        </div>
+    </div>
     <div class="bg"></div>
     <div class="row light-bg" style="margin: 0">
         <a class="tab-item " href="home-class.html"><img src="../img/ion/fenlei.png" width="45px" height="45px">
@@ -69,15 +70,14 @@
     </div>
     <div class="title2"><p>- - 本周热销 - -</p></div>
     <div class="section">
-	
-		<a href="details.html" style="height:100%;display:block;">
-		<img id="tag_20" src="../img/post5.jpg" style="height:100%;">
-		</a>
-		</div>
+        <a href="details.html" style="height:100%;display:block;">
+            <img id="tag_20" src="../img/post5.jpg" style="height:100%;">
+        </a>
+    </div>
     <div class="title2"><p>- - 推荐商品 - -</p></div>
     <div style="margin-bottom: 10px">
         <div class="section" id="tag_10" style="">
-			
+
             <a href="details.html" style="height:100%;display:block;">
                 <img src="../img/find.jpg" style="height:100%;">
             </a>
@@ -87,7 +87,9 @@
             <span class="span2">2017年 新年创意福字门贴</span>
         </div>
     </div>
-    <div class="section"><a href="details.html" style="height:100%;display:block;"><img id="tag_40" style="height:100%;" src="../img/post1.jpg"></a></div>
+    <div class="section"><a href="details.html" style="height:100%;display:block;"><img id="tag_40" style="height:100%;"
+                                                                                        src="../img/post1.jpg"></a>
+    </div>
     <div id="good_list">
         <!--<div class="small_section" style="border: 0">-->
         <!--<div class="projectbox" ui-sref="details.html">-->
@@ -110,13 +112,6 @@
 </div>
 
 <script type="text/javascript">
-    $(document).ready(function () {
-        $('#myCarousel').carousel({interval: 1000}); // 每隔5秒自动轮播
-		$('#mycarousel-inner').swipeleft(function(){
-		$(this).carousel('next');
-		});
-    });
-	
     $(function () {
         var limit = 0;
         // 本周热销
@@ -124,9 +119,10 @@
             type: 'post',
             data: {'tag': 20},
             dataType: 'json',
-            url: 'http://www.bananatrip.cn/good/tag',
+            url: 'http://www.bananatrip.com/good/tag',
             success: function (obj) {
                 $('#tag_20').attr('src', obj[0]['good_image']);
+                $('#tag_20').parent().attr('href', 'details.html?id=' + obj[0]['good_id']);
             },
             error: function (obj) {
 
@@ -138,10 +134,11 @@
             type: 'post',
             data: {'tag': 10},
             dataType: 'json',
-            url: 'http://www.bananatrip.cn/good/tag',
+            url: 'http://www.bananatrip.com/good/tag',
             success: function (obj) {
                 $('.span2').html(obj[0]['good_name']);
                 $('#tag_40').attr('src', obj[0]['good_image']);
+                $('#tag_40').parent().attr('href', 'details.html?id=' + obj[0]['good_id']);
             },
             error: function (obj) {
 
@@ -153,9 +150,9 @@
             type: 'post',
             data: {'tag': 40},
             dataType: 'json',
-            url: 'http://www.bananatrip.cn/good/tag',
+            url: 'http://www.bananatrip.com/good/tag',
             success: function (obj) {
-                $('#tag_10 > a ').attr('src', 'details.html?id=' + obj[0]['good_id']);
+                $('#tag_10 > a ').attr('href', 'details.html?id=' + obj[0]['good_id']);
                 $('#tag_10 > a > img ').attr('src', obj[0]['good_image']);
             },
             error: function (obj) {
@@ -168,11 +165,11 @@
             type: 'post',
             data: {'title': $('input[name=like]').val(), 'limit': 0},
             dataType: 'json',
-            url: 'http://www.bananatrip.cn/like/good',
+            url: 'http://www.bananatrip.com/like/good',
             success: function (obj) {
                 console.log(obj);
                 obj.map(function (value, index, array) {
-                    var good_list = '<div class="small_section" ui-sref="details.html?id=' + value["good_id"] + '" style="border: 0"><div class="projectbox"  > <img src="' + value['good_image'] + '"> <p>' + value["good_name"] + '</p> <p class="price2">￥ ' + value['good_amount'] + '</p> </div> </div>';
+                    var good_list = '<div class="small_section" ui-sref="details.html?id=' + value["good_id"] + '" style="border: 0"><div class="projectbox"  > <img src="' + value['good_image'] + '"><p>' + value["good_name"] + '</p><p class="price2">￥ ' + value['good_amount'] + '</p></div></div>';
                     $('#good_list').append(good_list);
                 });
             },
@@ -190,7 +187,7 @@
                 type: 'post',
                 data: {'title': $('input[name=like]').val(), 'limit': limit + 5},
                 dataType: 'json',
-                url: 'http://www.bananatrip.cn/like/good',
+                url: 'http://www.bananatrip.com/like/good',
                 success: function (obj) {
                     // console.log(obj);
                     $('#good_list').empty();
@@ -206,6 +203,13 @@
 
     });
 </script>
-
+<script>
+    $(document).ready(function () {
+        $('#myCarousel').carousel({interval: 1000}); // 每隔5秒自动轮播
+        $('#mycarousel-inner').swipeleft(function () {
+            $(this).carousel('next');
+        });
+    });
+</script>
 </body>
 </html>

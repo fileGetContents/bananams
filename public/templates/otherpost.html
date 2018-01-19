@@ -3,180 +3,237 @@
 <head>
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no,width=device-width">
     <meta charset="UTF-8">
-    <title>他的帖子</title>
+    <title>旅友圈</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link href="../css/foot.css" rel="stylesheet">
     <link href="../css/head.css" rel="stylesheet">
-    <link href="../css/otherjoin.css" rel="stylesheet">
+    <link href="../css/friend.css" rel="stylesheet">
+    <link href="../css/friend3.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="lib/css/emoji.css">
+    <link href="../css/cover.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/baguettebox.min.css">
+    <script src="../js/jquery.mobile-1.4.5.min.js"></script>
+    <script src="../js/jquery.min1.js"></script>
 </head>
-<body>
-<div class="foot">
-    <a class="foot-tab" href="start.html"><img src="../img/ion/start2.png">
-        <p>首页</p>
-    </a>
-    <a class="foot-tab " href="friend.html"><img src="../img/ion/friend.png">
-        <p>社区</p>
-    </a>
-    <a class="foot-tab " href="home.html"><img src="../img/ion/home2.png">
-        <p>小店</p>
-    </a>
-    <a class="foot-tab " href="person.html"><img src="../img/ion/my2.png">
-        <p>我的</p>
-    </a>
+<body style="overflow:hidden;">
+
+<div id="page">
+
+    <div class="foot">
+        <a class="foot-tab" href="start.html"><img src="../img/ion/start2.png">
+            <p class="mycolor">首页</p></a>
+        <a class="foot-tab " href="friend.html"><img src="../img/ion/friend.png">
+            <p class="mycolor">社区</p></a>
+        <a class="foot-tab " href="sendpost.html"><img src="../img/ion/fatie.png">
+            <p class="mycolor">发帖</p></a>
+        <a class="foot-tab " href="home.html"><img src="../img/ion/home2.png">
+            <p class="mycolor">小店</p></a>
+        <a class="foot-tab " href="person.html"><img src="../img/ion/my2.png">
+            <p class="mycolor">我的</p></a>
+    </div>
+    <div class="content">
+        <div id="main">
+            <div id="list">
+                <ul class="post_content"></ul>
+            </div>
+        </div>
+    </div>
 </div>
-<ion-header-bar class="stable-bg bar bar-header" align-title="center">
-    <button class="button " onclick="history.go(-1)">
-        <i class="icon ion-android-arrow-back"></i>
-        <span class="back-text">
-            <img src="../img/ion/return.png">
-        </span>
-    </button>
-    <div class="title title-center header-item" style="left: 15px; right: 15px;">他的帖子</div>
-</ion-header-bar>
-<div class="content">
-
-
-    <!--<ul class="list" style="float: left;width: 100%;">-->
-        <!--<li class="item item-avatar-left" style="border: 0">-->
-            <!--<img src="../img/2.jpg" href="other.html">-->
-            <!--<h2 id="name">Stranger</h2>-->
-            <!--<p id="date" class="date">2017-04-17 18:27</p>-->
-        <!--</li>-->
-    <!--</ul>-->
-    <!--<div class="left1">-->
-        <!--<p class="describe "><span>首先这虽是一个菲律宾潜水考证的套餐，但是吃住都很好，全包，宝宝浅水度过一个愉快的假期</span></p>-->
-        <!--<div class="container">-->
-            <!--<ul class="docs-pictures clearfix">-->
-                <!--<li><img data-original="../img/tibet-1.jpg" src="../img/thumbnails/tibet-1.jpg" alt="Cuo Na Lake"></li>-->
-                <!--<li><img data-original="../img/tibet-2.jpg" src="../img/thumbnails/tibet-2.jpg" alt="Tibetan Plateau">-->
-                <!--</li>-->
-                <!--<li><img data-original="../img/tibet-3.jpg" src="../img/thumbnails/tibet-3.jpg" alt="Jokhang Temple">-->
-                <!--</li>-->
-                <!--<li><img data-original="../img/tibet-4.jpg" src="../img/thumbnails/tibet-4.jpg" alt="Potala Palace 1">-->
-                <!--</li>-->
-                <!--<li><img data-original="../img/tibet-5.jpg" src="../img/thumbnails/tibet-5.jpg" alt="Potala Palace 2">-->
-                <!--</li>-->
-                <!--<li><img data-original="../img/tibet-6.jpg" src="../img/thumbnails/tibet-6.jpg" alt="Potala Palace 3">-->
-                <!--</li>-->
-                <!--<li><img data-original="../img/tibet-7.jpg" src="../img/thumbnails/tibet-7.jpg" alt="Lhasa River"></li>-->
-                <!--<li><img data-original="../img/tibet-8.jpg" src="../img/thumbnails/tibet-8.jpg" alt="Namtso 1"></li>-->
-                <!--<li><img data-original="../img/tibet-9.jpg" src="../img/thumbnails/tibet-9.jpg" alt="Namtso 2"></li>-->
-            <!--</ul>-->
-        <!--</div>-->
-    <!--</div>-->
-    <!--<div class="zan-bg">-->
-        <!--<div class="zhuan">-->
-            <!--<img src="../img/zhuanfa.png" ui-sref="frame.post">-->
-            <!--<span>转</span>-->
-        <!--</div>-->
-        <!--<div class="pinglun" id="pinglun">-->
-            <!--<img src="../img/pinglun.png">-->
-            <!--<span>评论-->
-                <!--<span id="pinglun_data">0</span>-->
-            <!--</span>-->
-        <!--</div>-->
-        <!--<div class="zan"><img src="../img/zan.png" id="like">-->
-            <!--<span>赞</span>-->
-            <!--<span id="like_data">0</span>-->
-        <!--</div>-->
-    <!--</div>-->
-    <!--<div class="list_banner">-->
-        <!--<img src="../img/zan.png">-->
-        <!--<div class="post_list">-->
-            <!--<img src="../img/1.jpg">-->
-            <!--<img src="../img/2.jpg">-->
-            <!--<img src="../img/3.jpg">-->
-        <!--</div>-->
-    <!--</div>-->
-    <!--<div class="list_banner" style="margin-top: 20px;">-->
-        <!--<img src="../img/pinglun.png">-->
-        <!--<div class="post_list">-->
-            <!--<img src="../img/2.jpg">-->
-            <!--<div class="post_mess">-->
-                <!--<p>Stranger</p>-->
-                <!--<p class="mess">-->
-                    <!--<img src="../img/face/1.gif">-->
-                <!--</p>-->
-            <!--</div>-->
-            <!--<span class="rightzan">-->
-                <!--<img src="../img/zan.png" class="like">-->
-            <!--</span>-->
-        <!--</div>-->
-    <!--</div>-->
-    <!--<div class="list_banner">-->
-        <!--<div class="post_list"><img src="../img/2.jpg">-->
-            <!--<div class="post_mess"><p>Stranger</p>-->
-                <!--<p class="mess">scssjkhcklsjnv;sdk;</p>-->
-            <!--</div>-->
-            <!--<span class="rightzan"><img src="../img/zan.png" class="like"></span>-->
-        <!--</div>-->
-    <!--</div>-->
-    <!--<div class="list_banner">-->
-        <!--<div class="post_list"><img src="../img/2.jpg">-->
-            <!--<div class="post_mess"><p>Stranger</p>-->
-                <!--<p class="mess">scssjkhcklsjnv;sdk;</p>-->
-                <!--<span class="rightzan">-->
-                    <!--<img src="../img/zan.png" class="like">-->
-                <!--</span>-->
-            <!--</div>-->
-        <!--</div>-->
-    <!--</div>-->
-    <!--<a href="otherpost.html">-->
-        <!--<div class="bg5" style="margin-top:50px"><p>查看更多</p></div>-->
-    <!--</a>-->
-</div>
-
 <script src="../js/jquery.min.js"></script>
+<script type="text/javascript" src="../js/jquery.panelslider.min.js"></script>
 <script src="../js/index.js"></script>
 <script type="text/javascript">
-    $(function () {
+    var page = 0;
+    getPost();
+    function getPost() {
+        var url = 'http://www.bananatrip.com/postAll/User?id=' + GetQueryString('id');
         $.ajax({
             type: 'post',
-            data: {'id': GetQueryString('id')},
+            url: url,
+            success: function (data) {
+                var _str = $.parseHTML(data, document, true);
+                $('.post_content').append(_str);
+            },
+            error: function () {
+
+            }
+        });
+    }
+    function stopPropagation(e) {
+        if (e.stopPropagation)
+            e.stopPropagation();
+        else
+            e.cancelBubble = true;
+    }
+    $(function () {
+        jQuery.getScript("../js/baguettebox.min.js")
+                .done(function () {
+                    baguetteBox.run('.baguetteBoxOne', {
+                        animation: 'fadeIn',
+                    });
+                });
+        //显示与隐藏评论与点赞
+        $('html,body').not('.zan-bg').click(function () {
+            $('.zan-bg').css("display", "none");
+            $('.zan-bg').addClass('no');
+        });
+        $('.post_content').delegate('.oprate', 'click', function (e) {
+            var ar = $(this).next('.zan-bg').css("display");
+            if (ar == "none") {
+                stopPropagation(e);
+                $(this).siblings('.pinglun-box').addClass('no');
+                $(this).next('.zan-bg').css("display", "block");
+            }
+            else {
+                stopPropagation(e);
+                $(this).siblings('.pinglun-box').removeClass('no');
+                $(this).next('.zan-bg').css("display", "none");
+            }
+        });
+        jQuery.getScript("lib/js/nanoscroller.min.js")
+                .done(function () {
+                });
+        jQuery.getScript("lib/js/tether.min.js")
+                .done(function () {
+                });
+        jQuery.getScript("lib/js/config.js")
+                .done(function () {
+                });
+        jQuery.getScript("lib/js/util.js")
+                .done(function () {
+                });
+        jQuery.getScript("lib/js/jquery.emojiarea.js")
+                .done(function () {
+                });
+        jQuery.getScript("lib/js/emoji-picker.js")
+                .done(function () {
+                    $(function () {
+                        window.emojiPicker = new EmojiPicker({
+                            emojiable_selector: '[data-emojiable=true]',
+                            assetsPath: 'lib/img/',
+                            popupButtonClasses: 'fa fa-smile-o'
+                        });
+                        window.emojiPicker.discover();
+                    });
+                });
+// 加载用户信息
+        $.ajax({
+            type: 'post',
             dataType: 'json',
-            url: 'http://www.bananatrip.cn/user/all/post',
+            url: 'http://www.bananatrip.com/user/info',
+            data: {'type': 1},
             success: function (obj) {
-                // console.log(obj);
-                obj['return'].map(function (value, index, array) {
-                    //  贴纸
-                    var users = '<img src="' + obj["info_user"]["user_headimgurl"] + '" href="other.html?id=' + obj["info_user"]["user_id"] + '"><h2 id="name">' + obj["info_user"]["user_name"] + '</h2>';
-                    var post = '<ul class="list" style="float: left;width: 100%;">' +
-                            '<li class="item item-avatar-left" style="border: 0">' + users +
-                            '<p id="date" class="date">' + formatDate(value["post_time"]) + '</p>' +
-                            '</li></ul><div class="left1"><p class="describe "><span>' + value["post_content"] + '</span></p><div class="container">' +
-                            '<ul class="docs-pictures clearfix">' + value["post_images"] + '</ul></div></div><div class="zan-bg"><div class="zhuan">' +
-                            '<img src="../img/zhuanfa.png" ui-sref="frame.post"><span>转</span></div><div class="pinglun" id="pinglun">' +
-                            '<img src="../img/pinglun.png"><span>评论<span id="pinglun_data">' + value["post_praise_num"] + '</span></span></div>' +
-                            '<div class="zan"><img src="../img/zan.png" id="like"><span>赞</span><span id="like_data">' + value["post_praise"] + '</span></div></div>';
-                    $('.content').append(post);
-                    // 用户点赞
-                    var user = '';
-                    value['user'].map(function (value, index, array) {
-                        user = user + '<img src="' + value["user_headimgurl"] + '">';
-                    });
-                    $('.content').append('<div class="list_banner"><img src="../img/zan.png"><div class="post_list">' + user + '</div></div>');
-                    // 用户评论
-                    value['review'].map(function (value, index, array) {
-                        var review = '<div class="list_banner"><div class="post_list"><img src="' + value["user_headimgurl"] + '"><div class="post_mess"><p>' + value["user_name"] + '</p><p class="mess">' + value["review_body"] + '</p> </div> <span class="rightzan"><img src="../img/zan.png" class="like"></span></div></div>'
-                        $('.content').append(review);
-                    });
-                })
+                $('#user-name').html(obj.user_name);
+                $('#user-name').next().attr('src', obj.user_headimgurl)
+            },
+            error: function (obj) {
+                console.log(obj);
+            }
+        });
+        // 点赞
+        $('.post_content').delegate('.zan', 'click', function () {
+            var index = $(this).children('img.dianzhan').nextAll('span').eq(1).html();
+            $(this).children('img.dianzhan').nextAll('span').eq(1).html(parseInt(index) + 1);
+            $.ajax({
+                type: 'post',
+                data: {'id': $(this).children('img.dianzhan').attr('post_id')},
+                dataType: 'json',
+                url: 'http://www.bananatrip.com/update/post/praise',
+                success: function (obj) {
+
+                },
+                error: function (obj) {
+
+                }
+            })
+        });
+        // 评论
+        $('html,body').delegate('.pinglun', 'click', function (e) {
+            stopPropagation(e);
+            $(this).siblings('.pinglun-box').removeClass('no');
+            $(this).siblings('.pinglun-box').find('textarea').focus();
+            $('.foot').addClass('no');
+        });
+
+        $('.post_content').delegate('.cancel', 'click', function () {
+            $(this).parent().parent().parent().parent().addClass('no');
+        });
+
+        // 直接评论
+        $('.post_content').delegate('.add_post', 'click', function () {
+            $(this).parent().parent().parent().parent().parent().css("display", "none");
+            $('.foot').removeClass('no');
+            var num = $(this).parent().parent().parent().parent().prev().children('span').children('span').html();
+            var post_id = $(this).attr('post_id');
+            $.ajax({
+                type: 'post',
+                data: {
+                    'post_id': $(this).attr('post_id'),
+                    'message': $(this).parent().parent().parent().prev().children('p').children('textarea').val()
+                },
+                dataType: 'json',
+                url: 'http://www.bananatrip.com/user/review',
+                success: function (data) {
+                    if (data.info == 0) {
+                        $('.' + post_id).append(data.message);
+                    }
+                },
+                error: function () {
+
+                }
+            });
+            // 添加评论次数
+            var num2 = parseInt(num) + 1;
+            $(this).parent().parent().parent().parent().prev().children('span').children('span').html(num2);
+
+        });
+        $.ajax({
+            type: 'post',
+            data: {
+                'post_id': $(this).attr('post_id'),
+                'message': $(this).parent().parent().parent().prev().children('p').children('textarea').val()
+            },
+            dataType: 'json',
+            url: 'http://www.bananatrip.com/update/visit',
+            success: function (obj) {
+                $(".data2").html('访问：' + obj)
+            },
+            error: function (obj) {
+
+            }
+        });
+        // 获取发帖数量
+        $.ajax({
+            type: 'post',
+            data: {
+                'post_id': $(this).attr('post_id'),
+                'message': $(this).parent().parent().parent().prev().children('p').children('textarea').val()
+            },
+            dataType: 'json',
+            url: 'http://www.bananatrip.com/post/num',
+            success: function (obj) {
+                $(".data").html('发帖：' + obj)
             },
             error: function (obj) {
             }
         });
+
+        $.ajax({
+            type: 'post',
+            data: {'suid': 'id'},
+            dataType: 'json',
+            url: 'http://www.bananatrip.com/user/friend',
+            success: function (obj) {
+                console.log(obj);
+                obj.map(function (value, index, array) {
+                    var string = '<a href="talk.html?id=' + value["friend_id"] + '"><div class="item item-avatar"><img src="' + value["user_images"] + '"><span class="friendname">' + value["user_name"] + '</span><i class="badge">' + value["num"] + '</i></div></a>';
+                    $('#frind_list').append(string);
+                });
+            },
+            error: function (obj) {
+            }
+        })
     });
-
-    function GetQueryString(name) {
-        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
-        var r = window.location.search.substr(1).match(reg); //获取url中"?"符后的字符串并正则匹配
-        var context = "";
-        if (r != null)
-            context = r[2];
-        reg = null;
-        r = null;
-        return context == null || context == "" || context == "undefined" ? "" : context;
-    }
-
     function formatDate(num) {
         var now = new Date(num);
         var year = now.getYear();
@@ -188,39 +245,25 @@
         //2017-04-17 18:27
         return year + "-" + month + "-" + date + ' ' + hour + ":" + minute
     }
+    function GetQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+        var r = window.location.search.substr(1).match(reg); //获取url中"?"符后的字符串并正则匹配
+        var context = "";
+        if (r != null)
+            context = r[2];
+        reg = null;
+        r = null;
+        return context == null || context == "" || context == "undefined" ? "" : context;
+    }
 </script>
 <script type="text/javascript">
-    window.onload = function () {
-        // 选择图片
-        document.getElementById('img').onchange = function () {
-            var img = event.target.files[0];
-            // 判断是否图片
-            if (!img) {
-                return;
-            }
-            // 判断图片格式
-            if (!(img.type.indexOf('image') == 0 && img.type && /\.(?:jpg|png|gif)$/.test(img.name))) {
-                alert('图片只能是jpg,gif,png');
-                return;
-            }
-            var reader = new FileReader();
-            reader.readAsDataURL(img);
-            reader.onload = function (e) { // reader onload start
-                // ajax 上传图片
-                $.post("http://www.bananatrip.cn/update/image", {img: e.target.result}, function (ret) {
-                    if (ret.img != '') {
-                        alert('upload success');
-                        $('#showimg').append('<img src="' + ret.img + '">');
-                    } else {
-                        alert('upload fail');
-                    }
-                }, 'json');
-            };// reader onload end
+    document.querySelector('body').addEventListener('touchmove', function (e) {
+        if (!document.querySelector('.top').contains(e.target)) {
+            e.preventDefault();
         }
-    }
+    })
 </script>
 
 
 </body>
 </html>
-

@@ -15,6 +15,8 @@
         <p class="mycolor">首页</p></a>
     <a class="foot-tab " href="friend.html"><img src="../img/ion/friend2.png">
         <p>社区</p></a>
+    <a class="foot-tab " href="sendpost.html"><img src="../img/ion/fatie.png">
+        <p>发帖</p></a>
     <a class="foot-tab " href="home.html"><img src="../img/ion/home.png">
         <p>小店</p></a>
     <a class="foot-tab " href="person.html"><img src="../img/ion/my2.png">
@@ -32,23 +34,13 @@
 </ion-header-bar>
 <div class="content">
     <ul class="list ">
-        <li class="item item-thumbnail-left" href="details.html">
-            <img src="../img/find.jpg">
-            <h3>成都三元乔亚朵酒店</h3>
-            <p style="color: red">￥1400元起</p>
-        </li>
-        <li class="item item-thumbnail-left" href="details.html">
-            <img src="../img/find.jpg">
-            <h3>成都三元乔亚朵酒店</h3>
-            <p style="color: red">￥1400元起</p>
-        </li>
+
     </ul>
     <div class="bg5" style="margin-top: 50px" ui-sref="all.html"><p>查看更多</a></p></div>
 </div>
 
 <script type="text/javascript" src="../js/jquery.min.js"></script>
 <script type="text/javascript">
-
     $(function () {
         $(function () {
             var limit = -5;
@@ -57,10 +49,10 @@
                 type: 'post',
                 data: {'title': $('input[name=like]').val(), 'limit': limit + 5},
                 dataType: 'json',
-                url: 'http://www.bananatrip.cn/like/good',
+                url: 'http://www.bananatrip.com/like/good',
                 success: function (obj) {
                     obj.map(function (value, index, array) {
-                        var good_list = ' <li class="item item-thumbnail-left" href="details.html?id=' + value["good_id"] + '"> <img src="' + value['good_image'] + '"> <h3>' + value["good_name"] + '</h3> <p style="color: red">￥' + value["good_amount"] + '元起</p> </li>';
+                        var good_list = '<li class="item item-thumbnail-left" href="details.html?id=' + value["good_id"] + '"> <img src="' + value['good_image'] + '"> <h3>' + value["good_name"] + '</h3> <p style="color: red">￥' + value["good_amount"] + '元起</p> </li>';
                         $('.list').append(good_list);
                     });
                 },
@@ -73,7 +65,7 @@
                     type: 'post',
                     data: {'title': $('input[name=like]').val(), 'limit': limit + 5},
                     dataType: 'json',
-                    url: 'http://www.bananatrip.cn/like/good',
+                    url: 'http://www.bananatrip.com/like/good',
                     success: function (obj) {
                         obj.map(function (value, index, array) {
                             var good_list = ' <li class="item item-thumbnail-left" href="details.html?id=' + value["good_id"] + '"> <img src="' + value['good_image'] + '"> <h3>' + value["good_name"] + '</h3> <p style="color: red">￥' + value["good_amount"] + '元起</p> </li>';

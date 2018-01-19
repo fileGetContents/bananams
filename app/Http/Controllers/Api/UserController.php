@@ -8,16 +8,25 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Http\Model;
 use Crypt;
+use PhpParser\Node\Expr\BinaryOp\Mod;
 
 class UserController extends Controller
 {
     protected $userModel;
     protected $kimsModel;
+    protected $goodModel;
+    protected $orderModel;
+    protected $hotelModel;
+    protected $bananaModel;
 
     public function __construct()
     {
         $this->userModel = new Model\UserModel();
         $this->kimsModel = new Model\KimsModel();
+        $this->goodModel = new Model\GoodModel();
+        $this->orderModel = new Model\OrderModel();
+        $this->hotelModel = new Model\HotelModel();
+        $this->bananaModel = new Model\BananaModel();
     }
 
     /**
@@ -235,10 +244,25 @@ class UserController extends Controller
      * 获取用户信息
      * @param Request $request
      */
-    public function getUserMoney(Request $request)
+    public function getUserMoney()
     {
         $user = $this->userModel->selectUserMoney(session('user_id', 1));
-        echo $user->user_money;
+        return $user->user_money;
+    }
+
+    /**
+     * 获取用户
+     * @param Request $request
+     */
+    public function getALlOrder(Request $request)
+    {
+        $good = $this->goodModel->selectGoodOrder(-1, session('user_id', 1));
+        $hotel = $this->hotelModel->getUserOrder(session('user_id', 1));
+        $travel = $this->bananaModel->getUserOrder(session('user_id', 1));
+        //  return collect(['good' => $good, 'hotel' => $hotel, 'travel' => $travel])->toJson();
+        return view('Api.getUserOrder')->with([
+            'good' => $good, 'hotel' => $hotel, 'travel' => $travel
+        ]);
     }
 
 }

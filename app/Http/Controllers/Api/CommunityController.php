@@ -72,6 +72,45 @@ class CommunityController extends Controller
     }
 
     /**
+     *用户
+     * @param Request $request
+     * @return $this
+     */
+    public function postAllUser(Request $request)
+    {
+        $post = DB::table('post')
+            ->where(['post_user_id' => $request->input('id')])
+            ->orderBy('post_id', 'DESC')
+            ->leftJoin('user', 'user.user_id', '=', 'post.post_user_id')
+            ->get();
+        // 回帖
+        $reply = array();
+        // 点赞
+        $like = array();
+        // 时间
+        $time = array();
+        $num = array();
+        foreach ($post as $key => $value) {
+            $reply[$value->post_id] = DB::table('post_reply')
+                ->where(['reply_post_id' => $value->post_id])
+                ->orderBy('reply_time', 'desc')
+                ->get();
+            $like[$value->post_id] = DB::table('post_praise')->where(['praise_post_id' => $value->post_id])->groupBy('praise_user_id')->get();
+            $time [$value->post_id] = Model\PublicModel::getPublished($value->post_time);
+            $num[$value->post_id] = DB::table('post_reply')->where(['reply_post_id' => $value->post_id])->count();
+        }
+        return view('Api.getPostPage')->with([
+            'post' => $post,
+            'reply' => $reply,
+            'like' => $like,
+            'user' => Model\UserModel::getALlToArray(),
+            'time' => $time,
+            'num' => $num
+        ]);
+    }
+
+
+    /**
      * 获取帖子详情关系(评论 ,点赞 ,用户的名称和头像)
      * @param Request $request
      */

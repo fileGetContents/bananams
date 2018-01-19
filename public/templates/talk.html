@@ -20,14 +20,14 @@
 </ion-header-bar>
 <div class="content">
     <ul class="talkcontent">
-        <li class="leftli">
-            <img src="../img/2.jpg">
-            <span>我是你爸爸</span>
-        </li>
-        <li class="rightli">
-            <img src="../img/1.jpg">
-            <span>我是你爸爸</span>
-        </li>
+        <!--<li class="leftli">-->
+        <!--<img src="../img/2.jpg">-->
+        <!--<span>我是你爸爸</span>-->
+        <!--</li>-->
+        <!--<li class="rightli">-->
+        <!--<img src="../img/1.jpg">-->
+        <!--<span>我是你爸爸</span>-->
+        <!--</li>-->
     </ul>
 </div>
 <div class="talkfooter ">
@@ -42,11 +42,9 @@
             type: 'post',
             data: {'id': GetQueryString('id')},
             dataType: 'json',
-            url: 'http://www.bananatrip.cn/unread/dialogue',
+            url: 'http://www.bananatrip.com/unread/dialogue',
             success: function (obj) {
                 console.log(obj);
-//                var right = '<li class="leftli">img src="../img/2.jpg"><span>我是你爸爸</span></li>';
-//                var left = '<li class="rightli"><img src="../img/1.jpg"><span>我是你爸爸</span></li>';
                 obj['dialogue'].map(function (value, index, array) {
                     if (value['dialogue_friend_id'] == GetQueryString('id')) {
                         var string = '<li class="leftli"><img src="../img/2.jpg"><span>' + value["dialogue_dialogue"] + '</span></li>';
@@ -75,7 +73,7 @@
                 type: 'post',
                 data: {'friend_id': GetQueryString('id'), 'dialogue': info},
                 dataType: 'json',
-                url: 'http://www.bananatrip.cn/add/dialogue',
+                url: 'http://www.bananatrip.com/add/dialogue',
                 success: function (obj) {
 
                 },

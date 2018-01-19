@@ -16,15 +16,14 @@
         <p class="mycolor">首页</p></a>
     <a class="foot-tab " href="friend.html"><img src="../img/ion/friend2.png">
         <p>社区</p></a>
-		<a class="foot-tab " href="sendpost.html"><img src="../img/ion/fatie.png">
-            <p>发帖</p></a>
+    <a class="foot-tab " href="sendpost.html"><img src="../img/ion/fatie.png">
+        <p>发帖</p></a>
     <a class="foot-tab " href="home.html"><img src="../img/ion/home2.png">
         <p>小店</p></a>
     <a class="foot-tab " href="person.html"><img src="../img/ion/my.png">
         <p>我的</p></a>
 </div>
 <ion-header-bar class="stable-bg bar bar-header" align-title="center">
-
     <button class="button " onclick="history.go(-1)">
         <i class="icon ion-android-arrow-back"></i>
 				<span class="back-text">
@@ -164,7 +163,7 @@
                 type: 'post',
                 data: {'telephone': $('#inpphone').val()},
                 dataType: 'json',
-                url: 'http://www.bananatrip.cn/api/send/code',
+                url: 'http://www.bananatrip.com/api/send/code',
                 success: function (obj) {
                     if (obj.info == 0) {
                         cate = obj.code
@@ -203,7 +202,7 @@
             type: 'post',
             data: {'test': 'test'},
             dataType: 'json',
-            url: 'http://www.bananatrip.cn/user/info',
+            url: 'http://www.bananatrip.com/user/info',
             success: function (obj) {
                 console.log(obj);
                 $('.messright').eq(0).children('img').attr('src', obj['user_images']);
@@ -230,13 +229,14 @@
                     'user_pass': $('input[name=newPass]').val() // 密码
                 },
                 dataType: 'json',
-                url: 'http://www.bananatrip.cn/user/update/info',
-                // url: 'http://www.bananatrip.cn/test',
+                url: 'http://www.bananatrip.com/user/update/info',
+                // url: 'http://www.bananatrip.com/test',
                 success: function (obj) {
                     if (obj.info == 0) {
-                        alert('更新成功')
+                        alert('更新成功');
+
                     } else {
-                        alert('更新失败')
+                        alert('更新失败');
                     }
                 }
 

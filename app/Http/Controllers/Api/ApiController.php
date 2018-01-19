@@ -279,7 +279,8 @@ class ApiController extends Controller
      */
     public function getGoodOrder(Request $request)
     {
-        $good = $this->goodModel->selectGoodOrder($request->input('tag', 20), session("user_id", 1));
+        $good = $this->goodModel->selectGoodOrder($request->input('tag', 20), session('user_id', 1));
+
         echo collect($good)->toJson();
     }
 

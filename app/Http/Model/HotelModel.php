@@ -92,7 +92,18 @@ class HotelModel extends Model
         return DB::table($this->orderTable)->select('order_num')->where($where)->get();
     }
 
-
-
+    /**
+     * 获取用户全部酒店信息
+     * @param $id
+     * @return mixed
+     */
+    public function getUserOrder($id)
+    {
+        return DB::table($this->orderTable)
+            ->leftJoin('hotel', 'hotel.hotel_id', '=', 'hotel_order.order_hotel_id')
+            ->leftJoin('hotel_room', 'hotel_room.room_id', '=', 'hotel_order.order_room_id')
+            ->where(['order_user_id' => $id])
+            ->get();
+    }
 
 }

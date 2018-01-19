@@ -141,7 +141,7 @@
             type: 'post',
             data: {'id': GetQueryString('good_id')},
             dataType: 'json',
-            url: 'http://www.bananatrip.cn/good/info',
+            url: 'http://www.bananatrip.com/good/info',
             success: function (obj) {
                 var way = new Array('一', '二', '三', '四', '五', '六');
                 console.log(obj);
@@ -178,10 +178,10 @@
             type: 'post',
             data: {'id': GetQueryString('good_id')},
             dataType: 'json',
-            url: 'http://www.bananatrip.cn/get/address',
+            url: 'http://www.bananatrip.com/get/address',
             success: function (obj) {
                 if (obj.length == 0) {
-                    window.location.href = 'http://www.bananatrip.cn/templates/addplace.html';
+                    window.location.href = 'http://www.bananatrip.com/templates/addplace.html';
                 } else {
                     obj.map(function (value, index, array) {
                         if (index == 0) {
@@ -208,7 +208,7 @@
                 type: 'post',
                 data: {'id': $(this).attr('id')},
                 dataType: 'json',
-                url: 'http://www.bananatrip.cn/del/address',
+                url: 'http://www.bananatrip.com/del/address',
                 success: function (obj) {
                 },
                 error: function (obj) {
@@ -225,10 +225,6 @@
 //            5	address_id	地址id	是	[string]		查看
 //            6	pay_money	支付金额	是	[string]		查看
 //            7	order_pay_logistics
-
-
-            alert('111111111');
-
             $.ajax({
                 type: 'post',
                 data: {
@@ -241,10 +237,10 @@
                     'order_pay_logistics': $('.assertive').eq(0).children('span').html()
                 },
                 dataType: 'json',
-                url: 'http://www.bananatrip.cn/good/order',
+                url: 'http://www.bananatrip.com/good/order',
                 success: function (obj) {
                     if (obj.info == 0) {
-                        window.location.href = 'http://www.bananatrip.cn/Home/Wxpay?table=' + obj.table + '&order=' + obj.message
+                        window.location.href = 'http://www.bananatrip.com/Home/Wxpay?table=' + obj.table + '&order=' + obj.message
                     }
                 },
                 error: function (obj) {

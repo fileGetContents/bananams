@@ -23,6 +23,7 @@ Route::group(['namespace' => 'Api'], function () {
     Route::any('kims/update', 'UserController@updateUserKims');                      // 更新代金券状态
     Route::any('user/money', 'UserController@getUserMoney');                         // 获取用户的金额
     Route::any('create/user/order', 'UserController@createBalanceOrder');            // 生成余额订单
+    Route::any('getALlOrder', 'UserController@getALlOrder');                         // 获取用户全部
 
     Route::any('api/send/code', 'ApiController@sendSMSCode');                        // 发送短信验证码
     Route::any('good/order', 'ApiController@createGoodOrder');                       // 创建商品订单
@@ -30,10 +31,11 @@ Route::group(['namespace' => 'Api'], function () {
     Route::any('travel/order', 'ApiController@createTravelOrder');                   // 创建旅行订单
     Route::any('create/user/order', 'ApiController@createBalanceOrder');             // 创建用户订单
     Route::any('update/visit', 'ApiController@updateVisit');                         // 更新访问量
-    Route::any('user/order', 'ApiController@getGoodOrder');                          // 获取用户的id
+    Route::any('user/order', 'ApiController@getGoodOrder');                          // 获取用户的购买订单
 
     Route::any('api/post/all', 'CommunityController@getPostAll');                     // 获取帖子
-    Route::any('postAll', 'CommunityController@postAll');                       // 获取帖子
+    Route::any('postAll', 'CommunityController@postAll');                             // 获取帖子
+    Route::any('postAll/User', 'CommunityController@postAllUser');                    // 获取用户全部帖子
     Route::any('api/post/review', 'CommunityController@getPostReview');               // 获取贴子和评论信息
     Route::any('update/post/praise', 'CommunityController@updatePostPraise');         // 为贴子添加点赞
     Route::any('update/Like', 'CommunityController@updateLike');                      // 为评论点赞

@@ -108,6 +108,7 @@ class GoodModel extends Model
         if ($pay_tag == -1) {
             return
                 DB::table($this->order)
+                    ->leftJoin('good', 'good.good_id', '=', 'good_order.order_good_id')
                     ->where('order_user_id', '=', $user_id)
                     ->get();
         } else {

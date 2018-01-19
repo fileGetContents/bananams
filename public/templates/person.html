@@ -111,25 +111,25 @@
 <script type="text/javascript">
     $(function () {
         // 检查是否登录
-        $.ajax({
-            type: 'post',
-            dataType: 'json',
-            url: 'http://www.bananatrip.cn/is/login',
-            data: {'type': 1},
-            success: function (obj) {
-                if (obj.info == 1) {
-                    window.location.href = 'http://www.bananatrip.cn/wx/login';
-                }
-            },
-            error: function (obj) {
-                console.log(obj);
-            }
-        });
+//        $.ajax({
+//            type: 'post',
+//            dataType: 'json',
+//            url: 'http://www.bananatrip.com/is/login',
+//            data: {'type': 1},
+//            success: function (obj) {
+//                if (obj.info == 1) {
+//                    window.location.href = 'http://www.bananatrip.com/wx/login';
+//                }
+//            },
+//            error: function (obj) {
+//                console.log(obj);
+//            }
+//        });
 
         $.ajax({
             type: 'post',
             dataType: 'json',
-            url: 'http://www.bananatrip.cn/user/info',
+            url: 'http://www.bananatrip.com/user/info',
             data: {'type': 1},
             success: function (obj) {
                 $('.head-img').children().attr('src', obj.user_headimgurl)
