@@ -66,7 +66,10 @@ class BananaController extends Controller
         return collect($return)->toJson();
     }
 
-    // 获取单个旅游的用户信息
+    /**
+     * 获取单个旅游的用户信息
+     * @param Request $request
+     */
     public function getTravelUserEnrol(Request $request)
     {
         $userInfo = $this->orderModel->getTravelOrderUserById($request->input('id', 3));
@@ -95,26 +98,25 @@ class BananaController extends Controller
             $msg = [];
             foreach ($travel as $key => $value) {
                 $msg[] = array(
-                    'adultprice' => '0',
+                    'adultprice' => $value->info_price,
                     'batch' => rand(10, 20),
                     'bid' => $value->info_id,
                     'childprice' => '-1',
                     'diff' => '',
                     'limit_max' => 50,
                     'people_count' => 0,
-                    'price_label' => '0',
+                    'price_label' => $value->info_price, // 金额
                     'price_status' => 1,
                     'starttime' => $value->info_time,
                     'status' => 1,
                     'status_label' => $value->info_text,
-                    'val' => date('Y-m-d ', $value->info_time),
+                    'val' => date('Y', $value->info_time) . '-' . intval(date('m', $value->info_time)) . '-' . date('d', $value->info_time),
                 );
+
             }
             $status['data'] = $msg;
             $status['status'] = 1;
-            return view('Api.getTravelTime')->with([
-                'name' => json_encode($status),
-            ]);
+            return json_encode($status);
         }
     }
 

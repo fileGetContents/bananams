@@ -15,7 +15,8 @@
 </head>
 <body id="batch" class="indexBody">
 <header>
-    <a href="javascript:;" onclick="location.href='javascript:history.back()'" class="h-city re-back"><span class="iconfont">&#xe613;</span></a>
+    <a href="javascript:;" onclick="location.href='javascript:history.back()'" class="h-city re-back"><span
+            class="iconfont">&#xe613;</span></a>
     <div class="headerCenter">
         选择出行日期和人数
     </div>
@@ -23,7 +24,8 @@
         <a href="https://m.youxiake.com/usercenter" class="u-userCenter"></a>
     </div>
     <div class="headerLeft">
-        <a href="javascript:;" onclick="location.href='javascript:history.back()'" class="h-city re-back"><span class="iconfont">&#xe613;</span></a>
+        <a href="javascript:;" onclick="location.href='javascript:history.back()'" class="h-city re-back"><span
+                class="iconfont">&#xe613;</span></a>
     </div>
 </header>
 <div class="container">
@@ -55,8 +57,9 @@
 <script type="text/javascript" src="../js/yxk_base_debug.js"></script>
 <script type="text/javascript" src="../js/yxk_debug.js"></script>
 <script type="text/javascript">
-    // var dataUrl = "http://www.bananatrip.com/travel/time";
-    var dataUrl = 'hui.php';
+    var id = GetQueryString('id');
+    var dataUrl = 'http://www.bananatrip.com/travel/time?id=' + id + '&';
+    //var dataUrl = 'hui.php';
     var pid = "16713";
     var now = GetYMD();
     var bid = "41770";
@@ -81,7 +84,7 @@
     }
     $.ajax({
         type: 'post',
-        data: {'id': GetQueryString('id')},
+        data: {'id': id},
         dataType: 'json',
         url: 'http://www.bananatrip.com/travel/time/month',
         success: function (data) {
