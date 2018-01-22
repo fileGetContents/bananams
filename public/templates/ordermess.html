@@ -99,11 +99,11 @@
 //            data: {'telephone': $('#user').val(), 'pass': $('#password').val()},
 //            dataType: 'json',
 //            type: 'post',
-//            url: 'http://www.bananatrip.cn/is/login',
+//            url: 'http://www.bananatrip.com/is/login',
 //            success: function (obj) {
 //                console.log(obj);
 //                if (obj.info == 1) {
-//                   // window.location.href = 'http://www.bananatrip.cn/templates/start.html';
+//                   // window.location.href = 'http://www.bananatrip.com/templates/start.html';
 //                }
 //            },
 //            error: function () {
@@ -113,11 +113,11 @@
 //        $.ajax({
 //            type: 'post',
 //            dataType: 'json',
-//            url: 'http://www.bananatrip.cn/is/login',
+//            url: 'http://www.bananatrip.com/is/login',
 //            data: {'type': 1},
 //            success: function (obj) {
 //                if (obj.info == 1) {
-//                    window.location.href = 'http://www.bananatrip.cn/wx/login/order';
+//                    window.location.href = 'http://www.bananatrip.com/wx/login/order';
 //                }
 //            },
 //            error: function (obj) {
@@ -131,13 +131,12 @@
             type: 'post',
             data: {'id': GetQueryString('id')},
             dataType: 'json',
-            url: 'http://www.bananatrip.cn/banana/TravelInfo',
+            url: 'http://www.bananatrip.com/banana/TravelInfo',
             success: function (obj) {
                 console.log(obj);
                 $('.message').html('<p>' + obj['travel_name'] + '</p><div><span></span></div>');
             },
             error: function (obj) {
-
             }
         });
 
@@ -208,7 +207,7 @@
 //                success: function (obj) {
 //                    console.log(obj);
 //                    if (obj.info == 1) {
-//                        window.location.href = 'http://www.bananatrip.cn/wx/login';
+//                        window.location.href = 'http://www.bananatrip.com/wx/login';
 //                    }
 //                },
 //                error: function (obj) {

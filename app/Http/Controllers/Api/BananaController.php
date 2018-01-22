@@ -63,7 +63,7 @@ class BananaController extends Controller
     {
         $return = $this->banModel->getInfoFirst($request->input('id', 11));
         $return->travel_images = unserialize($return->travel_images);
-        echo collect($return)->toJson();
+        return collect($return)->toJson();
     }
 
     // 获取单个旅游的用户信息

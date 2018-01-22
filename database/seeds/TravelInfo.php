@@ -12,14 +12,13 @@ class TravelInfo extends Seeder
      */
     public function run()
     {
-        foreach (range(4, 10) as $value) {
-            DB::table('travel_info')->insert([
-                'info_time' => $_SERVER['REQUEST_TIME'] + 60 * 60 * 24 * 30 * $value,
-                'info_month' => date('Y-m', $_SERVER['REQUEST_TIME'] + 60 * 30 * 60 * 24 * $value),
-                'info_text' => '放心大胆的选',
-                'info_travel_id' => 3
-            ]);
-        }
-
+        //  foreach (range(4, 5) as $value) {
+        DB::table('travel_info')->insert([
+            'info_time' => strtotime('2018-1-20'),
+            'info_month' => '2018-1',
+            'info_text' => '放心大胆的选',
+            'info_travel_id' => 61
+        ]);
+        //   }
     }
 }

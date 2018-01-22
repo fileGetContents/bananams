@@ -12,7 +12,6 @@
     <script src="../js/bootstrap.min.js"></script>
 </head>
 <body>
-
 <ion-header-bar class="stable-bg bar bar-header" align-title="center">
     <button class="button " onclick="history.go(-1)">
         <i class="icon ion-android-arrow-back"></i>
@@ -24,19 +23,20 @@
 </ion-header-bar>
 <div class="content">
     <div class="header">
-       <div style="float:left;">出发地:&nbsp;</div>
-	<select name="city" ng-model="vm.pace" style="background:url('../img/select.jpg') no-repeat scroll right center transparent;appearance:none;">
-                <option value="成都">成都</option>
-                <option value="上海">上海</option>
-                <option value="成都">成都</option>
-                <option value="新疆">新疆</option>
-                <option value="四川">四川</option>
-                <option value="北京">北京</option>
-                <option value="云南">云南</option>
-                <option value="甘肃">甘肃</option>
-                <option value="贵州">贵州</option>
-                <option value="西安">西安</option>
-            </select>
+        <div style="float:left;">出发地:&nbsp;</div>
+        <select name="city" ng-model="vm.pace"
+                style="background:url('../img/select.jpg') no-repeat scroll right center transparent;appearance:none;">
+            <option value="成都">成都</option>
+            <option value="上海">上海</option>
+            <option value="成都">成都</option>
+            <option value="新疆">新疆</option>
+            <option value="四川">四川</option>
+            <option value="北京">北京</option>
+            <option value="云南">云南</option>
+            <option value="甘肃">甘肃</option>
+            <option value="贵州">贵州</option>
+            <option value="西安">西安</option>
+        </select>
         <div class="find3">
             <input type="text" placeholder="世界那么大，你想去哪儿"/>
             <img src="../img/find.png" class="find_pace">
@@ -61,10 +61,8 @@
                 <img src="../img/hotel8.jpeg" alt="Third slide">
             </div>
         </div>
-
     </div>
     <div class="title2"><p>- - 精选路线 - -</p></div>
-
     <ul class="list">
         <!--<a href="hotel.html">-->
         <!--<li class="item item-thumbnail-left">-->
@@ -116,7 +114,7 @@
                 'skip': skip,
             },
             dataType: 'json',
-            url: 'http://www.bananatrip.cn/hotel/list',
+            url: 'http://www.bananatrip.com/hotel/list',
             success: function (obj) {
                 console.log(obj);
                 obj.map(function (value, index, array) {
@@ -137,7 +135,7 @@
                     'skip': skip
                 },
                 dataType: 'json',
-                url: 'http://www.bananatrip.cn/Like/hotel/name',
+                url: 'http://www.bananatrip.com/Like/hotel/name',
                 success: function (obj) {
                     $('.list').empty();
                     obj.map(function (value, index, array) {
@@ -160,7 +158,7 @@
                     'pace': $('select[name=city]').val()
                 },
                 dataType: 'json',
-                url: 'http://www.bananatrip.cn/banana/LikeName',
+                url: 'http://www.bananatrip.com/banana/LikeName',
                 success: function (obj) {
                     obj.map(function (value, index, array) {
                         var hotel = '<a href="hotel.html?id=' + obj[index]["travel_id"] + '"><li class="item item-thumbnail-left"><img src="' + obj[index]["travel_host_image"] + '"> <p>' + obj[index]["travel_name"] + '</p> <p class="list-price"><span class="RMB">RMB </span><span class="bigprice">' + obj[index]["travel_expense"] + '</span><spanclass="qi">起 </span></p></li></a>';

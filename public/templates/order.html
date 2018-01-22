@@ -9,27 +9,78 @@
     <link href="../css/order.css" rel="stylesheet">
 </head>
 <body>
-<div class="foot">
-    <a class="foot-tab" href="start.html"><img src="../img/ion/start2.png">
-        <p class="mycolor">首页</p></a>
-    <a class="foot-tab " href="friend.html"><img src="../img/ion/friend2.png">
-        <p>社区</p></a>
-    <a class="foot-tab " href="sendpost.html"><img src="../img/ion/fatie.png">
-        <p>发帖</p></a>
-    <a class="foot-tab " href="home.html"><img src="../img/ion/home2.png">
-        <p>小店</p></a>
-    <a class="foot-tab " href="person.html"><img src="../img/ion/my.png">
-        <p>我的</p></a>
+<div id="page">
+    <div class="foot">
+        <a class="foot-tab" href="start.html"><img src="../img/ion/start2.png">
+            <p class="mycolor">首页</p></a>
+        <a class="foot-tab " href="friend.html"><img src="../img/ion/friend.png">
+            <p class="mycolor">社区</p></a>
+        <a class="foot-tab " href="sendpost.html"><img src="../img/ion/fatie.png">
+            <p class="mycolor">发帖</p></a>
+        <a class="foot-tab " href="home.html"><img src="../img/ion/home2.png">
+            <p class="mycolor">小店</p></a>
+        <a class="foot-tab " href="person.html"><img src="../img/ion/my2.png">
+            <p class="mycolor">我的</p></a>
+    </div>
+    <!--  <a href="sendpost.html">-->
+    <!--       <div class="add">-->
+    <!--          <img src="../img/add.png" width="40px" height="40px"></div>-->
+    <!--  </a>-->
+    <div class="content">
+        <div class="friend-banner">
+            <img id="bg" src="../img/details3.jpg "/>
+            <p id="user-name" class="data-name">某某科技~贾素杰</p>
+            <img src="../img/2.jpg" class="data-avt" id="avt"/>
+        </div>
+        <div id="main">
+            <div id="list">
+                <ul class="post_content"></ul>
+            </div>
+        </div>
+    </div>
+    <div id="right-panel" class="panel">
+        <ion-header-bar class="stable-bg bar bar-header" align-title="center">
+            <button class="button ">
+                <i class="icon ion-android-arrow-back"></i>
+				<span class="back-text" id="close-panel-bt">
+				<img src="../img/ion/return.png">
+				</span>
+            </button>
+            <div class="title title-center header-item" style="left: 15px; right: 15px;">通讯录</div>
+        </ion-header-bar>
+        <div class="content" style="margin-top: 40px;height: 100%;">
+            <div id="frind_list" class="list">
+                <a href="talk.html">
+                    <div class="item item-avatar">
+                        <img src="../img/2.jpg">
+                        <span class="friendname">ray</span>
+                        <i class="badge">1</i>
+                    </div>
+                </a>
+                <!--<a href="talk.html">-->
+                <!--<div class="item item-avatar">-->
+                <!--<img src="../img/3.jpg">-->
+                <!--<span class="friendname">ray</span>-->
+                <!--<i class="badge">1</i>-->
+                <!--</div>-->
+                <!--</a>-->
+                <!--<a href="talk.html">-->
+                <!--<div class="item item-avatar">-->
+                <!--<img src="../img/4.jpg">-->
+                <!--<span class="friendname">ray</span>-->
+                <!--<i class="badge ">1</i>-->
+                <!--</div>-->
+                <!--</a>-->
+            </div>
+        </div>
+    </div>
 </div>
 <ion-header-bar class="stable-bg bar bar-header" align-title="center">
-
     <!--  <button class="button " onclick="history.go(-1)">-->
     <!--      <i class="icon ion-android-arrow-back"></i>-->
     <!--  			<span class="back-text">-->
     <!-- 		<a href="">	<img src="../img/ion/return.png"></a>-->
     <!-- 	</span></button>-->
-
-
     <button class="button ">
         <i class="icon ion-android-arrow-back"></i>
 				<span class="back-text">
@@ -48,97 +99,97 @@
         </ul>
         <!--全部-->
         <!--<div class=" no" style="display: block;">-->
-            <!--<div id="order_banner1" class="order_banner light-bg">-->
-                <!--<div class="order_tit">-->
-                    <!--<span>订单号：28290473920820</span>-->
-                    <!--<span id="state">等待付款</span>-->
-                <!--</div>-->
-                <!--<div class="ordercontent">-->
-                    <!--<div class="imgbanner"><img src="../img/1.jpg"></div>-->
-                    <!--<div class="inform">2017年 新年创意门头 3件</div>-->
-                <!--</div>-->
-                <!--<div class="order_foot"><span>付款金额：￥54.00</span>-->
-                <!--<span>-->
-                <!--<a href="pay.html">-->
-                    <!--<button class="samllbtn">立即支付</button>-->
-                <!--</a>-->
-                <!--</span>-->
-                <!--</div>-->
-            <!--</div>-->
+        <!--<div id="order_banner1" class="order_banner light-bg">-->
+        <!--<div class="order_tit">-->
+        <!--<span>订单号：28290473920820</span>-->
+        <!--<span id="state">等待付款</span>-->
+        <!--</div>-->
+        <!--<div class="ordercontent">-->
+        <!--<div class="imgbanner"><img src="../img/1.jpg"></div>-->
+        <!--<div class="inform">2017年 新年创意门头 3件</div>-->
+        <!--</div>-->
+        <!--<div class="order_foot"><span>付款金额：￥54.00</span>-->
+        <!--<span>-->
+        <!--<a href="pay.html">-->
+        <!--<button class="samllbtn">立即支付</button>-->
+        <!--</a>-->
+        <!--</span>-->
+        <!--</div>-->
+        <!--</div>-->
         <!--</div>-->
         <!--&lt;!&ndash;旅游订单&ndash;&gt;-->
         <!--<div id="travel" class="no">-->
-            <!--<div id="order_banner2" class="order_banner light-bg">-->
-                <!--<div id="order_banner3" class="order_banner light-bg">-->
-                    <!--<div class="order_tit">-->
-                        <!--<span>订单号：28290473920820</span>-->
-                        <!--<span>待付款</span>-->
-                    <!--</div>-->
-                    <!--<div class="ordercontent">-->
-                        <!--<div class="imgbanner"><img src="../img/1.jpg"></div>-->
-                        <!--<div class="inform"><h2>南湖梦幻岛宝贝场亲子游</h2>-->
-                            <!--<p>出行日期:2017-12-31 </p>-->
-                            <!--<p>出行人数:成人1人|儿童2人</p>-->
-                        <!--</div>-->
-                    <!--</div>-->
-                    <!--<div class="order_foot"><span>付款金额：￥85.00</span><span><a href="pay.html">-->
-                        <!--<button class="samllbtn">评价</button>-->
-                    <!--</a></span></div>-->
-                <!--</div>-->
-            <!--</div>-->
+        <!--<div id="order_banner2" class="order_banner light-bg">-->
+        <!--<div id="order_banner3" class="order_banner light-bg">-->
+        <!--<div class="order_tit">-->
+        <!--<span>订单号：28290473920820</span>-->
+        <!--<span>待付款</span>-->
+        <!--</div>-->
+        <!--<div class="ordercontent">-->
+        <!--<div class="imgbanner"><img src="../img/1.jpg"></div>-->
+        <!--<div class="inform"><h2>南湖梦幻岛宝贝场亲子游</h2>-->
+        <!--<p>出行日期:2017-12-31 </p>-->
+        <!--<p>出行人数:成人1人|儿童2人</p>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--<div class="order_foot"><span>付款金额：￥85.00</span><span><a href="pay.html">-->
+        <!--<button class="samllbtn">评价</button>-->
+        <!--</a></span></div>-->
+        <!--</div>-->
+        <!--</div>-->
         <!--</div>-->
         <!--&lt;!&ndash;酒店订单&ndash;&gt;-->
         <!--<div id="hotel" class="no">-->
-            <!--<div class="order_banner light-bg">-->
-                <!--<div class="order_tit">-->
-                    <!--<span>订单号：28290473920820</span>-->
-                    <!--<span>待付款</span>-->
-                <!--</div>-->
-                <!--<div class="ordercontent">-->
-                    <!--<div class="imgbanner"><img src="../img/1.jpg"></div>-->
-                    <!--<div class="inform"><h2>中工大酒店|豪华双人房</h2>-->
-                        <!--<p>入住:11-24(今天)离店:11-25(明天)1晚</p>-->
-                        <!--<p>双床|不含早|有wifi</p>-->
-                    <!--</div>-->
-                <!--</div>-->
-                <!--<div class="order_foot"><span>付款金额：￥54.00</span><span><a href="pay.html">-->
-                    <!--<button class="samllbtn">立即支付</button>-->
-                <!--</a></span></div>-->
-            <!--</div>-->
-            <!--<div class="order_banner light-bg">-->
-                <!--<div class="order_tit">-->
-                    <!--<span>订单号：28290473920820</span>-->
-                    <!--<span>待付款</span>-->
-                <!--</div>-->
-                <!--<div class="ordercontent">-->
-                    <!--<div class="imgbanner"><img src="../img/1.jpg"></div>-->
-                    <!--<div class="inform"><h2>中工大酒店|豪华双人房</h2>-->
-                        <!--<p>入住:11-24(今天)离店:11-25(明天)1晚</p>-->
-                        <!--<p>双床|不含早|有wifi</p>-->
-                    <!--</div>-->
-                <!--</div>-->
-                <!--<div class="order_foot"><span>付款金额：￥54.00</span><span><a href="pay.html">-->
-                    <!--<button class="samllbtn">评价</button>-->
-                <!--</a></span></div>-->
-            <!--</div>-->
+        <!--<div class="order_banner light-bg">-->
+        <!--<div class="order_tit">-->
+        <!--<span>订单号：28290473920820</span>-->
+        <!--<span>待付款</span>-->
+        <!--</div>-->
+        <!--<div class="ordercontent">-->
+        <!--<div class="imgbanner"><img src="../img/1.jpg"></div>-->
+        <!--<div class="inform"><h2>中工大酒店|豪华双人房</h2>-->
+        <!--<p>入住:11-24(今天)离店:11-25(明天)1晚</p>-->
+        <!--<p>双床|不含早|有wifi</p>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--<div class="order_foot"><span>付款金额：￥54.00</span><span><a href="pay.html">-->
+        <!--<button class="samllbtn">立即支付</button>-->
+        <!--</a></span></div>-->
+        <!--</div>-->
+        <!--<div class="order_banner light-bg">-->
+        <!--<div class="order_tit">-->
+        <!--<span>订单号：28290473920820</span>-->
+        <!--<span>待付款</span>-->
+        <!--</div>-->
+        <!--<div class="ordercontent">-->
+        <!--<div class="imgbanner"><img src="../img/1.jpg"></div>-->
+        <!--<div class="inform"><h2>中工大酒店|豪华双人房</h2>-->
+        <!--<p>入住:11-24(今天)离店:11-25(明天)1晚</p>-->
+        <!--<p>双床|不含早|有wifi</p>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--<div class="order_foot"><span>付款金额：￥54.00</span><span><a href="pay.html">-->
+        <!--<button class="samllbtn">评价</button>-->
+        <!--</a></span></div>-->
+        <!--</div>-->
         <!--</div>-->
         <!--&lt;!&ndash;商品订单订单&ndash;&gt;-->
         <!--<div id="good" class="has-header no">-->
-            <!--<div class="order_tit">-->
-                <!--<span>订单号：28290473920820</span>-->
-                <!--<span>等待付款</span>&ndash;&gt;-->
-            <!--</div>-->
-            <!--<div class="ordercontent">-->
-                <!--<div class="imgbanner"><img src="../img/1.jpg"></div>-->
-                <!--<div class="inform">2017年 新年创意门头 3件</div>-->
-            <!--</div>-->
-            <!--<div class="order_foot">-->
-                <!--<span>付款金额：￥54.00</span><span>-->
-                <!--<a href="pay.html">-->
-                    <!--<button class="samllbtn">立即支付</button>-->
-                <!--</a>-->
-                <!--</span>-->
-            <!--</div>-->
+        <!--<div class="order_tit">-->
+        <!--<span>订单号：28290473920820</span>-->
+        <!--<span>等待付款</span>&ndash;&gt;-->
+        <!--</div>-->
+        <!--<div class="ordercontent">-->
+        <!--<div class="imgbanner"><img src="../img/1.jpg"></div>-->
+        <!--<div class="inform">2017年 新年创意门头 3件</div>-->
+        <!--</div>-->
+        <!--<div class="order_foot">-->
+        <!--<span>付款金额：￥54.00</span><span>-->
+        <!--<a href="pay.html">-->
+        <!--<button class="samllbtn">立即支付</button>-->
+        <!--</a>-->
+        <!--</span>-->
+        <!--</div>-->
         <!--</div>-->
     </div>
 </div>
