@@ -37,20 +37,41 @@
 <script src="../js/jquery.min.js"></script>
 <script src="../js/talk.js"></script>
 <script type="text/javascript">
+    var firend = '';
+    var user = '';
     $(function () {
+        // 获取用户和朋友头像地址
+        $.ajax({
+            type: 'post',
+            data: {'id': GetQueryString('id')},
+            dataType: 'json',
+            url: 'http://www.bananatrip.com/userFriendImage',
+            success: function (data) {
+                firend = data.friend;
+                user = data.user;
+                console.log(firend);
+                console.log(user)
+            },
+            error: function () {
+
+            }
+        });
+        console.log(user);
+        console.log(firend);
+        // 加载历史消息
         $.ajax({
             type: 'post',
             data: {'id': GetQueryString('id')},
             dataType: 'json',
             url: 'http://www.bananatrip.com/unread/dialogue',
             success: function (obj) {
-                console.log(obj);
+                //console.log(obj);
                 obj['dialogue'].map(function (value, index, array) {
-                    if (value['dialogue_friend_id'] == GetQueryString('id')) {
-                        var string = '<li class="leftli"><img src="../img/2.jpg"><span>' + value["dialogue_dialogue"] + '</span></li>';
+                    if (value['dialogue_friend_id'] != GetQueryString('id')) {
+                        var string = '<li class="leftli"><img src="' + firend + '"><span>' + value["dialogue_dialogue"] + '</span></li>';
                         $('.talkcontent').append(string)
                     } else {
-                        var string = '<li class="rightli"><img src="../img/2.jpg"><span>' + value["dialogue_dialogue"] + '</span></li>';
+                        var string = '<li class="rightli"><img src="' + user + '"><span>' + value["dialogue_dialogue"] + '</span></li>';
                         $('.talkcontent').append(string)
                     }
                 });
@@ -66,7 +87,7 @@
                 alert('发送消息不能为空');
                 return false;
             }
-            var string = '<li class="rightli"><img src="../img/2.jpg"><span>' + info + '</span></li>';
+            var string = '<li class="rightli"><img src="' + user + '"><span>' + info + '</span></li>';
             $('.talkcontent').append(string);
             $("#text").val('');
             $.ajax({
@@ -93,6 +114,33 @@
         r = null;
         return context == null || context == "" || context == "undefined" ? "" : context;
     }
+    getMessage();
+    function getMessage() {
+        $.ajax({
+            type: 'post',
+            data: {id: GetQueryString('id')},
+            dataType: 'json',
+            url: 'http://www.bananatrip.com/getFriendInfo',
+            success: function (data) {
+                data.message.map(function (value, index, array) {
+                    if (value['dialogue_friend_id'] != GetQueryString('id') && value['dialogue_tag'] == 0) {
+                        var string = '<li class="leftli"><img src="' + firend + '"><span>' + value["dialogue_dialogue"] + '</span></li>';
+                        $('.talkcontent').append(string)
+                    } else if (value['dialogue_tag'] == 0) {
+                        var string = '<li class="rightli"><img src="' + user + '"><span>' + value["dialogue_dialogue"] + '</span></li>';
+                        $('.talkcontent').append(string)
+                    }
+                })
+            },
+            error: function () {
+
+            }
+        })
+    }
+
+
+  //  setInterval(getMessage, 3000)
+
 </script>
 </body>
 

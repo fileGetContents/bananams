@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Http\Model;
+use Illuminate\Support\Facades\DB;
 
 class FriendController extends Controller
 {
@@ -75,7 +76,7 @@ class FriendController extends Controller
             'dialogue_friend_id' => $request->input('friend_id', 10),
             'dialogue_dialogue' => $request->input('dialogue', '哈哈哈'),
             'dialogue_time' => $_SERVER['REQUEST_TIME'],
-            'dialogue_tag' => 0
+            'dialogue_tag' => 10
         ));
         if ($whether) {
             echo collect(array('info' => 0, 'message' => 'success'));
@@ -110,14 +111,9 @@ class FriendController extends Controller
         $return["dialogue"] = $this->friendModel->selectDialogue(session('user_id', 27), $request->input('friend', 10));
         if ($request->input('tag', 0) == 1) {  // 需要修改状态
             // 修改聊天状态
-            $this->friendModel->updateDialogue(
-                array(
-                    'dialogue_user_id' => session("user_id", 1),
-                    'dialogue_friend_id' => $request->input("friend_id", 10)),
-                array('dialogue_tag' => 10)
-            );
+            $this->friendModel->updateDialogue(['dialogue_user_id' => session('user_id', 1), 'dialogue_friend_id' => $request->input('friend_id', 10)], ['dialogue_tag' => 10]);
         }
-        $return['user_id'] = session("user_id", 27);
+        $return['user_id'] = session('user_id', 27);
         echo collect($return)->toJson();
     }
 
@@ -126,8 +122,42 @@ class FriendController extends Controller
      */
     public function getFriendInfo(Request $request)
     {
-        // 获取全部关注对象
+        $dialogue = DB::table('user_dialogue')
+            ->orderBy('dialogue_time', 'asc')
+            ->where('dialogue_tag', 0)
+            ->where(['dialogue_user_id' => session('user_id', 1), 'dialogue_friend_id' => $request->input('id', 27)])
+            ->orwhere(['dialogue_friend_id' => session('user_id', 1), 'dialogue_user_id' => $request->input('id', 27)])
+            ->get();
+        static::updialogueTag($request->input('id'));
+        return collect(['info' => 0, 'message' => $dialogue]);
+    }
 
+    /**
+     * 获取用户头像
+     * @param Request $request
+     * @return mixed
+     */
+    public function userFriendImage(Request $request)
+    {
+        $user = DB::table('user')->select('user_headimgurl')
+            ->where(['user_id' => session('user_id', 1)])
+            // ->orWhere(['user_id' => $request->input('id')])
+            ->first();
+        $friend = DB::table('user')->select('user_headimgurl')
+            ->where(['user_id' => $request->input('id')])
+            // ->orWhere(['user_id' => $request->input('id')])
+            ->first();
+        return collect(['user' => $user->user_headimgurl, 'friend' => $friend->user_headimgurl])->toJson();
+    }
+
+    /**
+     * 更新
+     */
+    private static function updialogueTag($id)
+    {
+        return DB::table('user_dialogue')
+            ->where(['dialogue_user_id' => $id, 'dialogue_friend_id' => session('user_id', 1)])
+            ->update(['dialogue_tag' => 10]);
     }
 
 }

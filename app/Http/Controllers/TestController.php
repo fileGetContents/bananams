@@ -17,7 +17,7 @@ class TestController extends Controller
      */
     public function index(Request $request)
     {
-      echo intval(  date('m', $_SERVER['REQUEST_TIME']));
+        echo strtotime('2018-06-18');
         //dump($request->all());
         //dump(Crypt::encrypt("admin"));
         //dump(Crypt::decrypt('eyJpdiI6ImFSXC8yVU9OUU80OHBDRHB2SW5VbWFBPT0iLCJ2YWx1ZSI6InhnWm1vcldCVU9aQjRYOEs1VW5OYmc9PSIsIm1hYyI6IjZjNTBhZjAzOTM2OGZmZTgyODNlYTNjNTYwMzk1Mjk4Mjg0ZWZlNDJkZjY2ZDQxN2QyNTk0NjQ1ZDBhMDFiMzAifQ=='));

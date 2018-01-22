@@ -66,6 +66,8 @@ Route::group(['namespace' => 'Api'], function () {
     Route::any('add/dialogue', 'FriendController@addDialogue');                       // 添加聊天信息
     Route::any('update/dialogue', 'FriendController@changDialogueTag');               // 修改消息的状态
     Route::any('unread/dialogue', 'FriendController@getUnreadDialogue');              // 获取未读消息
+    Route::any('userFriendImage', 'FriendController@userFriendImage');                // 获取聊天室头像
+    Route::any('getFriendInfo', 'FriendController@getFriendInfo');                    // 获取聊天记录
 
     Route::any('update/image', 'ApiController@ajaxUpdateFileImage');                      // ajax上传图片
     Route::any('update/image2', 'ApiController@ajaxUpdateFileImage2');                    // ajax上传图片

@@ -89,7 +89,7 @@ class FriendModel extends Model
             ->orwhere(array('dialogue_user_id' => $user_id))
             ->orwhere(array('dialogue_user_id' => $friend_id))
             ->orwhere(array('dialogue_friend_id' => $user_id))
-            ->orderBy('dialogue_time', 'DESC')
+            ->orderBy('dialogue_time', 'ASC')
             ->take(50)
             ->get();
     }
